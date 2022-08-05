@@ -1,0 +1,15 @@
+on start:
+	if {setvalclassementclan} is not set:
+		
+
+
+
+
+
+
+
+on death:
+	if attacker is player:
+		if victim is creeper:
+			chance of 2,4%:
+                
