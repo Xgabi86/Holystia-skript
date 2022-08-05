@@ -1,0 +1,25 @@
+on break of stone:
+    if {rank::%player%} is "miner":
+        add 20 to player's balance
+        set action bar of player to "&6You mined a stone and earned &e&l20 &6coins!"
+        play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+
+command /job [<text>] [<text>]:
+    trigger:
+        if arg-1 is "join":
+            if arg-2 is "miner":
+                set {rank::%player%} to "miner"
+                send "&2You are now a miner." to player
+            else:
+                send "&4Unknown job." to player
+        else if arg-1 is "leave":
+            if arg-2 is "miner":
+                if {rank::%player%} is "miner":
+                    set {rank::%player%} to " "
+                    send "&6You are no longer a miner." to player
+                else:
+                    send "&cYou are not a miner." to player
+            else:
+                send "&4Unknown job." to player
+        else:
+            send "&4Unknown job command." to player
