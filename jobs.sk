@@ -1,11 +1,20 @@
 command /job [<text>] [<text>]:
     trigger:
         if arg-1 is "join":
-            if arg-2 is "miner":
-                set {rank::%player%} to "miner"
-                send "&2You are now a miner." to player
+            if {rank::%player%} is " ":
+                if arg-2 is "miner":
+                    set {rank::%player%} to "miner"
+                    send "&2You are now a miner." to player
+                else if arg-2 is "hunter":
+                    set {rank::%player%} to "hunter"
+                    send "&2You are now a hunter." to player
+                else:
+                    send "&4Unknown job." to player
+            else if {rank::%player%} is not set:
+                set {rank::%player%} to " "
+                send "&cPlease retry." to player
             else:
-                send "&4Unknown job." to player
+                send "&4you have already a jobs." to player
         else if arg-1 is "leave":
             if arg-2 is "miner":
                 if {rank::%player%} is "miner":
@@ -13,6 +22,12 @@ command /job [<text>] [<text>]:
                     send "&6You are no longer a miner." to player
                 else:
                     send "&cYou are not a miner." to player
+            else if arg-2 is "hunter":
+                if {rank::%player%} is "hunter":
+                    set {rank::%player%} to " "
+                    send "&6You are no longer a hunter." to player
+                else:
+                    send "&cYou are not a hunter." to player
             else:
                 send "&4Unknown job." to player
         else:
