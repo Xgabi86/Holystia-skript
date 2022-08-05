@@ -3,6 +3,11 @@ function AND(conditions: booleans) :: boolean:
         return false
     return true
 
+function OR(conditions: booleans) :: boolean:
+	if {_conditions::*} contains true:
+		return true
+	return false
+
 
 
 
@@ -61,6 +66,57 @@ every hour:
 
 on death:
 	if attacker is player:
-		if victim is creeper:
-			chance of 2,4%:
+		if OR(check[attacker has permission "clan.air"],check[attacker has permission "clan.eau"],check[attacker has permission "clan.terre"],check[attacker has permission "clan.feu"])
+			if attacker has permission "clan.air":
+				set {_i} to 1
+				while {classementclan::%{_i}%::2} is not "Air":
+					add 1 to {_i}
+			if attacker has permission "clan.terre":
+				set {_i} to 1
+				while {classementclan::%{_i}%::2} is not "Terre":
+					add 1 to {_i}
+			if attacker has permission "clan.feu":
+				set {_i} to 1
+				while {classementclan::%{_i}%::2} is not "Feu":
+					add 1 to {_i}
+			if attacker has permission "clan.eau":
+				set {_i} to 1
+				while {classementclan::%{_i}%::2} is not equal to "Eau":
+					add 1 to {_i}
+			
+			if victim is creeper:
+				chance of 2,4%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			if victim is zombie:
+				chance of 1,3%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			if victim is drowned:
+				chance of 1,3%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			if victim is husk:
+				chance of 1,3%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			if victim is stray:
+				chance of 1,3%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			
+
+			if victim is skeleton:
+				chance of 1,7%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			if victim is spider:
+				chance of 4,1%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+			if victim is enderman:
+				chance of 5,2%:
+					add 1 to {classementclan::%{_i}%::2}
+					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+
                 
