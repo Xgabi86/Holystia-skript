@@ -2,11 +2,7 @@ function AND(conditions: booleans) :: boolean:
     if {_conditions::*} contains false:
         return false
     return true
-on join:
-	if {first.join.%player%} is not set:
-		add name of player to {players.classement.possession::*}
-		add 0 to {nombres.classement.possession::*}
-		set {first.join.%player%} to true
+
 
 
 
@@ -24,7 +20,7 @@ on start:
 		set {classementclan::4::1} to 0
 		set {classementclan::4::2} to "Feu"
 
-		set {setvalclassementclan} to true
+		set {setvalclassementclan} to true	
 	set {_i} to 1
 	loop %amount of {classementclan::*}%-1 times:
 	    set {_x} to {classementclan::%{_i}%::1}
@@ -37,7 +33,26 @@ on start:
 	    set {classementclan::%{_j}%::1} to {_x}
 	    set {classementclan::%{_j}%::2} to {_n}
 		add 1 to {_i}
-		
+	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec {classementclan::2::1} point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-187,69,104,world "world")
+	wait 1 hour
+	delete holo object "classement.clan.holo"
+
+every hour:
+	set {_i} to 1
+	loop %amount of {classementclan::*}%-1 times:
+	    set {_x} to {classementclan::%{_i}%::1}
+	    set {_n} to {classementclan::%{_i}%::2}
+	    set {_j} to {_i}
+	    while AND(check[ %{_j}% is greater than 0],check[%{nombres.classement.possession::%{_j}%-1} is grater than %{_x}%]) is true:
+	        set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
+	        set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}
+	        set {_j} to %{_j}%-1
+	    set {classementclan::%{_j}%::1} to {_x}
+	    set {classementclan::%{_j}%::2} to {_n}
+		add 1 to {_i}
+	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec {classementclan::2::1} point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-187,69,104,world "world")
+	wait 1 hour
+	delete holo object "classement.clan.holo"
 
 
 
