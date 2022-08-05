@@ -1,19 +1,43 @@
+function AND(conditions: booleans) :: boolean:
+    if {_conditions::*} contains false:
+        return false
+    return true
+on join:
+	if {first.join.%player%} is not set:
+		add name of player to {players.classement.possession::*}
+		add 0 to {nombres.classement.possession::*}
+		set {first.join.%player%} to true
+
+
+
 on start:
 	if {setvalclassementclan} is not set:
 		set {classementclan::1::1} to 0
-		set {classementclan::1::2} to "a"
+		set {classementclan::1::2} to "Air"
 
 		set {classementclan::2::1} to 0
-		set {classementclan::2::2} to "t"
+		set {classementclan::2::2} to "Terre"
 
 		set {classementclan::3::1} to 0
-		set {classementclan::3::2} to "e"
+		set {classementclan::3::2} to "Eau"
 
 		set {classementclan::4::1} to 0
-		set {classementclan::4::2} to "f"
-		
-		set {setvalclassementclan} to true
+		set {classementclan::4::2} to "Feu"
 
+		set {setvalclassementclan} to true
+	set {_i} to 1
+	loop %amount of {classementclan::*}%-1 times:
+	    set {_x} to {classementclan::%{_i}%::1}
+	    set {_n} to {classementclan::%{_i}%::2}
+	    set {_j} to {_i}
+	    while AND(check[ %{_j}% is greater than 0],check[%{nombres.classement.possession::%{_j}%-1} is grater than %{_x}%]) is true:
+	        set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
+	        set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}
+	        set {_j} to %{_j}%-1
+	    set {classementclan::%{_j}%::1} to {_x}
+	    set {classementclan::%{_j}%::2} to {_n}
+		add 1 to {_i}
+		
 
 
 
