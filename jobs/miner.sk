@@ -1,0 +1,6 @@
+on break of stone:
+    if {rank::%player%} is "miner":
+        add 20 to player's balance
+        set action bar of player to "&6You mined a stone and earned &e&l20 &6coins!"
+        play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+        
