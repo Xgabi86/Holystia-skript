@@ -1,6 +1,18 @@
 on start:
 	if {setvalclassementclan} is not set:
+		set {classementclan::1::1} to 0
+		set {classementclan::1::2} to "a"
+
+		set {classementclan::2::1} to 0
+		set {classementclan::2::2} to "t"
+
+		set {classementclan::3::1} to 0
+		set {classementclan::3::2} to "e"
+
+		set {classementclan::4::1} to 0
+		set {classementclan::4::2} to "f"
 		
+		set {setvalclassementclan} to true
 
 
 
