@@ -119,4 +119,20 @@ on death:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 
-                
+# on avais pas dit un item ? "add 1 to {classementclan::%{_i}%::2}" ---> add 1 dirt named "%add 1 named "%{clan}%" to player's inventory"
+#
+#	on right click with dirt:
+#		if event item named "feu":
+#			add 1 to {classementclan::%{_i}%::2}
+#			send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+#		if event item named "eau":
+#			add 1 to {classementclan::%{_i}%::2}
+#			send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+#		if event item named "terre":
+#			add 1 to {classementclan::%{_i}%::2}
+#			send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+#		if event item named "air":
+#			add 1 to {classementclan::%{_i}%::2}
+#			send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+#
+# -gabi_86
