@@ -5,3 +5,7 @@ on death:
                 add 1 to player's balance
                 set action bar of player to "&6You killed a zombie and earned &e&l1 &6coins!"
                 play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+            else if victim is skeleton:
+                add 2 to player's balance
+                set action bar of player to "&6You killed a skeleton and earned &e&l2 &6coins!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
