@@ -1,0 +1,7 @@
+on death:
+    if attacker is player:
+        if {rank::%player%} is "hunter":
+            if victim is zombie:
+                add 1 to player's balance
+                set action bar of player to "&6You killed a zombie and earned &e&l1 &6coins!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
