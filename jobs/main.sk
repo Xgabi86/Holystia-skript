@@ -1,4 +1,4 @@
-command /job [<text>] [<text>]:
+command /jobs [<text>] [<text>]:
     trigger:
         if arg-1 is "join":
             if {rank::%player%} is " ":
