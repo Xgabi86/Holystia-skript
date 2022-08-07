@@ -48,26 +48,22 @@ on death:
                 play sound "entity.player.levelup" with volume 100 and pitch 1 at attackert
             
             else if victim is squid:
-                add 10 to player's balance
-                set action bar of player to "&6You killed a squid and earned &e&l10 &6coins!"
-                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+                add 10 to attackert's balance
+                set action bar of attackert to "&6You killed a squid and earned &e&l10 &6coins!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at attackert
             
             else if victim is wolf:
-                add 11 to player's balance
-                set action bar of player to "&6You killed a wolf and earned &e&l11 &6coins!"
-                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+                add 11 to attackert's balance
+                set action bar of attackert to "&6You killed a wolf and earned &e&l11 &6coins!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at attackert
             
             else if victim is ocelot:
-                add 12 to player's balance
-                set action bar of player to "&6You killed an ocelot and earned &e&l12 &6coins!"
-                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+                add 12 to attackert's balance
+                set action bar of attackert to "&6You killed an ocelot and earned &e&l12 &6coins!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at attackert
             
             else if victim is villager:
-                add 13 to player's balance
-                set action bar of player to "&6You killed a villager and earned &e&l13 &6coins!"
-                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
+                add 13 to attackert's balance
+                set action bar of attackert to "&6You killed a villager and earned &e&l13 &6coins!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at attackert
             
-            else if victim is zombie_villager:
-                add 14 to player's balance
-                set action bar of player to "&6You killed a zombie villager and earned &e&l14 &6coins!"
-                play sound "entity.player.levelup" with volume 100 and pitch 1 at player
