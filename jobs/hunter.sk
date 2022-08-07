@@ -80,3 +80,5 @@ on death:
             else if victim is zombie_horse:
                 add 16 to player's balance
                 set action bar of player to "&6You killed a zombie horse and earned &e&l16 &6coins!"
+je te chie dessus:
+    set nique to 0
