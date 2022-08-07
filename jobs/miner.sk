@@ -1,5 +1,5 @@
 on break:
-    if event block is stone:
+    if event type is stone:
         if {rank::%player%} is "miner":
             add 20 to player's balance
             set action bar of player to "&6You mined a stone and earned &e&l20 &6coins!"
