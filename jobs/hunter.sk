@@ -1,6 +1,6 @@
 on death:
     if attacker is player:
-        if {rank::%player%} is "hunter":
+        if {rank::%attacker%} is "hunter":
 
             if victim is zombie:
                 add 1 to player's balance
