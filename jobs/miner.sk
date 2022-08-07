@@ -56,3 +56,5 @@ on place of block:
         else if event-block is lapis_ore or deepslate_lapis_ore:
             remove 16 to player's balance
             set action bar of player to "&6You mined a lapis ore and lost &e&l16 &6coins!"
+
+# c'est un test.
