@@ -3,6 +3,7 @@ command /marry [<player>]:
 		if {mariage::%player%} is not equal to true:
 			if {mariage::%arg-1%} is not equal to true:
 				if player's balance is more than or equal to 500:
+					broadcast "&6&l%player% &eveut épouser &6&l%arg-1% &e!"
 					send " %player% veut vous épouser, écrivez dans le tchat 'Oui je le veux !' pour l'épouser" to arg-1
 					wait 1 minute
 					if {ouijeleveux::%arg-1%} is equal to true:
