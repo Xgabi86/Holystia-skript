@@ -25,7 +25,7 @@ jobs:
         with:
           username: tnt_man268.5453801d
           server: msr3079.minestrator.com
-          port: 22 # default is 22
+          port: 2022 # default is 22
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
  
           
