@@ -19,14 +19,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-          
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
       - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           username: tnt_man268.5453801d
           server: msr3079.minestrator.com
           port: 2022 # default is 22
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.FTP_PASSWORD }}
  
           
           # will put all file under this path
