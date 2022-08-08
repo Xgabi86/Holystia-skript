@@ -10,11 +10,12 @@ command /jobs [<text>] [<text>]:
                     send "&2You are now a hunter." to player
                 else:
                     send "&4Unknown job." to player
+                    send "&4Available jobs: miner, hunter" to player
             else if {rank::%player%} is not set:
                 set {rank::%player%} to " "
                 send "&cPlease retry." to player
             else:
-                send "&4you have already a jobs." to player
+                send "&4you have already a jobs(%{rank::%player%}%)." to player
         else if arg-1 is "leave":
             if arg-2 is "miner":
                 if {rank::%player%} is "miner":
@@ -30,5 +31,17 @@ command /jobs [<text>] [<text>]:
                     send "&cYou are not a hunter." to player
             else:
                 send "&4Unknown job." to player
+                send "&4Available jobs: miner, hunter." to player
+        else if arg-1 is "alert":
+            if arg-2 is "on":
+                set {jobs-alert::%player%} to "true"
+                send "&6Alert job are enabled." to player
+            else if arg-2 is "off":
+                set {jobs-alert::%player%} to "false"
+                send "&6Alert job are disabled." to player
+            else:
+                send "&4Uknonwn argument." to player
+                send "&4Available arguments: on, off" to player
         else:
-            send "&4Unknown job command." to player
+            send "&4Unknown command." to player
+            send "&4Available commands: join, leave, alert." to player
