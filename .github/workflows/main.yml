@@ -1,33 +1,44 @@
-name: CI-SFTP
- 
-# Controls when the action will run. 
+name: Build and deploy
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
- 
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [main]
   workflow_dispatch:
- 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "SFTP"
-  deploy-via-sftp:
+  build:
+    name: Build ⛏
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-          
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm ci
+      - name: Build dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
         with:
-          username: tnt_man268.5453801d
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with: 
+          name: dist
+          path: dist
+      - name: Sync files to hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with: 
           server: msr3079.minestrator.com
-          port: 2022 # default is 22
+          username: tnt_man268.5453801d
+          port: 2022
           password: ${{ secrets.FTP_PASSWORD }}
- 
           
           # will put all file under this path
           local_path: ./* # default is ./*
