@@ -26,7 +26,7 @@ jobs:
           username: tnt_man268.5453801d
           server: msr3079.minestrator.com
           port: 2022 # default is 22
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.FTP_PASSWORD }}
  
           
           # will put all file under this path
