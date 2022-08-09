@@ -11,7 +11,7 @@ function OR(conditions: booleans) :: boolean:
 
 
 
-on start:
+on server start:
 	if {setvalclassementclan} is not set:
 		set {classementclan::1::1} to 0
 		set {classementclan::1::2} to "Air"
