@@ -42,6 +42,14 @@ command /jobs [<text>] [<text>]:
             else:
                 send "&cUknonwn argument." to player
                 send "&cAvailable arguments: &aon&c, &aoff&c." to player
+        else if arg-1 is "list":
+            send "&aAvailable jobs: &eminer&a, &ehunter&a." to player
+        else if arg-1 is "reload":
+            if player has permission "jobs.reload":
+                execute console command "sk reload /jobs/"
+                send "&aJobs reloaded." to player
+            else:
+                send "&cYou don't have permission." to player
         else:
             send "&cUnknown command." to player
             send "&cAvailable commands: &ajoin&c, &aleave&c, &aalert&c." to player
