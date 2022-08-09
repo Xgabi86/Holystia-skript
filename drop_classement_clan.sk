@@ -120,7 +120,7 @@ on death:
 
 
 on break:
-	if OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
+	if OR( check [player has permission "clan.air"], check [player has permission "clan.eau"], check [player has permission "clan.terre"], check [player has permission "clan.feu"] ) is true:
 		if player has permission "clan.air":
 			set {_i} to 1
 			while {classementclan::%{_i}%::2} is not "Air":
