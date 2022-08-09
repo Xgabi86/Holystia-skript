@@ -20,6 +20,6 @@ command /piece [<text>] [<text>]:
 every seconds:  
     add gold nugget named "&epièce" with custom model data 1112 to {generateur::*}'s inventory
     if {conv::*}'s inventory contains gold nugget named "&epièce" with custom model data 1111:
-            remove 1 of gold nugget named "&epièce" with custom model data 1112 from {conv::*}'s inventory
-            chance of 1%:
-                add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {conv::*}'s inventory
+        remove 1 of gold nugget named "&epièce" with custom model data 1112 from {conv::*}'s inventory
+        chance of 1%:
+            add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {conv::*}'s inventory
