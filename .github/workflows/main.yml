@@ -29,7 +29,7 @@ jobs:
       - name: SFTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          protocol:ftps
+          protocol: ftps
           username: tnt_man268.5453801d
           server: msr3079.minestrator.com
           port: 2022 # default is 22
