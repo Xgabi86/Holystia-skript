@@ -27,7 +27,7 @@ on server start:
 
 		set {setvalclassementclan} to true	
 	set {_i} to 1
-	loop %amount of {classementclan::*}% - 1 times:
+	loop 3 times:
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
@@ -44,7 +44,7 @@ on server start:
 
 every hour:
 	set {_i} to 1
-	loop %amount of {classementclan::*}% - 1 times:
+	loop 3 times:
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
@@ -272,7 +272,7 @@ on place:
 		set {placéparjoueur::%event-block's location%} to true
 	if event-block is deepslate lapis lazuli ore:
 		set {placéparjoueur::%event-block's location%} to true
-	if event-block is ancient debris ore:
+	if event-block is ancient debris:
 		set {placéparjoueur::%event-block's location%} to true
 	if event-block is nether quartz ore:
 		set {placéparjoueur::%event-block's location%} to true
