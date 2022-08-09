@@ -29,11 +29,12 @@ jobs:
       - name: SFTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
+          protocol: ftps
           username: tnt_man268.5453801d
           server: msr3079.minestrator.com
           port: 2022 # default is 22
           password: ${{ secrets.FTP_PASSWORD }}
- 
+          
           
           # will put all file under this path
           local_path: ./* # default is ./*
