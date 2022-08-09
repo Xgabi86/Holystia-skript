@@ -62,6 +62,6 @@ on tab complete of "/jobs":
         if tab arg-1 = "leave":
             if {rank::%player%} is "miner":
                 set tab completions for position 2 to "miner"
-        else if {rank::%player%} is "hunter":
-            set tab completions for position 2 to "hunter"
+            else if {rank::%player%} is "hunter":
+                set tab completions for position 2 to "hunter"
 
