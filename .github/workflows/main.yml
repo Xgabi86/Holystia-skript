@@ -28,7 +28,7 @@ jobs:
         uses: actions/download-artifact@main
       - name: SFTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        with:
+        env:
           FTP_SERVER: msr3079.minestrator.com
           FTP_USERNAME: tnt_man268.5453801d
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
