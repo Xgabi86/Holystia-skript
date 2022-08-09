@@ -22,7 +22,7 @@ on skript start:
 
 		set {setvalclassementclan} to true	
 	set {_i} to 1
-	loop 3 times:
+	loop 3 times: 
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
