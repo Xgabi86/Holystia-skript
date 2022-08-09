@@ -22,7 +22,7 @@ on skript start:
 
 		set {setvalclassementclan} to true	
 	set {_i} to 1
-	loop 3 times:
+	loop 3 times: 
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
@@ -195,7 +195,7 @@ on break:
 				chance of 0.9%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
-			if event-block is depslate redstone ore:
+			if event-block is deepslate redstone ore:
 				chance of 0.9%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
@@ -203,12 +203,12 @@ on break:
 				chance of 0.6%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
-			if event-block is acient debris:
+			if event-block is ancient debris:
 				chance of 15%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		else:
-			remove {placéparjoueur::%event-block's location%}
+			delete {placéparjoueur::%event-block's location%}
 			send "Ce bloc a été placé par un joueur vous ne pouvez donc vous en servir pour gagner des points" to player
 		
 		if event-block is fully grown wheat plant:
