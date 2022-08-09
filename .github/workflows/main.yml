@@ -37,7 +37,7 @@ jobs:
           
           
           # will put all file under this path
-          local-dir: ./* # default is ./*
+          local-dir: ./ # default is ./*
           # files will copy to under remote_path
-          server-dir: /home/plugins/Skript/scripts
+          server-dir: /home/plugins/Skript/scripts/
           
