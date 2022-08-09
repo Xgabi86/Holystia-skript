@@ -48,7 +48,7 @@ command /jobs [<text>] [<text>]:
 
 on tab complete of "/jobs":
     set tab completions for position 1 to "leave"
-    set tab completions for position 1 to "alert"
+    add tab completions for position 1 to "alert"
     if {rank::%player%} is " ":
         set tab completions for position 1 to "join"
         if tab arg-1 = "join":
