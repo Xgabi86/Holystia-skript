@@ -30,8 +30,8 @@ command /jobs [<text>] [<text>]:
                 else:
                     send "&cYou are not a hunter." to player
             else:
-                send "&4Unknown job." to player
-                send "&4Available jobs: miner, hunter." to player
+                send "&cUnknown job." to player
+                send "&cAvailable jobs: &aminer&c, &ahunter&c." to player
         else if arg-1 is "alert":
             if arg-2 is "on":
                 set {jobs-alert::%player%} to "true"
@@ -40,8 +40,8 @@ command /jobs [<text>] [<text>]:
                 set {jobs-alert::%player%} to "false"
                 send "&6Alert job are disabled." to player
             else:
-                send "&4Uknonwn argument." to player
-                send "&4Available arguments: on, off" to player
+                send "&cUknonwn argument." to player
+                send "&cAvailable arguments: &aon&c, &aoff&c." to player
         else:
             send "&cUnknown command." to player
             send "&cAvailable commands: &ajoin&c, &aleave&c, &aalert&c." to player
