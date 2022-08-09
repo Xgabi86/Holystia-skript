@@ -118,7 +118,7 @@ on death:
 				chance of 4,2%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is 50:
+			if victim is ender dragon:
 				chance of 50%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
