@@ -27,17 +27,17 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@main
       - name: SFTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
         with:
-          protocol: ftps
-          username: tnt_man268.5453801d
-          server: msr3079.minestrator.com
-          port: 2022 # default is 22
-          password: ${{ secrets.FTP_PASSWORD }}
+          METHOD: sftp
+          FTP_USERNAME: tnt_man268.5453801d
+          FTP_SERVER: msr3079.minestrator.com
+          PORT: 2022 # default is 22
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           
           
           # will put all file under this path
-          local-dir: ./ # default is ./*
+          LOCAL_DIR: ./ # default is ./*
           # files will copy to under remote_path
-          server-dir: /home/plugins/Skript/scripts/
+          REMOTE_DIR: /home/plugins/Skript/scripts/
           
