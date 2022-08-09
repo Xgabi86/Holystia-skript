@@ -29,12 +29,11 @@ jobs:
       - name: SFTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          ftp-server: msr3079.minestrator.com
-          ftp-username: tnt_man268.5453801d
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          server: msr3079.minestrator.com
+          username: tnt_man268.5453801d
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          remote-dir: /home/plugins/Skript/scripts/
-          methode: sftp
+          server-dir: /home/plugins/Skript/scripts/
           port: 2022
           args: --verbose
         # default is 22
