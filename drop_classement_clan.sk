@@ -80,7 +80,7 @@ on death:
 					add 1 to {_i}
 			
 			if victim is a creeper:
-				chance of 2,4%:
+				chance of 2%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a zombie:
