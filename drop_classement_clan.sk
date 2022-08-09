@@ -80,37 +80,37 @@ on death:
 					add 1 to {_i}
 			
 			if victim is a creeper:
-				chance of 2%:
+				chance of 2.4%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a zombie:
-				chance of 1,3%:
+				chance of 1.3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a drowned:
-				chance of 1,3%:
+				chance of 1.3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a husk:
-				chance of 1,3%:
+				chance of 1.3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a stray:
-				chance of 1,3%:
+				chance of 1.3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			
 
 			if victim is a skeleton:
-				chance of 1,7%:
+				chance of 1.7%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a spider:
-				chance of 2,1%:
+				chance of 2.1%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is an enderman:
-				chance of 4,2%:
+				chance of 4.2%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is an ender dragon:
