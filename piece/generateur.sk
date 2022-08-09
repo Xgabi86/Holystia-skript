@@ -9,6 +9,6 @@ command /generateur [<text>]:
     trigger:
         if arg-1 is "list":
             if player has permission "generateur.*":
-                send "&aChest: &r%{generateur::*%}" to player
+                send "&aChest: &r%{generateur::*}%" to player
 
 # test
