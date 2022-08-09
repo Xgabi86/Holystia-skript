@@ -26,7 +26,7 @@ on skript start:
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
-		while AND(check[ %{_j}% is greater than 0],check[%{nombres.classement.possession::%{_j}%-1}% is greater than %{_x}%]) is true:
+		while AND( check [ {_j} is greater than 0], check [{nombres.classement.possession::%{_j}%-1} is greater than {_x}] ) is true:
 			set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
 			set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}
 			set {_j} to %{_j}%-1
@@ -43,7 +43,7 @@ every hour:
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
-		while AND(check[ %{_j}% is greater than 0],check[%{nombres.classement.possession::%{_j}%-1}% is greater than %{_x}%]) is true:
+		while AND( check [ {_j} is greater than 0], check [{nombres.classement.possession::%{_j}%-1} is greater than {_x}] ) is true:
 			set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
 			set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}	
 			set {_j} to %{_j}%-1
@@ -61,7 +61,7 @@ every hour:
 
 on death:
 	if attacker is player:
-		if OR(check[attacker has permission "clan.air"],check[attacker has permission "clan.eau"],check[attacker has permission "clan.terre"],check[attacker has permission "clan.feu"]) is true:
+		if OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
 			if attacker has permission "clan.air":
 				set {_i} to 1
 				while {classementclan::%{_i}%::2} is not "Air":
@@ -120,7 +120,7 @@ on death:
 
 
 on break:
-	if OR(check[attacker has permission "clan.air"],check[attacker has permission "clan.eau"],check[attacker has permission "clan.terre"],check[attacker has permission "clan.feu"]) is true:
+	if OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
 		if player has permission "clan.air":
 			set {_i} to 1
 			while {classementclan::%{_i}%::2} is not "Air":
