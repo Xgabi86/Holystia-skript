@@ -29,7 +29,7 @@ on skript start:
 		while AND( check [ {_j} is greater than 0], check [{nombres.classement.possession::%{_j}%-1} is greater than {_x}] ) is true:
 			set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
 			set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}
-			set {_j} to %{_j}%-1
+			set {_j} to {_j}-1
 		set {classementclan::%{_j}%::1} to {_x}
 		set {classementclan::%{_j}%::2} to {_n}
 		add 1 to {_i}
@@ -46,7 +46,7 @@ every hour:
 		while AND( check [ {_j} is greater than 0], check [{nombres.classement.possession::%{_j}%-1} is greater than {_x}] ) is true:
 			set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
 			set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}	
-			set {_j} to %{_j}%-1
+			set {_j} to {_j}-1
 		set {classementclan::%{_j}%::1} to {_x}
 		set {classementclan::%{_j}%::2} to {_n}
 		add 1 to {_i}
@@ -79,41 +79,41 @@ on death:
 				while {classementclan::%{_i}%::2} is not equal to "Eau":
 					add 1 to {_i}
 			
-			if victim is creeper:
+			if victim is a creeper:
 				chance of 2,4%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is zombie:
+			if victim is a zombie:
 				chance of 1,3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is drowned:
+			if victim is a drowned:
 				chance of 1,3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is husk:
+			if victim is a husk:
 				chance of 1,3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is stray:
+			if victim is a stray:
 				chance of 1,3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			
 
-			if victim is skeleton:
+			if victim is a skeleton:
 				chance of 1,7%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is spider:
+			if victim is a spider:
 				chance of 2,1%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is enderman:
+			if victim is an enderman:
 				chance of 4,2%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is ender dragon:
+			if victim is an ender dragon:
 				chance of 50%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
