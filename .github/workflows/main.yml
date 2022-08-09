@@ -36,7 +36,7 @@ jobs:
           REMOTE_DIR: /home/plugins/Skript/scripts/
           METHOD: sftp
           PORT: 2022
-
+          ARGS: --verbose
         # default is 22
           
           
