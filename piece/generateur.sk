@@ -1,9 +1,12 @@
 on place of chest:
     if custom model data of player's tool is 1110:
         add event-block to {generateur::*}
+    else if custom model data of player's tool is 1114:
+        add event-block to {convertiseur::*}
 
 on break of chest:
     remove event-block from {generateur::*}
+    remove event-block from {convertiseur::*}
 
 command /piece [<text>] [<text>]:
     trigger:
@@ -19,7 +22,7 @@ command /piece [<text>] [<text>]:
 
 every seconds:  
     add gold nugget named "&epièce" with custom model data 1112 to {generateur::*}'s inventory
-    if {conv::*}'s inventory contains gold nugget named "&epièce" with custom model data 1111:
-        remove 1 of gold nugget named "&epièce" with custom model data 1112 from {conv::*}'s inventory
+    if {convertiseur::*}'s inventory contains gold nugget named "&epièce" with custom model data 1111:
+        remove 1 of gold nugget named "&epièce" with custom model data 1112 from {convertiseur::*}'s inventory
         chance of 1%:
-            add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {conv::*}'s inventory
+            add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {convertiseur::*}'s inventory
