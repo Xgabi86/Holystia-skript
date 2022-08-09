@@ -9,24 +9,24 @@ command /jobs [<text>] [<text>]:
                     set {rank::%player%} to "hunter"
                     send "&2You are now a hunter." to player
                 else:
-                    send "&4Unknown job." to player
-                    send "&4Available jobs: miner, hunter" to player
+                    send "&cUnknown job." to player
+                    send "&cAvailable jobs: &aminer&c, &ahunter&c." to player
             else if {rank::%player%} is not set:
                 set {rank::%player%} to " "
                 send "&cPlease retry." to player
             else:
-                send "&4you have already a jobs(%{rank::%player%}%)." to player
+                send "&cyou have already a jobs (&e%{rank::%player%}%&c)." to player
         else if arg-1 is "leave":
             if arg-2 is "miner":
                 if {rank::%player%} is "miner":
                     set {rank::%player%} to " "
-                    send "&6You are no longer a miner." to player
+                    send "&6You are no longer a &eminer&6." to player
                 else:
                     send "&cYou are not a miner." to player
             else if arg-2 is "hunter":
                 if {rank::%player%} is "hunter":
                     set {rank::%player%} to " "
-                    send "&6You are no longer a hunter." to player
+                    send "&6You are no longer a &ehunter&6." to player
                 else:
                     send "&cYou are not a hunter." to player
             else:
