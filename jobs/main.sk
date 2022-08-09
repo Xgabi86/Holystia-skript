@@ -52,10 +52,10 @@ command /jobs [<text>] [<text>]:
                 send "&cYou don't have permission." to player
         else:
             send "&cUnknown command." to player
-            send "&cAvailable commands: &ajoin&c, &aleave&c, &aalert&c." to player
+            send "&cAvailable commands: &ajoin&c, &aleave&c, &aalert&c, &alist&c." to player
 
 on tab complete of "/jobs":
-    set tab completions for position 1 to "alert"
+    set tab completions for position 1 to "alert" and "list"
     if {rank::%player%} is " ":
         set tab completions for position 1 to "join" and "alert"
         if tab arg-1 = "join":
