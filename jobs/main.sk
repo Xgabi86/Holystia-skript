@@ -52,13 +52,16 @@ on tab complete of "/jobs":
         set tab completions for position 1 to "join" and "alert"
         if tab arg-1 = "join":
             set tab completions for position 2 to "miner" and "hunter"
-    else if tab arg-1 = "leave":
-        if {rank::%player%} is "miner":
-            set tab completions for position 2 to "miner"
-        else if {rank::%player%} is "hunter":
-            set tab completions for position 2 to "hunter"
     else if tab arg-1 = "alert":
         if {jobs-alert::%player%} is "false":
             set tab completions for position 2 to "on"
         else:
             set tab completions for position 2 to "off"
+    else:
+        set tab completions for position 1 to "leave" and "alert"
+        if tab arg-1 = "leave":
+            if {rank::%player%} is "miner":
+                set tab completions for position 2 to "miner"
+        else if {rank::%player%} is "hunter":
+            set tab completions for position 2 to "hunter"
+
