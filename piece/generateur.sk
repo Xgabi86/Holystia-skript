@@ -29,3 +29,11 @@ every seconds:
         remove 1 of gold nugget named "&epièce" with custom model data 1112 from {convertiseur::*}'s inventory
         chance of 1%:
             add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {convertiseur::*}'s inventory
+
+on tab complete of "/piece":
+    if player has permission "generateur.*":
+        set tab completions for position 1 to "list" and "give"
+        if tab arg-1 = "list":
+            set tab completions for position 2 to "generateur" and "convertiseur"
+        else if tab arg-1 = "give":
+            set tab completions for position 2 to "generateur" and "convertiseur"
