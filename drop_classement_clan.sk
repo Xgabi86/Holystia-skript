@@ -27,7 +27,7 @@ on server start:
 
 		set {setvalclassementclan} to true	
 	set {_i} to 1
-	loop %amount of {classementclan::*}%-1 times:
+	loop %amount of {classementclan::*}% - 1 times:
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
@@ -44,7 +44,7 @@ on server start:
 
 every hour:
 	set {_i} to 1
-	loop %amount of {classementclan::*}%-1 times:
+	loop %amount of {classementclan::*}% - 1 times:
 		set {_x} to {classementclan::%{_i}%::1}
 		set {_n} to {classementclan::%{_i}%::2}
 		set {_j} to {_i}
