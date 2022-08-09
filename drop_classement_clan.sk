@@ -137,7 +137,7 @@ on break:
 		if player has permission "clan.feu":
 			set {_i} to 1
 			while {classementclan::%{_i}%::2} is not "Feu":
-					add 1 to {_i}
+				add 1 to {_i}
 		if player has permission "clan.eau":
 			set {_i} to 1
 			while {classementclan::%{_i}%::2} is not equal to "Eau":
