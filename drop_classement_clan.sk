@@ -120,7 +120,7 @@ on death:
 
 
 on break:
-	OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
+	if OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
 		if player has permission "clan.air":
 			set {_i} to 1
 			while {classementclan::%{_i}%::2} is not "Air":
@@ -140,67 +140,67 @@ on break:
 				
 		if {placéparjoueur::%event-block's location%} is not set:
 			if event-block is coal ore:
-				chance of 0,4%:
+				chance of 0.4%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is deepslate coal ore:
-				chance of 1,4%:
+				chance of 1.4%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is iron ore:
-				chance of 1,2%:
+				chance of 1.2%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is deepslate iron ore:
-				chance of 1,2%:
+				chance of 1.2%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is gold ore:
-				chance of 2,4%:
+				chance of 2.4%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is nether gold ore:
-				chance of 1,8%:
+				chance of 1.8%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is deepslate gold ore:
-				chance of 2,4%:
+				chance of 2.4%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is diamond ore:
-				chance of 4,8%:
+				chance of 4.8%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is deepslate diamond ore:
-				chance of 4,8%:
+				chance of 4.8%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is emerald ore:
-				chance of 6,3%:
+				chance of 6.3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is deepslate emerald ore:
-				chance of 8,3%:
+				chance of 8.3%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is lapis lazuli ore:
-				chance of 0,9%:
+				chance of 0.9%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is deepslate lapis lazuli ore:
-				chance of 0,9%:
+				chance of 0.9%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is redstone ore:
-				chance of 0,9%:
+				chance of 0.9%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is depslate redstone ore:
-				chance of 0,9%:
+				chance of 0.9%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is nether quartz ore:
-				chance of 0,6%:
+				chance of 0.6%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 			if event-block is acient debris:
@@ -212,27 +212,27 @@ on break:
 			send "Ce bloc a été placé par un joueur vous ne pouvez donc vous en servir pour gagner des points" to player
 		
 		if event-block is fully grown wheat plant:
-			chance of 0,04%:
+			chance of 0.04%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is fully grown potato plant:
-			chance of 0,03%:
+			chance of 0.03%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is fully grown carrot plant:
-			chance of 0,03%:
+			chance of 0.03%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is fully grown beetroot plant:
-			chance of 0,05%:
+			chance of 0.05%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is melon:
-			chance of 0,07%:
+			chance of 0.07%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is pumpkin:
-			chance of 0,07%:
+			chance of 0.07%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 
