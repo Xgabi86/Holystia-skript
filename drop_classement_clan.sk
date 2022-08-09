@@ -136,3 +136,5 @@ on death:
 #			send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 #
 # -gabi_86
+# je trouve plus simple de faire directement comme ça car on pourrait se retrouver avec des problèmes de pillage si ce n'était pas direct un point
+#-TNT_man268
