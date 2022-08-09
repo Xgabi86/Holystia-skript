@@ -10,42 +10,22 @@ on:
  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
- 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+
 jobs:
-  # This workflow contains a single job called "SFTP"
-  deploy-via-sftp:
-    runs-on: ubuntu-latest
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Archive production artifact
-        uses: actions/upload-artifact@main
-        with:
-            name: dist
-            path: dist
-      - name: Download artifact
-        uses: actions/download-artifact@main
-      - name: SFTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@3.0.0
-        with:
-              ftp-server: msr3079.minestrator.com
-              ftp-username: tnt_man268.5453801d
-              ftp-password: ${{ secrets.FTP_PASSWORD }}
-
-              port: 2022
-              local-dir: ./
-              remote-dir: /home/plugins/Skript/scripts/
-              git-ftp-args: --insecure
-          
-          
-
-        # default is 22
-          
-          
-          
-          # will put all file under this path
-           # default is ./*
-          # files will copy to under remote_path
-          
-          
+    deploy_job:
+         runs-on: ubuntu-latest
+         name: deploy
+         steps:
+             - name: Checkout
+               uses: actions/checkout@v2
+             - name: Deploy file
+               uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+               with:
+                 username: tnt_man268.5453801d
+                 server: msr3079.minestrator.com
+                 port: 2022
+                 local_path: './*'
+                 remote_path: '/home/plugins/Skript/scripts/'
+                 sftp_only: true
+                 password: ${{ secrets.FTP_PASSWORD }}
