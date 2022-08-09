@@ -10,9 +10,9 @@ jobs:
              - name: Deploy file
                uses: wlixcc/SFTP-Deploy-Action@v1.2.4
                with:
-                 username: gabi_86.5453801d
-                 server: msr3079.minestrator.com
-                 port: 2022
+                 username: ${{ secrets.FTP_USER }}
+                 server: ${{ secrets.FTP_SERVER }}
+                 port: ${{ secrets.FTP_PORT }}
                  local_path: './*'
                  remote_path: '/plugins/Skript/scripts/'
                  sftp_only: true
