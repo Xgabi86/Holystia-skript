@@ -1,64 +1,81 @@
 on break:
     if {rank::%player%} is "miner":
+
         if event-block is stone:
             add 0.5 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined a stone and earned &e&l0.5 &6coins!"
+
         else if event-block is coal_ore or deepslate_coal_ore:
             add 2 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined a coal ore and earned &e&l2 &6coins!"
+
         else if event-block is iron_ore or deepslate_iron_ore:
             add 5 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined an iron ore and earned &e&l5 &6coins!"
+
         else if event-block is gold_ore or deepslate_gold_ore:
             add 15 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined a gold ore and earned &e&l15 &6coins!"
+
         else if event-block is diamond_ore or deepslate_diamond_ore:
             add 100 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined a diamond ore and earned &e&l100 &6coins!"
+
         else if event-block is redstone_ore or deepslate_redstone_ore:
             add 8 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined a redstone ore and earned &e&l8 &6coins!"
+
         else if event-block is lapis_ore or deepslate_lapis_ore:
             add 16 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined a lapis ore and earned &e&l16 &6coins!"
+
         else if event-block is emerald_ore or deepslate_emerald_ore:
             add 70 to player's balance
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You mined an emerald ore and earned &e&l70 &6coins!"
 
+
+
 on place:
     if {rank::%player%} is "miner":
+
         if event-block is stone:
             set player's balance to player's balance - 0.5
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You placed a stone and lost &e&l0.5 &6coins!"
+
         else if event-block is coal_ore or deepslate_coal_ore:
             set player's balance to player's balance - 2
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You placed a stone and lost &e&l2 &6coins!"
+
         else if event-block is iron_ore or deepslate_iron_ore:
             set player's balance to player's balance - 5
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You placed a stone and lost &e&l5 &6coins!"
+
         else if event-block is gold_ore or deepslate_gold_ore:
             set player's balance to player's balance - 15
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You placed a stone and lost &e&l15 &6coins!"
+
         else if event-block is diamond_ore or deepslate_diamond_ore:
             set player's balance to player's balance - 100
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You placed a stone and lost &e&l100 &6coins!"
+
         else if event-block is redstone_ore or deepslate_redstone_ore:
             set player's balance to player's balance - 8
             if {jobs-alert::%player%} is "true":
                 set action bar of player to "&6You placed a stone and lost &e&l8 &6coins!"
+
         else if event-block is lapis_ore or deepslate_lapis_ore:
             set player's balance to player's balance - 16
             if {jobs-alert::%player%} is "true":

@@ -47,7 +47,7 @@ command /jobs [<text>] [<text>]:
             send "&4Available commands: join, leave, alert." to player
 
 on tab complete of "/jobs":
-    set tab completions for position 1 to "leave"
+    set tab completions for position 1 to "leave" and "alert"
     if {rank::%player%} is " ":
         set tab completions for position 1 to "join"
         if tab arg-1 = "join":
@@ -57,3 +57,8 @@ on tab complete of "/jobs":
             set tab completions for position 2 to "miner"
         else if {rank::%player%} is "hunter":
             set tab completions for position 2 to "hunter"
+    else if tab arg-1 = "alert":
+        if {jobs-alert::%player%} is "false":
+            set tab completions for position 2 to "on"
+        else:
+            set tab completions for position 2 to "off"
