@@ -1,7 +1,7 @@
 on place of chest:
     if custom model data of player's tool is 1110:
         add event-block to {generateur::*}
-    else if custom model data of player's tool is 1114:
+    else if custom model data of player's tool is 1111:
         add event-block to {convertiseur::*}
 
 on break of chest:
