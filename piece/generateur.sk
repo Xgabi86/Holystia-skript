@@ -1,0 +1,11 @@
+on place on chest:
+    if custom model data of player's tool is 1110:
+        add event-block to {generateur::*}
+
+on break of chest:
+    remove event-block to {generateur::*}
+
+command /generateur list
+    trigger:
+        if player has permission "generateur.*":
+            send "&aChest: &r%{generateur::*%}" to player
