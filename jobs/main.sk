@@ -45,3 +45,15 @@ command /jobs [<text>] [<text>]:
         else:
             send "&4Unknown command." to player
             send "&4Available commands: join, leave, alert." to player
+
+on tab complete of "/jobs":
+    set tab completions for position 1 to "leave"
+    if {rank::%player%} is " ":
+        set tab completions for position 1 to "join"
+        if tab arg-1 = "join":
+            set tab completions for position 2 to "miner" and "hunter"
+    else if tab arg-1 = "leave":
+        if {rank::%player%} is "miner":
+            set tab completions for position 2 to "miner"
+        else if {rank::%player%} is "hunter":
+            set tab completions for position 2 to "hunter"
