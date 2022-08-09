@@ -10,12 +10,12 @@ jobs:
              - name: Deploy file
                uses: wlixcc/SFTP-Deploy-Action@v1.2.4
                with:
-                 username: tnt_man268.5453801d
+                 username: gabi_86.5453801d
                  server: msr3079.minestrator.com
                  port: 2022
                  local_path: './*'
-                 remote_path: '/home/plugins/Skript/scripts/'
+                 remote_path: '/plugins/Skript/scripts/'
                  sftp_only: true
-                 password: 677Sun167Apr-MSR
+                 password: ${{ secrets.FTP_PASSWORD }}
                  
-                 #${{ secrets.FTP_PASSWORD }}
+                 
