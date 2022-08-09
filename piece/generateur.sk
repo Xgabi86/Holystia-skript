@@ -13,7 +13,7 @@ command /piece [<text>] [<text>]:
         if arg-1 is "list":
             if player has permission "generateur.*":
                 if arg-2 is "generateur":
-                send "&aChest: &r%{generateur::*}%" to player
+                    send "&aChest: &r%{generateur::*}%" to player
             else if arg-2 is "convertiseur":
                 send "&aChest: &r%{convertiseur::*}%" to player
         else if arg-1 is "give":
