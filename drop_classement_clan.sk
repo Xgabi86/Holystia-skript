@@ -212,6 +212,10 @@ on break:
 				chance of 15%:
 					add 1 to {classementclan::%{_i}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
+		else:
+			remove {placéparjoueur::%event-block's location%}
+			send "Ce bloc a été placé par un joueur vous ne pouvez donc vous en servir pour gagner des points" to player
+		
 		if event-block is fully grown wheat plant:
 			chance of 0,04%:
 				add 1 to {classementclan::%{_i}%::2}
@@ -238,7 +242,40 @@ on break:
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 
 on place:
-	
+	if event-block is coal ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate coal ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is iron ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate iron ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is diamond ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate diamond ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is emerald ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate emerald ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is redstone ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate redstone ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is gold ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate gold ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is nether gold ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is lapis lazuli ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is deepslate lapis lazuli ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is ancient debris ore:
+		set {placéparjoueur::%event-block's location%} to true
+	if event-block is nether quartz ore:
+		set {placéparjoueur::%event-block's location%} to true
 
 
 
