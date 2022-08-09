@@ -10,3 +10,6 @@ command /generateur [<text>]:
         if arg-1 is "list":
             if player has permission "generateur.*":
                 send "&aChest: &r%{generateur::*}%" to player
+        else if arg is "give":
+            if player has permission "generateur.*":
+                give player chest named "&eGénérateur de pièce" with custom model data 1110
