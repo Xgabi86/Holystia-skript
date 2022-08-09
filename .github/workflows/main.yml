@@ -27,14 +27,17 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@main
       - name: SFTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: msr3079.minestrator.com
           username: tnt_man268.5453801d
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /home/plugins/Skript/scripts/
+          server: msr3079.minestrator.com
           port: 2022
+          local_path: ./
+          remote_path: /home/plugins/Skript/scripts/
+          sftp_only: true
+          password: ${{ secrets.FTP_PASSWORD }}
+          
+          
           args: --verbose
         # default is 22
           
