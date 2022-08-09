@@ -1,0 +1,44 @@
+#   gold nugget named "&epièce" with custom model data 1012
+#   chest named "&eGénérateur de pièce" with custom model data 1012
+
+on place of chest:
+    if custom model data of player's tool is 1012:
+        add targeted block to {gen::*}
+    else if custom model data of player's tool is 1013:
+        add targeted block to {conv::*}
+
+on break of chest:
+    remove targeted block from {gen::*}
+    remove targeted block from {conv::*}
+
+command /chestgive:
+    trigger:
+        if player has permission "server.ops":
+            give player chest named "&eGénérateur de pièce" with custom model data 1012
+            give player chest named "&eConvertiseur de pièce" with custom model data 1013
+
+command /chestreset:
+    trigger:
+        if player has permission "server.ops":
+            send {gen::*} to player
+            send {conv::*} to player
+            set {gen::*} to ""
+            set {conv::*} to ""
+            send {gen::*} to player
+            send {conv::*} to player
+
+every seconds:
+    add gold nugget named "&epièce" with custom model data 1012 to {gen::*}'s inventory
+    loop 6 times:
+        if {conv::*}'s inventory contains gold nugget named "&epièce" with custom model data 1012:
+            remove 1 of gold nugget named "&epièce" with custom model data 1012 from {conv::*}'s inventory
+            chance of 1%:
+                add 1 paper of protection 5 named "&eBillet de 500$" with custom model data 1013 to {conv::*}'s inventory
+
+on rightclick with paper:
+    if custom model data of player's tool is 1013:
+        if player's tool is enchanted with protection 5:
+            if tool's name is "&eBillet de 500$":
+                remove 1 of player's tool from player's inventory
+                wait 1 ticks
+                execute console command "eco give %player% 500"
