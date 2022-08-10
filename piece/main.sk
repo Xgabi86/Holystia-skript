@@ -1,0 +1,22 @@
+command /piece [<text>] [<text>]:
+    trigger:
+        if arg-1 is "list":
+            if player has permission "generateur.*":
+                if arg-2 is "generateur":
+                    send "&aChest: &r%{generateur::*}%" to player
+                else if arg-2 is "convertiseur":
+                    send "&aChest: &r%{convertiseur::*}%" to player
+        else if arg-1 is "give":
+            if player has permission "generateur.*":
+                if arg-2 is "generateur":
+                    give player chest named "&eGénérateur de pièce" with custom model data 1110
+                else if arg-2 is "convertiseur":
+                    give player chest named "&eConvertiseur de pièce" with custom model data 1111
+
+on tab complete of "/piece":
+    if player has permission "generateur.*":
+        set tab completions for position 1 to "list" and "give"
+        if tab arg-1 = "list":
+            set tab completions for position 2 to "generateur" and "convertiseur"
+        else if tab arg-1 = "give":
+            set tab completions for position 2 to "generateur" and "convertiseur"

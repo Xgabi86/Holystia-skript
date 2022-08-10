@@ -8,20 +8,15 @@ on break of chest:
     remove event-block from {generateur::*}
     remove event-block from {convertiseur::*}
 
-command /piece [<text>] [<text>]:
-    trigger:
-        if arg-1 is "list":
-            if player has permission "generateur.*":
-                if arg-2 is "generateur":
-                    send "&aChest: &r%{generateur::*}%" to player
-                else if arg-2 is "convertiseur":
-                    send "&aChest: &r%{convertiseur::*}%" to player
-        else if arg-1 is "give":
-            if player has permission "generateur.*":
-                if arg-2 is "generateur":
-                    give player chest named "&eGénérateur de pièce" with custom model data 1110
-                else if arg-2 is "convertiseur":
-                    give player chest named "&eConvertiseur de pièce" with custom model data 1111
+on rightclick with paper:
+    if custom model data of player's tool is 1013:
+        if player's tool is enchanted with protection 5:
+            if tool's name is "&eBillet de 500$":
+                remove 1 of player's tool from player's inventory
+                wait 1 ticks
+                add 500 to player's balance
+                set action bar of player to "&6500$ added to your account!"
+                play sound "entity.player.levelup" with volume 100 and pitch 1 at player for player
 
 every seconds:  
     add gold nugget named "&epièce" with custom model data 1112 to {generateur::*}'s inventory
@@ -29,11 +24,3 @@ every seconds:
         remove 1 of gold nugget named "&epièce" with custom model data 1112 from {convertiseur::*}'s inventory
         chance of 1%:
             add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {convertiseur::*}'s inventory
-
-on tab complete of "/piece":
-    if player has permission "generateur.*":
-        set tab completions for position 1 to "list" and "give"
-        if tab arg-1 = "list":
-            set tab completions for position 2 to "generateur" and "convertiseur"
-        else if tab arg-1 = "give":
-            set tab completions for position 2 to "generateur" and "convertiseur"
