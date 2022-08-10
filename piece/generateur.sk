@@ -36,3 +36,5 @@ on place of redstone block:
 on break of redstone block:
     set {test-%{event-block}%} to " "
     send {test-%{event-block}%} to player
+    if {test-%{event-block}%} is event-block:
+        send  "AAAAAAAA" to player
