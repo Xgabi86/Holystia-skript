@@ -10,7 +10,7 @@ on break of chest:
 
 on rightclick with paper:
     if custom model data of player's tool is 1013:
-        if player's tool is enchanted with protection 5:
+        if player's tool is enchanted with protection 1:
             if tool's name is "&eBillet de 500$":
                 remove 1 of player's tool from player's inventory
                 wait 1 ticks
