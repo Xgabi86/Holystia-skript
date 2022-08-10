@@ -41,7 +41,7 @@ on break of redstone block:
         send "&4&l----------------------------------------------------------------" to player
         send "%{test::*}%" to player
  
- on break of bedrock:
+on break of bedrock:
     set {test::%event-block%} to " "
     set {test::*} to " "
     send "%{test::%event-block%}%" to player
