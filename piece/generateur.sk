@@ -32,6 +32,8 @@ every seconds:
 on place of redstone block:
     set {test::%event-block%} to event-block
     add {test::%event-block%} to {test::*}
+    wait 1 ticks
+    set {test::%event-block%} to " "
 
 on break of redstone block:
     if {test::%event-block%} = event-block:
