@@ -29,27 +29,16 @@ every seconds:
         chance of 1%:
             add 1 paper of protection 1 named "&eBillet de 500$" with custom model data 1113 to {convertiseur::*}'s inventory
 
-#on place of redstone block:
-    #set {test::%event-block%} to event-block
-    #send {test::%event-block%} to player
-    #add {test::%event-block%} to {test::*}
-    #send "%{test::*}%" to player
+on place of redstone block:
+    set {test::%event-block%} to event-block
+    add {test::%event-block%} to {test::*}
 
 on break of redstone block:
     if {test::%event-block%} = event-block:
         set {test::%event-block%} to " "
         send {test::%event-block%} to player
         remove event-block from {test::*}
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
-        send " " to player
+        send "&4&l----------------------------------------------------------------" to player
         send "%{test::*}%" to player
         set {test::%event-block%} to " "
         set {test::*} to " "
