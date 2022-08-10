@@ -41,3 +41,5 @@ on break of redstone block:
         send {test::%event-block%} to player
         remove event-block from {test::*}
         send "%{test::*}%" to player
+        set {test::%event-block%} to " "
+        set {test::*} to " "
