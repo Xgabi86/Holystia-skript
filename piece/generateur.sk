@@ -36,7 +36,7 @@ on place of redstone block:
     set {test::%event-block%} to " "
 
 on break of redstone block:
-    if {test::%event-block%} = event-block:
+    if {test::*} contains event-block:
         remove event-block from {test::*}
         send "%{test::%event-block%}%" to player
         set {test::%event-block%} to " "
