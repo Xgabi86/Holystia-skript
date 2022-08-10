@@ -9,9 +9,9 @@ command /piece [<text>] [<text>]:
         else if arg-1 is "give":
             if player has permission "generateur.*":
                 if arg-2 is "generateur":
-                    give player chest named "&eGénérateur de pièce" with custom model data 1110
+                    give player yellow shulker box named "&eGénérateur de pièce" with custom model data 1110
                 else if arg-2 is "convertiseur":
-                    give player chest named "&eConvertiseur de pièce" with custom model data 1111
+                    give player yellow shulker box named "&eConvertiseur de pièce" with custom model data 1111
 
 on tab complete of "/piece":
     if player has permission "generateur.*":
