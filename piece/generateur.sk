@@ -5,10 +5,10 @@ on place of yellow shulker box:
         add event-block to {convertiseur::*}
 
 on break of yellow shulker box:
-        if event-block is {generateur::*}:
+        if event-block is "%{generateur::*}%":
             remove event-block from {generateur::*}
             send "1" to player
-        else if event-block is {convertiseur::*}:
+        else if event-block is "%{convertiseur::*}%":
             remove event-block from {convertiseur::*}
             send "2" to player
 
