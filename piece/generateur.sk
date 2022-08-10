@@ -32,9 +32,12 @@ every seconds:
 on place of redstone block:
     set {test::%event-block%} to event-block
     send {test::%event-block%} to player
+    add {test::%event-block%} to {test::*}
+    send "%{test::*}%" to player
 
 on break of redstone block:
     if {test::%event-block%} = event-block:
-        send  "AAAAAAAA" to player
         set {test::%event-block%} to " "
         send {test::%event-block%} to player
+        remove {test::%event-block%} from {test::*}
+        send "%{test::*}%" to player
