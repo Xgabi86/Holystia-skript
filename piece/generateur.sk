@@ -5,8 +5,12 @@ on place of yellow shulker box:
         add event-block to {convertiseur::*}
 
 on break of yellow shulker box:
-    remove event-block from {generateur::*}
-    remove event-block from {convertiseur::*}
+        if event-block is {generateur::*}
+            remove event-block from {generateur::*}
+            send "1" to player
+        else if event-block is {convertiseur::*}
+            remove event-block from {convertiseur::*}
+            send "2" to player
 
 on rightclick with paper:
     if custom model data of player's tool is 1113:
