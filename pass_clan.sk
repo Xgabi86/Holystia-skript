@@ -7,7 +7,7 @@ on join:
 
 command /passclan:
 	trigger:
-		if name of player is "nacfire":
+		if name of player is "TNT_man268":
 			if {rangpassclan.%player%} is equal to 0:
 				open chest with 6 rows named "&7&l&nPass de clan" to player
 	
@@ -53,9 +53,4 @@ command /passclan:
 				format slot 33 of player with bricks named " " to be unstealable
 		
 		
-				format slot 24 of player with netherrack named " " to be unstealable
-	
-				format slot 25 of player with netherrack named " " to be unstealable
-	
-				format slot 26 of player with basalt named " " to be unstealable
 	
