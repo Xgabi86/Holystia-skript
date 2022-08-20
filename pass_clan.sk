@@ -1,4 +1,4 @@
-on command "/passclan":
+command "/passclan":
 	if player's name is "TNT_man268":
 		open chest with 12 rows named "&5&l&nClan?" to player
 
