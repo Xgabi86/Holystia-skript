@@ -7,7 +7,7 @@ on join:
 
 command /passclan:
 	trigger:
-		if name of player is "TNT_man268":
+		if name of player is "nacfire":
 			if {rangpassclan.%player%} is equal to 0:
 				open chest with 6 rows named "&7&l&nPass de clan" to player
 	
