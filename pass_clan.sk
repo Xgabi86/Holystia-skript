@@ -57,9 +57,9 @@ command /passclan:
 	
 				format slot 37 of player with andesite named "&bPalier 2" with lore "                          ||                          " to be unstealable
 		
-				format slot 38 of player with gravel "&bPalier 3" with lore "                          ||                          " to be unstealable
+				format slot 38 of player with gravel named "&bPalier 3" with lore "                          ||                          " to be unstealable
 			
-				format slot 39 of player with stone "&bPalier 4" with lore "                          ||                          " to be unstealable
+				format slot 39 of player with stone named "&bPalier 4" with lore "                          ||                          " to be unstealable
 	
 				format slot 40 of player with stone brick named "&bPalier 5" with lore "                          ||                          " to be unstealable
 	
