@@ -191,3 +191,88 @@ command /passclan2:
 				format slot 52 of player with sand named " " to be unstealable	
 				
 				format slot 53 of player with sandstone named " " to be unstealable
+				
+				
+command /passclan3:
+	trigger:
+		if {sssssssssssssssss} is not set:
+			if {rangpassclan.%player%} is equal to 0:
+				open chest with 6 rows named "&7&l&nPass de clan" to player
+				
+				format slot 5 of player with polished andesite named " " to be unstealable
+		
+			
+				format slot 13 of player with polished andesite named " " to be unstealable
+			
+				format slot 14 of player with nether star named "&bPalier 10" with lore "                          ||                          " to be unstealable
+				
+				format slot 15 of player with polished andesite named " " to be unstealable
+				
+								
+
+	
+				format slot 19 of player with warped planks named " " to be unstealable
+		
+				format slot 20 of player with dark prismarine named " " to be unstealable
+			
+				format slot 21 of player with warped planks tiles named " " to be unstealable
+	
+				format slot 22 of player with spruce wood named " " to be unstealable
+	
+				format slot 23 of player with polished andesite named " " to be unstealable
+		
+				format slot 24 of player with spruce wood named " " to be unstealable	
+								
+			
+	
+				format slot 28 of player with barrel named " " to be unstealable
+		
+				format slot 29 of player with bookshelf named " " to be unstealable
+			
+				format slot 30 of player with stripped spruce wood named " " to be unstealable
+	
+				format slot 31 of player with barrel named " " to be unstealable
+	
+				format slot 32 of player with stripped spruce wood named " " to be unstealable
+		
+				format slot 33 of player with barrel named " " to be unstealable	
+				
+				
+
+				format slot 36 of player with packed ice named "&bPalier 1" with lore "                          ||                          " to be unstealable
+	
+				format slot 37 of player with blue ice named "&bPalier 2" with lore "                          ||                          " to be unstealable
+		
+				format slot 38 of player with light blue glazed terracotta named "&bPalier 3" with lore "                          ||                          " to be unstealable
+			
+				format slot 39 of player with light blue concrete powder named "&bPalier 4" with lore "                          ||                          " to be unstealable
+	
+				format slot 40 of player with tube coral block named "&bPalier 5" with lore "                          ||                          " to be unstealable
+	
+				format slot 41 of player with blue concrete powder named "&bPalier 6" with lore "                          ||                          " to be unstealable
+		
+				format slot 42 of player with blue glazed terracotta named "&bPalier 7" with lore "                          ||                          " to be unstealable
+	
+				format slot 43 of player with blue wool named "&bPalier 8" with lore "                          ||                          " to be unstealable
+	
+				format slot 44 of player with blue concrete named "&bPalier 9" with lore "                          ||                          " to be unstealable
+
+			
+			
+				format slot 45 of player with stone named " " to be unstealable
+	
+				format slot 46 of player with cracked stone bricks named " " to be unstealable
+		
+				format slot 47 of player with mossy stone bricks named " " to be unstealable
+			
+				format slot 48 of player with stone bricks named " " to be unstealable
+	
+				format slot 49 of player with stone bricks named " " to be unstealable
+	
+				format slot 50 of player with stone named " " to be unstealable
+		
+				format slot 51 of player with stone named " " to be unstealable	
+				
+				format slot 52 of player with cracked stone bricks named " " to be unstealable	
+				
+				format slot 53 of player with smooth stone named " " to be unstealable
