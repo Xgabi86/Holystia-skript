@@ -1,0 +1,51 @@
+on command "/passclan":
+  if player is TNT_man268:
+    open chest with 12 rows named "&5&l&nClan?" to player
+
+			wait 3 ticks
+
+			format slot 0 of player with cobweb named " " to be unstealable
+
+			format slot 1 of player with cobweb named " " to be unstealable
+
+			format slot 2 of player with blue ice named " " to be unstealable
+
+			format slot 3 of player with packed ice named " " to be unstealable
+
+			format slot 4 of player with packed ice named " " to be unstealable
+
+			format slot 5 of player with dirt named " " to be unstealable
+
+			format slot 6 of player with coarse dirt named " " to be unstealable
+
+			format slot 7 of player with netherrack named " " to be unstealable
+
+			format slot 8 of player with netherrack named " " to be unstealable
+
+			
+
+			format slot 11 of player with cobweb named " " to be unstealable
+
+			format slot 13 of player with packed ice named " " to be unstealable
+
+			format slot 15 of player with iron ore named " " to be unstealable
+
+			format slot 17 of player with basalt named " " to be unstealable
+
+
+
+			format slot 18 of player with cobweb named " " to be unstealable
+
+			format slot 20 of player with cobweb named " " to be unstealable
+
+			format slot 21 of player with blue ice named " " to be unstealable
+
+			format slot 22 of player with packed ice named " " to be unstealable
+
+			format slot 23 of player with deepslate named " " to be unstealable
+
+			format slot 24 of player with netherrack named " " to be unstealable
+
+			format slot 25 of player with netherrack named " " to be unstealable
+
+			format slot 26 of player with basalt named " " to be unstealable
