@@ -31,7 +31,7 @@ command /passclan:
 		
 				format slot 21 of player with deepslate tiles named " " to be unstealable
 		
-				format slot 22 of player with 45 named " " to be unstealable
+				format slot 22 of player with brick block named " " to be unstealable
 	
 				format slot 23 of player with deepslate tiles named " " to be unstealable
 		
@@ -46,11 +46,11 @@ command /passclan:
 		
 				format slot 30 of player with stripped spruce wood named " " to be unstealable
 			
-				format slot 31 of player with 45 named " " to be unstealable
+				format slot 31 of player with brick block named " " to be unstealable
 	
 				format slot 32 of player with stripped spruce wood named " " to be unstealable
 	
-				format slot 33 of player with 45 named " " to be unstealable
+				format slot 33 of player with brick block named " " to be unstealable
 		
 				format slot 34 of player with stripped spruce wood named " " to be unstealable
 	
