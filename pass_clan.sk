@@ -162,7 +162,7 @@ command /passclan2:
 			
 				format slot 39 of player with red concrete powder named "&bPalier 4" with lore "                          ||                          " to be unstealable
 	
-				format slot 40 of player with fire coral blocl named "&bPalier 5" with lore "                          ||                          " to be unstealable
+				format slot 40 of player with fire coral block named "&bPalier 5" with lore "                          ||                          " to be unstealable
 	
 				format slot 41 of player with red terracotta named "&bPalier 6" with lore "                          ||                          " to be unstealable
 		
