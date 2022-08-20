@@ -5,7 +5,7 @@ on join:
 		set {passclanset.%player%} to true
 command /inv:
 	trigger:
-		open virtual chest inventory with sized 6 named "&7&l&nPass de clan" to player
+		open virtual chest inventory with size 6 named "&7&l&nPass de clan" to player
 
 command /passclan:
 	trigger:
