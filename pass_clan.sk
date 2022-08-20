@@ -3,7 +3,9 @@ on join:
 		set {rangpassclan.%player%} to 0
 		set {xppassclan.%player%} to 0
 		set {passclanset.%player%} to true
-
+command /inv:
+	trigger:
+		open chest with 6 rows named "&7&l&nPass de clan" to player
 
 command /passclan:
 	trigger:
