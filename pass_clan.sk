@@ -12,8 +12,6 @@ command /passclan:
 		if name of player is "TNT_man268":
 			if {rangpassclan.%player%} is equal to 0:
 				open chest with 6 rows named "&7&l&nPass de clan" to player
-	
-				wait 3 ticks
 		
 				format slot 4 of player with deepslate tiles named " " to be unstealable
 		
