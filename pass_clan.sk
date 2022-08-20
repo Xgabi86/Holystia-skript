@@ -70,4 +70,22 @@ command /passclan:
 				format slot 43 of player with deepslate named "&bPalier 8" with lore "                          ||                          " to be unstealable
 	
 				format slot 44 of player with deepslate coal ore named "&bPalier 9" with lore "                          ||                          " to be unstealable
+		
+		
+				format slot 45 of player with podzol named " " to be unstealable
 	
+				format slot 46 of player with rooted dirt named " " to be unstealable
+		
+				format slot 47 of player with podzol named " " to be unstealable
+			
+				format slot 48 of player with podzol named " " to be unstealable
+	
+				format slot 49 of player with rooted dirt named " " to be unstealable
+	
+				format slot 50 of player with granite named " " to be unstealable
+		
+				format slot 51 of player with rooted dirt named " " to be unstealable	
+				
+				format slot 52 of player with rooted dirt named " " to be unstealable	
+				
+				format slot 53 of player with granite named " " to be unstealable	
