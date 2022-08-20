@@ -1,5 +1,5 @@
 on join:
-	if {passclanset.%player} is not set:
+	if {passclanset.%player%} is not set:
 		set {rangpassclan.%player%} to 0
 		set {xppassclan.%player%} to 0
 		set {passclanset.%player%} to true
