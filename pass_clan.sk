@@ -1,7 +1,7 @@
 command /passclan:
 	trigger:
 		if name of player is "TNT_man268":
-			open chest with 12 rows named "&5&l&nClan?" to player
+			open chest with 6 rows named "&5&l&nClan?" to player
 	
 			wait 3 ticks
 	
