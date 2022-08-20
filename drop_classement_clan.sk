@@ -33,7 +33,7 @@ on skript start:
 		set {classementclan::%{_j}%::1} to {_x}
 		set {classementclan::%{_j}%::2} to {_n}
 		add 1 to {_i}
-	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec {classementclan::2::1} point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-176,67,183,world "world")
+	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-176,68,183,world "world")
 	wait 1 hour
 	delete holo object "classement.clan.holo"
 
@@ -50,7 +50,7 @@ every hour:
 		set {classementclan::%{_j}%::1} to {_x}
 		set {classementclan::%{_j}%::2} to {_n}
 		add 1 to {_i}
-	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec {classementclan::2::1} point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-176,67,183,world "world")
+	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-176,68,183,world "world")
 	wait 1 hour
 	delete holo object "classement.clan.holo"
 
