@@ -2,7 +2,8 @@ function exp_pass_clan(x: int) :: int:
 	if {_x} is equal to 0:
 		return {_x}
 	else:
-		return exp_pass_clan({_x}-1)+{_x}
+		set {_y} to {_x} - 1
+		return exp_pass_clan({_y})+{_x}
 
 
 on join:
