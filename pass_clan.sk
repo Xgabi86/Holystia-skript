@@ -122,7 +122,7 @@ command /passclan:
 				format slot 36 of player with light gray wool of efficiency 1 named "&bPalier 1" with lore "                                                      " and "&aDébloqué" to be unstealable
 	
 
-			if {rangpassclan.%player%} isgreater than or equal to  2:
+			if {rangpassclan.%player%} is greater than or equal to  2:
 			
 				format slot 37 of player with andesite of efficiency 1 named "&bPalier 2" with lore "                                                      " and "&aDébloqué" to be unstealable
 
