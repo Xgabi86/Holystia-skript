@@ -232,5 +232,5 @@ command /clanleave <player>:
 	
 	permission: *
 	trigger:
-		clear {clan.%player%}
+		delete {clan.%player%}
 
