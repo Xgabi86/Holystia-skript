@@ -1,0 +1,236 @@
+on server start:
+	if {clan_terre} is not set:
+		set {clan_terre} to 0
+	if {clan_feu} is not set:
+		set {clan_feu} to 0
+	if {clan_air} is not set:
+		set {clan_air} to 0
+	if {clan_eau} is not set:
+		set {clan_eau} to 0
+
+
+
+
+function ClanAir(p: player, i: int, y:int) :: int:
+
+	if {_y}+4 is greater than or equal to {_i}:
+		set {clan.%{_p}%} to "air"
+		close {_p}'s inventory
+		execute console command "/pr addrank %{_p}% Air"
+		add 1 to {_i}
+	else:
+		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		make {_p} execute command "/clan"
+	return {_i} parsed as int
+	
+function ClanEau(p: player, i: int, y:int) :: int:
+	if {_y}+4 is greater than or equal to {_i}:
+		set {clan.%{_p}%} to "eau"
+		close {_p}'s inventory
+		execute console command "/pr addrank %{_p}% Eau"
+		add 1 to {_i}
+	else:
+		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		make {_p} execute command "/clan"
+	return {_i} parsed as int
+					
+function ClanTerre(p: player, i: int, y:int) :: int:
+	if {_y}+4 is greater than or equal to {_i}:
+		set {clan.%{_p}%} to "terre"
+		close {_p}'s inventory
+		execute console command "/pr addrank %{_p}% Terre"
+		add 1 to {_i}
+	else:
+		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		make {_p} execute command "/clan"
+	return {_i} parsed as int
+	
+function ClanFeu(p: player, i: int, y:int) :: int:
+	if {_y}+4 is greater than or equal to {_i}:
+		set {clan.%{_p}%} to "feu"
+		close {_p}'s inventory
+		execute console command "/pr addrank %{_p}% Feu"
+		add 1 to {_i}
+	else:
+		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		make {_p} execute command "/clan"
+	return {_i} parsed as int
+
+command /clan:
+
+	trigger:
+		add {clan_air} to {list::*}
+		add {clan_feu} to {list::*}
+		add {clan_eau} to {list::*}
+		add {clan_terre} to {list::*}
+		set {min} to min({list::*})
+
+
+		if {clan.%player%} is set:
+
+			set {SOMETHINGRANDOM::%player%} to true
+
+		else:
+
+			open chest with 3 rows named "&5&l&nClan?" to player
+
+			wait 3 ticks
+
+			format slot 0 of player with cobweb named " " to be unstealable
+
+			format slot 1 of player with cobweb named " " to be unstealable
+
+			format slot 2 of player with blue ice named " " to be unstealable
+
+			format slot 3 of player with packed ice named " " to be unstealable
+
+			format slot 4 of player with packed ice named " " to be unstealable
+
+			format slot 5 of player with dirt named " " to be unstealable
+
+			format slot 6 of player with coarse dirt named " " to be unstealable
+
+			format slot 7 of player with netherrack named " " to be unstealable
+
+			format slot 8 of player with netherrack named " " to be unstealable
+
+			
+
+			format slot 11 of player with cobweb named " " to be unstealable
+
+			format slot 13 of player with packed ice named " " to be unstealable
+
+			format slot 15 of player with iron ore named " " to be unstealable
+
+			format slot 17 of player with basalt named " " to be unstealable
+
+
+
+			format slot 18 of player with cobweb named " " to be unstealable
+
+			format slot 20 of player with cobweb named " " to be unstealable
+
+			format slot 21 of player with blue ice named " " to be unstealable
+
+			format slot 22 of player with packed ice named " " to be unstealable
+
+			format slot 23 of player with deepslate named " " to be unstealable
+
+			format slot 24 of player with netherrack named " " to be unstealable
+
+			format slot 25 of player with netherrack named " " to be unstealable
+
+			format slot 26 of player with basalt named " " to be unstealable
+
+
+
+		
+
+			format slot 10 of player with glow lichen of protection 1 named "&b&lAeria" to run [rejoint_air(player)]
+
+			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to run [rejoint_eau(player)]
+
+			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to run [rejoint_terre(player)]
+
+			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" to run [rejoint_feu(player)]
+
+
+
+
+
+function rejoint_air( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+function rejoint_eau( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+function rejoint_terre( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+function rejoint_feu( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+
+
+on damage:
+
+	if attacker is player:
+
+		if victim is player:
+
+			if {clan.%attacker%} is equal to {clan.%victim%}:
+
+				send "&4Vous ne pouvez attaquer un membre de votre clan !" to attacker
+
+
+
+
+
+command /clanstatistic:
+
+	trigger:
+
+		send "&bLe clan de l'air a %{clan_air}% membres" to player
+
+		send "&1Le clan de l'eau a %{clan_eau}% membres" to player
+
+		send "&2Le clan de la terre a %{clan_terre}% membres" to player
+
+		send "&4Le clan du feu a %{clan_feu}% membres" to player
+
+		
+
+command /clanleave <player>:
+	
+	permission: *
+	trigger:
+		clear {clan.%player%}
+
