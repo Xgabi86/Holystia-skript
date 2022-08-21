@@ -1,4 +1,4 @@
-function exp_pass_clan(x:int)::int:
+function exp_pass_clan(x: int) :: int:
 	if {_x} is equal to 0:
 		return {_x}
 	else:
@@ -16,16 +16,16 @@ command /passclan:
 	trigger:
 		if {sssssssssssssssss} is not set:
 			if {rangpassclan.%player%} is equal to 0:
-				set {_palier1} to difference beetween exp_pass_clan(1) and {xppassclan.%player%}
-				set {_palier2} to difference beetween exp_pass_clan(2) and {xppassclan.%player%}
-				set {_palier3} to difference beetween exp_pass_clan(3) and {xppassclan.%player%}
-				set {_palier4} to difference beetween exp_pass_clan(4) and {xppassclan.%player%}
-				set {_palier5} to difference beetween exp_pass_clan(5) and {xppassclan.%player%}
-				set {_palier6} to difference beetween exp_pass_clan(6) and {xppassclan.%player%}
-				set {_palier7} to difference beetween exp_pass_clan(7) and {xppassclan.%player%}
-				set {_palier8} to difference beetween exp_pass_clan(8) and {xppassclan.%player%}
-				set {_palier9} to difference beetween exp_pass_clan(9) and {xppassclan.%player%}
-				set {_palier10} to difference beetween exp_pass_clan(10) and {xppassclan.%player%}
+				set {_palier1} to  exp_pass_clan(1) - {xppassclan.%player%}
+				set {_palier2} to  exp_pass_clan(2) - {xppassclan.%player%}
+				set {_palier3} to  exp_pass_clan(3) - {xppassclan.%player%}
+				set {_palier4} to exp_pass_clan(4) - {xppassclan.%player%}
+				set {_palier5} to  exp_pass_clan(5) - {xppassclan.%player%}
+				set {_palier6} to exp_pass_clan(6) - {xppassclan.%player%}
+				set {_palier7} to exp_pass_clan(7) - {xppassclan.%player%}
+				set {_palier8} to exp_pass_clan(8) - {xppassclan.%player%}
+				set {_palier9} to exp_pass_clan(9) - {xppassclan.%player%}
+				set {_palier10} to exp_pass_clan(10) - {xppassclan.%player%}
 				
 				
 				open chest with 6 rows named "&7&l&nPass de clan" to player
