@@ -1,4 +1,8 @@
-function exp_pass_clan(x::int)::int
+function exp_pass_clan(x:int)::int:
+	if {_x} is equal to 0:
+		return {_x}
+	else:
+		return function({_x}-1)+{_x}
 
 
 on join:
@@ -12,6 +16,18 @@ command /passclan:
 	trigger:
 		if {sssssssssssssssss} is not set:
 			if {rangpassclan.%player%} is equal to 0:
+				set {_palier1} to difference beetween exp_pass_clan(1) and {xppassclan.%player%}
+				set {_palier2} to difference beetween exp_pass_clan(2) and {xppassclan.%player%}
+				set {_palier3} to difference beetween exp_pass_clan(3) and {xppassclan.%player%}
+				set {_palier4} to difference beetween exp_pass_clan(4) and {xppassclan.%player%}
+				set {_palier5} to difference beetween exp_pass_clan(5) and {xppassclan.%player%}
+				set {_palier6} to difference beetween exp_pass_clan(6) and {xppassclan.%player%}
+				set {_palier7} to difference beetween exp_pass_clan(7) and {xppassclan.%player%}
+				set {_palier8} to difference beetween exp_pass_clan(8) and {xppassclan.%player%}
+				set {_palier9} to difference beetween exp_pass_clan(9) and {xppassclan.%player%}
+				set {_palier10} to difference beetween exp_pass_clan(10) and {xppassclan.%player%}
+				
+				
 				open chest with 6 rows named "&7&l&nPass de clan" to player
 		
 				format slot 4 of player with deepslate tiles named " " to be unstealable
