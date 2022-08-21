@@ -67,7 +67,7 @@ command /clan:
 
 
 		if {clan.%player%} is set:
-
+			send "Vous avez déjà un clan !" to player
 			set {SOMETHINGRANDOM::%player%} to true
 
 		else:
