@@ -3,6 +3,7 @@ function exp_pass_clan(x: int) :: int:
 	while {_x} is greater than 0:
 		add {_x} to {_t}
 		set {_x} to {_x} - 1
+	broadcast {_t}
 	return {_t}
 
 
