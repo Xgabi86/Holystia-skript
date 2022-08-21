@@ -1,3 +1,6 @@
+function exp_pass_clan(x::int)::int
+
+
 on join:
 	if {passclanset.%player%} is not set:
 		set {rangpassclan.%player%} to 0
