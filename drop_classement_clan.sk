@@ -7,20 +7,20 @@ function OR(conditions: booleans) :: boolean:
 
 
 on skript start:
-	if {setvalclassementclan} is not set:
+	if {setvalclassementclan} is set to true:
 		set {classementclan::1::1} to 0
-		set {classementclan::1::2} to "Air"
+		set {classementclan::1::2} to "Aeria"
 
 		set {classementclan::2::1} to 0
-		set {classementclan::2::2} to "Terre"
+		set {classementclan::2::2} to "Ergaiates"
 
 		set {classementclan::3::1} to 0
-		set {classementclan::3::2} to "Eau"
+		set {classementclan::3::2} to "Hydrogion"
 
 		set {classementclan::4::1} to 0
-		set {classementclan::4::2} to "Feu"
+		set {classementclan::4::2} to "Pyremos"
 
-		set {setvalclassementclan} to true	
+		set {setvalclassementclan} to false	
 	set {_i} to 1
 	loop 3 times: 
 		set {_x} to {classementclan::%{_i}%::1}
