@@ -17,16 +17,16 @@ command /passclan:
 	trigger:
 		if {sssssssssssssssss} is not set:
 			if {rangpassclan.%player%} is equal to 0:
-				set {_palier1} to  exp_pass_clan(1) - {xppassclan.%player%}
-				set {_palier2} to  exp_pass_clan(2) - {xppassclan.%player%}
-				set {_palier3} to  exp_pass_clan(3) - {xppassclan.%player%}
-				set {_palier4} to exp_pass_clan(4) - {xppassclan.%player%}
-				set {_palier5} to  exp_pass_clan(5) - {xppassclan.%player%}
-				set {_palier6} to exp_pass_clan(6) - {xppassclan.%player%}
-				set {_palier7} to exp_pass_clan(7) - {xppassclan.%player%}
-				set {_palier8} to exp_pass_clan(8) - {xppassclan.%player%}
-				set {_palier9} to exp_pass_clan(9) - {xppassclan.%player%}
-				set {_palier10} to exp_pass_clan(10) - {xppassclan.%player%}
+				set {_palier1.%player%} to  exp_pass_clan(1) - {xppassclan.%player%}
+				set {_palier2.%player%} to  exp_pass_clan(2) - {xppassclan.%player%}
+				set {_palier3.%player%} to  exp_pass_clan(3) - {xppassclan.%player%}
+				set {_palier4.%player%} to exp_pass_clan(4) - {xppassclan.%player%}
+				set {_palier5.%player%} to  exp_pass_clan(5) - {xppassclan.%player%}
+				set {_palier6.%player%} to exp_pass_clan(6) - {xppassclan.%player%}
+				set {_palier7.%player%} to exp_pass_clan(7) - {xppassclan.%player%}
+				set {_palier8.%player%} to exp_pass_clan(8) - {xppassclan.%player%}
+				set {_palier9.%player%} to exp_pass_clan(9) - {xppassclan.%player%}
+				set {_palier10.%player%} to exp_pass_clan(10) - {xppassclan.%player%}
 				
 				
 				open chest with 6 rows named "&7&l&nPass de clan" to player
@@ -38,7 +38,7 @@ command /passclan:
 	
 				format slot 12 of player with deepslate tiles named " " to be unstealable
 		
-				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "encore %{_palier10}% xp pour débloquer" to be unstealable
 		
 				format slot 14 of player with deepslate tiles named " " to be unstealable
 		
@@ -73,23 +73,23 @@ command /passclan:
 				format slot 34 of player with stripped spruce wood named " " to be unstealable
 				
 				
-				format slot 36 of player with light gray wool named "&bPalier 1" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 36 of player with light gray wool named "&bPalier 1" with lore "                                                      " and "encore %{_palier1}% xp pour débloquer" to be unstealable
 	
-				format slot 37 of player with andesite named "&bPalier 2" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 37 of player with andesite named "&bPalier 2" with lore "                                                      " and "encore %{_palier2}% xp pour débloquer" to be unstealable
 		
-				format slot 38 of player with gravel named "&bPalier 3" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 38 of player with gravel named "&bPalier 3" with lore "                                                      " and "encore %{_palier3}% xp pour débloquer" to be unstealable
 			
-				format slot 39 of player with stone named "&bPalier 4" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 39 of player with stone named "&bPalier 4" with lore "                                                      " and "encore %{_palier4}% xp pour débloquer" to be unstealable
 	
-				format slot 40 of player with stone brick named "&bPalier 5" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 40 of player with stone brick named "&bPalier 5" with lore "                                                      " and "encore %{_palier5}% xp pour débloquer" to be unstealable
 	
-				format slot 41 of player with coal ore named "&bPalier 6" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 41 of player with coal ore named "&bPalier 6" with lore "                                                      " and "encore %{_palier6}% xp pour débloquer" to be unstealable
 		
-				format slot 42 of player with deepslate copper ore named "&bPalier 7" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 42 of player with deepslate copper ore named "&bPalier 7" with lore "                                                      " and "encore %{_palier7}% xp pour débloquer" to be unstealable
 	
-				format slot 43 of player with deepslate named "&bPalier 8" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 43 of player with deepslate named "&bPalier 8" with lore "                                                      " and "encore %{_palier8}% xp pour débloquer" to be unstealable
 	
-				format slot 44 of player with deepslate coal ore named "&bPalier 9" with lore "                                                      " and "encore %{xppassclan.%player%}% xp pour débloquer" to be unstealable
+				format slot 44 of player with deepslate coal ore named "&bPalier 9" with lore "                                                      " and "encore %{_palier9}% xp pour débloquer" to be unstealable
 		
 		
 				format slot 45 of player with podzol named " " to be unstealable
