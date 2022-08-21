@@ -3,7 +3,21 @@ function OR(conditions: booleans) :: boolean:
 		return true
 	return false
 
+command /resetclassclan:
+	permission:*
+	trigger:
+		set {classementclan::1::1} to 0
+		set {classementclan::1::2} to "Aeria"
 
+		set {classementclan::2::1} to 0
+		set {classementclan::2::2} to "Ergaiates"
+
+		set {classementclan::3::1} to 0
+		set {classementclan::3::2} to "Hydrogion"
+
+		set {classementclan::4::1} to 0
+		set {classementclan::4::2} to "Pyremos"
+	
 
 
 on skript start:
