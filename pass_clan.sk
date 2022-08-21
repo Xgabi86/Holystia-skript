@@ -4,7 +4,7 @@ function exp_pass_clan(x: int) :: int:
 		add {_x} to {_t}
 		set {_x} to {_x} - 1
 	broadcast {_t}
-	return {_t}
+	return %{_t}%
 
 
 on join:
