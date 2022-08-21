@@ -14,7 +14,7 @@ on server start:
 function ClanAir(p: player, i: int, y:int) :: int:
 
 	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Air"
+		set {clan.%{_p}%} to "Aeria"
 		close {_p}'s inventory
 		execute console command "/pr addrank %{_p}% Air"
 		add 1 to {_i}
@@ -25,7 +25,7 @@ function ClanAir(p: player, i: int, y:int) :: int:
 	
 function ClanEau(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Eau"
+		set {clan.%{_p}%} to "Hydrogion"
 		close {_p}'s inventory
 		execute console command "/pr addrank %{_p}% Eau"
 		add 1 to {_i}
@@ -36,7 +36,7 @@ function ClanEau(p: player, i: int, y:int) :: int:
 					
 function ClanTerre(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Terre"
+		set {clan.%{_p}%} to "Ergaiates"
 		close {_p}'s inventory
 		execute console command "/pr addrank %{_p}% Terre"
 		add 1 to {_i}
@@ -47,7 +47,7 @@ function ClanTerre(p: player, i: int, y:int) :: int:
 	
 function ClanFeu(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Feu"
+		set {clan.%{_p}%} to "Pyremos"
 		close {_p}'s inventory
 		execute console command "/pr addrank %{_p}% Feu"
 		add 1 to {_i}
