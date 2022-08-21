@@ -171,7 +171,7 @@ command /passclan:
 				format slot 9 of player with firework rocket named " " to be unstealable
 				
 		
-				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "encore %{_palier10.%player%}% xp pour débloquer" to be unstealable
+				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "&aDébloqué" to be unstealable
 		
 				
 				format slot 20 of player with firework rocket named " " to be unstealable
