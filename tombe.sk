@@ -31,3 +31,4 @@ on break of sign:
       drop loop-value at event-location
    clear {deathstuff.%{_name}%::*}
    set event-block to air
+   
