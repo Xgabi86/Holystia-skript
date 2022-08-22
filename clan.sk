@@ -1,12 +1,12 @@
-on server start:
-	if {clan_terre} is not set:
-		set {clan_terre} to 0
-	if {clan_feu} is not set:
-		set {clan_feu} to 0
-	if {clan_air} is not set:
-		set {clan_air} to 0
-	if {clan_eau} is not set:
-		set {clan_eau} to 0
+#on server start:
+#	if {clan_terre} is not set:
+#		set {clan_terre} to 0
+#	if {clan_feu} is not set:
+#		set {clan_feu} to 0
+#	if {clan_air} is not set:
+#		set {clan_air} to 0
+#	if {clan_eau} is not set:
+#		set {clan_eau} to 0
 
 
 
