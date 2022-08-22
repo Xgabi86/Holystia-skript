@@ -68,11 +68,9 @@ function AND(conditions: booleans) :: boolean:
     if {_conditions::*} contains false:
         return false
     return true
-on join:
-	if {first.join.%player%} is not set:
-		add name of player to {players.classement.possession::*}
-		add 0 to {nombres.classement.possession::*}
-		set {first.join.%player%} to true
+
+
+
 command /resetlist:
 	permission:*
 	trigger:
