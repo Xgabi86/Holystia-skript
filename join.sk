@@ -1,0 +1,15 @@
+#Contient toutes les commandes on join de chaque skript
+
+
+
+on join:
+#parcelle.sk
+	if {first.join.%player%} is not set:
+		add name of player to {players.classement.possession::*}
+		add 0 to {nombres.classement.possession::*}
+		set {first.join.%player%} to true
+#pass_clan.sk
+	if {passclanset.%player%} is not set:
+		set {rangpassclan.%player%} to 0
+		set {xppassclan.%player%} to 0
+		set {passclanset.%player%} to true
