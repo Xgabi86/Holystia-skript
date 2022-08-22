@@ -1,0 +1,40 @@
+on break of spawner:
+    if gamemode of player is survival or creative:
+        if player's tool is netherite pickaxe:
+            if tool's name is "&8Spawner Breaker":
+                if player's tool is enchanted with silk touch 5:
+                    if {spawnerplaced::*} contains event-block:
+                        drop 1 spawner
+                        remove event-block from {spawnerplaced::*}
+                    else:
+                        spawnguardian(player)
+                        drop 1 spawner
+                else:
+                    spawnguardian(player)
+                    drop 1 spawner
+            else:
+                spawnguardian(player)
+                drop 1 spawner
+        else:
+            spawnguardian(player)
+            drop 1 spawner
+    
+on place of spawner:
+    add event-block to {spawnerplaced::*}
+    if gamemode of player is survival:
+        if player's balance is more than or equal to 10000:
+            execute console command "/eco take %player% 10000"
+            send "&aBecause you have placed a spawner" to player
+        else:
+            cancel event
+            send "&cYou need 10000$ to place a spawner" to player
+
+function spawnguardian(p: player):
+    execute console command "pr addplayerperm %{_p}% mythicmobs.admin"
+    execute console command "sudo %{_p}% mythicmobs mobs spawn SpawnerGuard"
+    wait 20 tick
+    execute console command "pr delplayerperm %{_p}% mythicmobs.admin"
+
+command /spawnerclear:
+    trigger:
+        set {spawnerplaced::*} to " "

@@ -1,4 +1,4 @@
-on skript start:
+on server start:
 	if {clan_terre} is not set:
 		set {clan_terre} to 0
 	if {clan_feu} is not set:

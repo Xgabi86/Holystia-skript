@@ -1,0 +1,33 @@
+on death of player:
+   set block at {deathpos.%name of victim%} to air
+   clear {deathstuff.%name of victim%::*}
+   loop drops:
+      add loop-item to {deathstuff.%name of victim%::*}
+      remove loop-item from drops
+   set block at location of victim to sign
+   wait 1 tick
+   set line 1 of block at victim to "&lTombe de"
+   set line 2 of block at victim to "&4&l%name of victim%"
+   set line 3 of block at victim to "&3&lRIP"
+   set {deathpos.%name of victim%} to location of block at victim
+
+on click on sign:
+   line 1 of clicked block is "&lTombe de"
+   line 3 of clicked block is "&3&lRIP"
+   set {_name} to line 2 of clicked block
+   replace all "&4&l" with "" in {_name}
+   {deathpos.%{_name}%} is event-location
+   loop {deathstuff.%{_name}%::*}:
+      drop loop-value at event-location
+   clear {deathstuff.%{_name}%::*}
+   set clicked block to air
+on break of sign:
+   line 1 of event-block is "&lTombe de"
+   line 3 of event-block is "&3&lRIP"
+   set {_name} to line 2 of event-block
+   replace all "&4&l" with "" in {_name}
+   {deathpos.%{_name}%} is event-location
+   loop {deathstuff.%{_name}%::*}:
+      drop loop-value at event-location
+   clear {deathstuff.%{_name}%::*}
+   set event-block to air

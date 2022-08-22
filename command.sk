@@ -1,0 +1,116 @@
+options:
+	Essentials-use-player-use-nopermission-use: &cYou do not have permission to use this command !
+	Essentials-use-console-use-nocommand-use: &cYou must be a player to use this command !
+	Essentials-use-slap-use-noneargument1-use: &cFailed: &f/slap &f[&cname of player&f]
+	Essentials-use-slap-use-playerme-use: &cYou cannot slapped yourself !
+	Essentials-use-slap-use-playerme-use-byplayer-use: &7You were slapped by &c%{Essentials.use.nickname.use.%player%.use}% &7!
+	Essentials-use-slap-use-playerme-use-byconsole-use: &7You were slapped by &cConsole &7!
+	Essentials-use-slap-use-playeronline-use: &6You have slapped the player &c%{Essentials.use.nickname.use.%arg 1%.use}% &6!
+	Essentials-use-slap-use-playeroffline-use: &cYou must put the name of a player connected to the server !
+
+options:
+    Essentials-use-trash-use-numbers-use-slot-use: 3
+    Essentials-use-trash-use-named-use: &6&lTrash
+    Essentials-use-player-use-nopermission-use: &cYou do not have permission to use this command !
+    Essentials-use-trash-use: &7You have opened the trash !
+
+command /slap [<offline player>] [<text>]:
+	executable by: player and console
+	aliases: essentials:slap
+	description: &fEssentials command /slap !
+	trigger:
+		if sender is a player:
+			if arg 1 is not set:
+				send "{@Essentials-use-slap-use-noneargument1-use}" to player
+				stop
+			if arg 1 is online:
+				if arg 1 is "%player%":
+					send "{@Essentials-use-slap-use-playerme-use}" to player
+					stop
+				if arg 1 is not "%player%":
+					push {Essentials.use.nickname.use.%arg 1%.use} backwards at speed 1
+					send "{@Essentials-use-slap-use-playeronline-use}" to player
+					send "{@Essentials-use-slap-use-playerme-use-byplayer-use}" to arg 1
+					stop
+			if arg 1 is offline:
+				send "{@Essentials-use-slap-use-playeroffline-use}" to player
+				stop
+		if sender is console:
+			if arg 1 is not set:
+				send "{@Essentials-use-slap-use-noneargument1-use}" to console
+				stop
+			if arg 1 is online:
+				push {Essentials.use.nickname.use.%arg 1%.use} backwards at speed 1
+				send "{@Essentials-use-slap-use-playeronline-use}" to console
+				send "{@Essentials-use-slap-use-playerme-use-byconsole-use}" to arg 1
+				stop
+			if arg 1 is offline:
+				send "{@Essentials-use-slap-use-playeroffline-use}" to console
+				stop
+
+on command "slap" or "essentials:slap":
+	if sender is a player:
+		if player has permission "essentials.*" or "essentials.slap":
+			stop
+		if player doesn't have permission "essentials.*" or "essentials.slap":
+			cancel event
+			send "{@Essentials-use-player-use-nopermission-use}" to player
+			stop
+
+#command /baton:
+#      permission: baton
+#      trigger:
+#            give player blaze rod named "&5Bâton à impulsion magique" with lore "&2 Ce bâton est chargé en magie", "&2peut-être qu'en faisant un clic droit avec dans la main" and "&2cela fera quelque chose"
+
+command /sorciere_delete <player>:
+      permission: baton
+      trigger:
+            delete {cooldown.%player%}
+
+command /staff [<text>]:
+    trigger:
+        if player has permission "server.ops":
+            if arg-1 is "enable":
+                execute console command "op %player%"
+                send "&eOp are &aenabled&e for &3%player%" to player
+            if arg-1 is "e":
+                execute console command "op %player%"
+                send "&eOp are &aenabled&e for &3%player%" to player
+            if arg-1 is "disable":
+                execute console command "deop %player%"
+                send "&eOp are &cdisabled&e for &3%player%" to player
+            if arg-1 is "d":
+                execute console command "deop %player%"
+                send "&eOp are &cdisabled&e for &3%player%" to player
+            else if arg-1 is not "enable" or "disable" or "e" or "d":
+                send "&4Invalid argument ! set to &aenable&4 or &cdisable&4." to player
+
+command /trash [<text>]:
+	executable by: player and console
+	aliases: essentials:trash, bin, essentials:bin
+	description: &fEssentials command /trash !
+	trigger:
+		if sender is a player:
+			wait 2 ticks
+			open chest with {@Essentials-use-trash-use-numbers-use-slot-use} rows named "{@Essentials-use-trash-use-named-use}" to player
+			send "{@Essentials-use-trash-use}" to player
+			stop
+		if sender is console:
+			send "{@Essentials-use-console-use-nocommand-use}" to console
+			stop
+
+on command "bin" or "essentials:bin" or "trash" or "essentials:trash":
+	if sender is a player:
+		if player has permission "essentials.*" or "essentials.trash":
+			stop
+		if player doesn't have permission "essentials.*" or "essentials.trash":
+			cancel event
+			send "{@Essentials-use-player-use-nopermission-use}" to player
+			stop
+
+command /chat clear:
+    permission: essential.cc
+    trigger:
+        loop 20000 times:
+            broadcast " "
+        broadcast "&4Le chat a ete supprimer par &b%player%"

@@ -1,0 +1,88 @@
+on mine of stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+    if tool's name is "&9Hammer":
+        if custom model data of player's tool is 1654:
+            loop 26 times:
+                if block at block 1 north event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 north event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 south event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 south event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 north event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 north event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 south event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 south event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:  
+                    break block at block 1 down 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 north event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 north event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 south event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 south event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 north 1 south event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 north 1 south event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 north 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 north 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 north 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 north 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 south 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 south 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 south 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 south 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 east 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 east 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 north 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 north 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 north 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 north 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 south 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 south 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 up 1 south 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 up 1 south 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 north 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 north 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 north 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 north 1 west event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 south 1 east event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 south 1 east event-location naturally using player's tool
+                    wait 1 tick
+                else if block at block 1 down 1 south 1 west event-location is stone, coal ore, copper ore, iron ore, gold ore, diamond ore, redstone ore, lapis ore, emerald ore, deepslate, deepslate coal ore, deepslate copper ore, deepslate iron ore, deepslate gold ore, deepslate diamond ore, deepslate redstone ore, deepslate lapis ore or deepslate emerald ore:
+                    break block at block 1 down 1 south 1 west event-location naturally using player's tool
+                    wait 1 tick

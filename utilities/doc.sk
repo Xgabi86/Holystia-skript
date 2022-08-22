@@ -1,0 +1,4 @@
+command /doc:
+    trigger:
+        if player has permission "server.ops":
+            execute player command "daodcmin"

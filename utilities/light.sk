@@ -1,0 +1,11 @@
+command /light [<text>]:
+    trigger:
+        if player has permission "server.ops":
+            if arg-1 is "enable" or "e":
+                execute console command "effect give %player% night_vision 10000 0 true"
+                send "&elight mode is &aenabled&e for &3%player%" to player
+            if arg-1 is "disable" or "d":
+                execute console command "effect clear %player% night_vision"
+                send "&eLight mode is &cdisabled&e for &3%player%" to player
+            else if arg-1 is not "enable" or "disable" or "e" or "d":
+                send "&4Invalid argument ! set to &aenable&4 or &cdisable&4." to player

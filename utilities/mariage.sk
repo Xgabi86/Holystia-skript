@@ -1,0 +1,53 @@
+command /marry [<player>]:
+	trigger:
+		if {mariage::%player%} is not equal to true:
+			if {mariage::%arg-1%} is not equal to true:
+				if player's balance is more than or equal to 500:
+					broadcast "&6&l%player% &eveut épouser &6&l%arg-1% &e!"
+					send " %player% veut vous épouser, écrivez dans le tchat 'Oui je le veux !' pour l'épouser" to arg-1
+					wait 1 minute
+					if {ouijeleveux::%arg-1%} is equal to true:
+						execute console command "/eco take %player% 500"
+						execute console command "pr addrank %arg-1% Marié(e)"
+						execute console command "pr addrank %player% Marié(e)"
+						broadcast "&d%player% vient de se marier à %arg-1% !"
+						set {epoux::%player%} to name of arg-1
+						set {epoux::%arg-1%} to name of player
+						set {mariage::%player%} to true
+						set {mariage::%arg-1%} to true	
+					else:
+						send "Cette personne ne semble pas vouloir être votre épouse/époux" to player
+				else:
+					send "Les frais d'un mariage s'élève à 500$!" to player 
+			else:
+				send "Cette personne est déjà marié trouvez-vous un(e) autre partenaire" to player
+		else:
+			send "Vous êtes déjà mariés" to player
+
+
+on chat:
+	if message contains "Oui je le veux !":
+		set {ouijeleveux::%player%} to true
+		wait 1 minute
+		set {ouijeleveux::%player%} to false
+	
+
+
+
+
+
+command /divorce [<player>]:
+    trigger:
+        execute console command "pr delrank %arg-1% Marié(e)"
+        execute console command "pr delrank %player% Marié(e)"
+        broadcast "&c%arg-1% viens de divorcé avec %player% !"
+        set {epoux::%player%} to " " 	
+        set {epoux::%arg-1%} to " " 
+        set {mariage::%player%} to false
+        set {mariage::%arg-1%} to false	
+        
+on damage:
+	if victim is player:
+		if {epoux::%attacker%} is equal to name of victim:
+			cancel event
+			send "La violence conjugale c'est mal !" to attacker

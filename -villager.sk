@@ -1,0 +1,5 @@
+on load:
+    set {_villagers} to farmer, fisherman, shepherd, fletcher, librarian, cartographer, cleric, armorer, weaponsmith, toolsmith, butcher, leatherworker, mason, nitwit
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

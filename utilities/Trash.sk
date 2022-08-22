@@ -1,0 +1,29 @@
+options:
+	Essentials-use-trash-use-numbers-use-slot-use: 3
+	Essentials-use-trash-use-named-use: &6&lTrash
+
+options:
+	Essentials-use-player-use-nopermission-use: &cYou do not have permission to use this command !
+	Essentials-use-console-use-nocommand-use: &cYou must be a player to use this command !
+	Essentials-use-trash-use: &7You have opened the trash !
+	Essentials-use-sign-use-create-use: &7You have created sign !
+
+on sign change:
+	if player has permission "essentials.sign.*" or "essentials.sign.create.*" or "essentials.sign.create.trash" or "essentials.*":
+		if line 1 is "[trash]":
+			set line 1 of block to ""
+			set line 2 of block to "&1[trash]"
+			send "{@Essentials-use-sign-use-create-use}" to player
+			stop
+	if player doesn't have permission "essentials.sign.*" or "essentials.sign.create.*" or "essentials.sign.create.trash" or "essentials.*":
+		stop
+
+on right click on sign:
+	if player has permission "essentials.sign.*" or "essentials.sign.use.*" or "essentials.sign.use.trash" or "essentials.*":
+		if line 2 of block is "&1[trash]":
+			wait 2 ticks
+			open chest with {@Essentials-use-trash-use-numbers-use-slot-use} rows named "{@Essentials-use-trash-use-named-use}" to player
+			send "{@Essentials-use-trash-use}" to player
+			stop
+	if player doesn't have permission "essentials.sign.*" or "essentials.sign.use.*" or "essentials.sign.use.trash" or "essentials.*":
+		stop

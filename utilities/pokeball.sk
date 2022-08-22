@@ -1,0 +1,132 @@
+
+on shoot:
+	if name of shooter's held item is "&7Oeuf de capture en fer": 
+		set {ironsnowball.%shooter%} to true
+
+	if name of shooter's held item is "&eOeuf de capture en or": 
+		set {goldsnowball.%shooter%} to true
+
+	if name of shooter's held item is "&bOeuf de capture en diamant": 
+		set {diamondsnowball.%shooter%} to true
+
+	if name of shooter's held item is "&2Oeuf de capture Ultime": 
+		set {emeraldsnowball.%shooter%} to true
+		
+
+
+on damage:
+   if event-projectile is a snowball:
+      if {ironsnowball.%shooter%} is set:
+         delete {ironsnowball.%shooter%}
+         if type of victim is player:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         else:
+            set {balance} to (attacker's balance +50)
+            execute console command "eco set %attacker% %{_balance}%"
+            chance of 10%:
+               set {_string} to  "%victim's type%"
+   
+               set {_string::*} to {_string} split at ""
+               set {_finalString} to ""
+               loop length of {_string} times:
+                  if {_string::%loop-number%} is " ":
+                     set {_finalString} to "%{_finalString}%_"
+                  else:
+                     set {_finalString} to "%{_finalString}%%{_string::%loop-number%}%"
+               execute console command "give %attacker% %{_finalString}%_spawn_egg 1"
+               execute console command "minecraft:tp %uuid of victim% 0 -1000 0"
+               send "%victim's type% attrapé(e)" to attacker
+   
+            chance of 10%:
+               send "Pas de chance" to attacker
+               stop
+            
+
+      if {goldsnowball.%shooter%} is set:
+         delete {goldsnowball.%shooter%}
+         if type of victim is player:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         else:
+            
+            set {_balance} to (attacker's balance +100)
+            execute console command "eco set %attacker% %{_balance}%"
+            chance of 90%:
+               set {_string} to  "%victim's type%"
+  
+   
+               set {_string::*} to {_string} split at ""
+               set {_finalString} to ""
+               loop length of {_string} times:
+                  if {_string::%loop-number%} is " ":
+                     set {_finalString} to "%{_finalString}%_"
+                  else:
+                     set {_finalString} to "%{_finalString}%%{_string::%loop-number%}%"
+               execute console command "give %attacker% %{_finalString}%_spawn_egg 1"
+               execute console command "minecraft:tp %uuid of victim% 0 -1000 0"
+               send "%victim's type% attrapé(e)" to attacker
+            chance of 65%:
+              
+               send "Pas de chance" to attacker
+               stop
+
+
+      if {diamondsnowball.%shooter%} is set:
+         delete {diamondsnowball.%shooter%}
+         if type of victim is player:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         if type of victim is ender dragon:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         if type of victim is elder guardian:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         else:
+            set {_balance} to (attacker's balance -200)
+            execute console command "eco set %attacker% %{_balance}%"
+            chance of 60%:
+               set {_string} to  "%victim's type%"
+  
+   
+               set {_string::*} to {_string} split at ""
+               set {_finalString} to ""
+               loop length of {_string} times:
+                  if {_string::%loop-number%} is " ":
+                     set {_finalString} to "%{_finalString}%_"
+                  else:
+                     set {_finalString} to "%{_finalString}%%{_string::%loop-number%}%"
+               execute console command "give %attacker% %{_finalString}%_spawn_egg 1"
+               execute console command "minecraft:tp %uuid of victim% 0 -1000 0"
+               send "%victim's type% attrapé(e)" to attacker
+            chance of 40%:
+               execute console command "eco set %attacker% %{_balance}%"
+               stop
+
+
+      if {emeraldsnowball.%shooter%} is set:
+     
+         delete {emeraldsnowball.%shooter%}
+         if type of victim is player:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         if type of victim is ender dragon:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         if type of victim is elder guardian:
+            send "hmmmmmm pas la bonne cible je pense" to attacker
+         else: 
+            set {_balance} to (attacker's balance -400)
+            execute console command "eco set %attacker% %{_balance}%"
+            chance of 90%:
+               set {_string} to  "%victim's type%"
+   
+   
+               set {_string::*} to {_string} split at ""
+               set {_finalString} to ""
+               loop length of {_string} times:
+                  if {_string::%loop-number%} is " ":
+                     set {_finalString} to "%{_finalString}%_"
+                  else:
+                     set {_finalString} to "%{_finalString}%%{_string::%loop-number%}%"
+               execute console command "give %attacker% %{_finalString}%_spawn_egg 1"
+               execute console command "minecraft:tp %uuid of victim% 0 -1000 0"
+               send "%victim's type% attrapé(e)" to attacker
+            chance of 10%:
+               send "Pas de chance" to attacker
+               stop
+

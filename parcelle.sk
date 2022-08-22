@@ -1,0 +1,135 @@
+#Obtention de terrains sur la zone commerciale
+
+on rightclick on a sign:
+	if line 1 of target block is "Achat parcelle":
+		if player's inventory contains 2 of diamond :
+			give player paper of protection 10 named "&1confirmation de propriété de &e%player%"
+			remove 2 of diamond from player's inventory
+		else: 
+			send "Vous ne pouvez pas payer une parcelle" to player
+			
+function chunks_in_radius(center: location, radius: number) :: chunks:
+    set {_pos} to {_center}
+    set z-coordinate of {_pos} to z-coordinate of {_center} - 16 * {_radius}
+    loop 2 * {_radius} + 1 times:
+        set x-coordinate of {_pos} to x-coordinate of {_center} - 16 * {_radius}
+        loop 2 * {_radius} + 1 times:
+            add chunk at {_pos} to {_chunks::*}
+            add 16 to x-coordinate of {_pos}
+        add 16 to z-coordinate of {_pos}
+    return {_chunks::*}	
+    
+		
+on right click:
+	if tool is paper:
+		if tool's name is "&1confirmation de propriété de &e%player%":
+			if tool is enchanted with protection 10:
+				if player is in region "zonecommerciale1234":
+					if {chunks.possédés::%chunk at player's location%} is not set:
+						if {chunks.possédés.%player%::*} is not set:
+							add chunk at player's location to {chunks.possédés::*}
+							add chunk at player's location to {chunks.possédés.%player%::*}				
+							remove 1 of paper of protection 10 named "&1confirmation de propriété de &e%player%" from player's inventory
+							loop {players.classement.possession::*}:
+								set {_i} to loop-index
+								if {players.classement.possession::%{_i}%} is equal to name of player:
+									add 1 to {nombres.classement.possession::%{_i}%}
+						else:
+							set {_comptechunk::%player%} to 0
+							set {_chunks::*} to chunks_in_radius(player,1)
+							loop {_chunks::*}:
+								if {chunks.possédés.%player%::%loop-value%} is set:
+									add 1 to {_comptechunk::%player%}	
+							if {_comptechunk::%player%} is greater than or equal to 1:
+								add chunk at player's location to {chunks.possédés::*}
+								add chunk at player's location to {chunks.possédés.%player%::*}				
+								remove 1 of paper of protection 10 named "&1confirmation de propriété de &e%player%" from player's inventory
+								loop {players.classement.possession::*}:
+									set {_i} to loop-index
+									if {players.classement.possession::%{_i}%} is equal to name of player:
+										add 1 to {nombres.classement.possession::%{_i}%}
+							else:
+								send "&4Il faut que toutes vos possession dans la zone commerciale soient côtes à côtes" to player
+							set {_comptechunk::%player%} to 0
+								
+								
+					else:
+						send "&4Ce chunk appartient à quelq'un d'autre, il me semble qu'il vous soit impossible de l'acheter" to player				
+				
+				
+				else:
+					send "&4Vous ne pouvez pas acheter ce terrain, allez dans la zone commerciale pour acheter un terrain." to player
+					
+					
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Classement
+function AND(conditions: booleans) :: boolean:
+    if {_conditions::*} contains false:
+        return false
+    return true
+on join:
+	if {first.join.%player%} is not set:
+		add name of player to {players.classement.possession::*}
+		add 0 to {nombres.classement.possession::*}
+		set {first.join.%player%} to true
+command /resetlist:
+	permission:*
+	trigger:
+		clear {players.classement.possession::*}
+		clear {nombres.classement.possession::*}
+on load:
+    make console execute "/classementcommerciale"
+
+
+command /classementcommerciale:
+    permission:*
+    trigger:
+        set {_z} to amount of {players.classement.possession::*}
+        set {_i} to 2
+        loop {_z}-1 times:
+            set {_x} to {nombres.classement.possession::%{_i}%}
+            set {_n} to {players.classement.possession::%{_i}%}
+            set {_j} to {_i}
+            set {_b} to {_j}-1
+            while AND( check [{_j} is greater than 1], check [{nombres.classement.possession::%{_b}%} is greater than {_x}] ) is true: 
+                set {players.classement.possession::%{_j}%} to {players.classement.possession::%{_b}%}
+                set {nombres.classement.possession::%{_j}%} to {nombres.classement.possession::%{_b}%}
+                set {_j} to {_j}-1
+                set {_b} to {_j}-1 
+            set {nombres.classement.possession::%{_j}%} to {_x}
+            set {players.classement.possession::%{_j}%} to {_n}
+            add 1 to {_i}
+        create holo object "&bClassement des possesseurs de terrains :;ItemStack:grass_block;1er : %{players.classement.possession::1}% avec %{nombres.classement.possession::1}% chunk(s);2eme : %{players.classement.possession::2}% avec %{nombres.classement.possession::2}% chunk(s);3eme : %{players.classement.possession::3}% avec %{nombres.classement.possession::3}% chunk(s);4eme : %{players.classement.possession::4}% avec %{nombres.classement.possession::4}% chunk(s);5eme : %{players.classement.possession::5}% avec %{nombres.classement.possession::5}% chunk(s)" with id "classement.possession.holo" at location(-187,69,104,world "world")
+        wait 1 hour
+        delete holo object "classement.possession.holo"            
+every hour:
+    wait 2 seconds
+    make console execute "/classementcommerciale"
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Protection            
+on break:       
+	if player is in region "zonecommerciale1234":
+		if  {chunks.possédés.%player%::%chunk at player's location%} is set:
+			set {Somethingrandom} to true			
+		else if {chunks.possédés::%chunk at player's location%} is set:
+			send "&4Vous ne pouvez casser la propriété de quelqu'un d'autre" to player
+			cancel event
+on place:       
+	if player is in region "zonecommerciale1234":
+		if  {chunks.possédés.%player%::%chunk at player's location%} is set:
+			set {Somethingrandom} to true			
+		else if {chunks.possédés::%chunk at player's location%} is set:
+			send "&4Vous ne pouvez obstruer la propriété de quelqu'un d'autre" to player
+			cancel event
+#set {_i} to 1
+#loop %amount of {players.classement.possession::*}%-1 times:
+#    set {_x} to {nombres.classement.possession::%{_i}%}
+#    set {_n} to {players.classement.possession::%{_i}%}
+#    set {_j} to {_i}
+#    while AND(check[ %{_j}% is greater than 0],check[%{nombres.classement.possession::%{_j}%-1} is grater than %{_x}%]) is true:
+#        set {players.classement.possession::%{_j}%} to {players.classement.possession::%{_j}%-1}
+#        set {nombres.classement.possession::%{_j}%} to {nombres.classement.possession::%{_j}%-1}
+#        set {_j} to %{_j}%-1
+#    set {nombres.classement.possession::%{_j}%} to {_x}
+#    set {players.classement.possession::%{_j}%} to {_n}

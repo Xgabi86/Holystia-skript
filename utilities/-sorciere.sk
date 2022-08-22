@@ -1,0 +1,29 @@
+on right click:
+    if tool is blaze rod:
+        if tool's name is "&5Bâton à impulsion magique":
+            if {cooldown.%player%} is not set:
+                set {cooldown.%player%} to 1
+                send "&e Wooosh" to player
+                apply swiftness 5 to player for 10 seconds
+                apply swiftness to player for 60 seconds
+                apply jump boost 10 to player for 6 seconds 
+                apply slow falling to player for 120 seconds
+                send "&AAttendez 45 secondes que le bâton se recharche" to player
+                wait 45 seconds
+                delete {cooldown.%player%}
+                send "&e Bâton rechargé !" to player
+            if {cooldown.%player%} is set:
+                send "Un peu de patience" to player
+
+on skript start:
+	delete {cooldown.%player%}
+
+
+
+On Consume:
+    if player's tool is awkward potion:
+        if player's tool's name is "&3Adrénaline":
+            apply resistance 1 to player for 2 seconds
+            apply speed 4 to player for 15 seconds
+            apply strength 1 to player for 9 seconds
+            apply night vision 2 to player for 15 seconds

@@ -1,0 +1,5 @@
+command /item [<text>]:
+    trigger:
+        if player has permission "server.ops":
+            execute console command "give %player% %arg-1% 1"
+            send "&a1 %arg-1% added to your inventory" to player

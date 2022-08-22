@@ -1,0 +1,99 @@
+
+
+command /hatk:
+    executable by: player
+    trigger:
+        if player has permission "clan.feu":
+            give player blaze rod of sharpness 1 named "&2RedHawk"
+        if player has permission "clan.air":
+            give player string of sharpness 1 named "&2Quake"
+on right click with blaze rod:
+    if player has permission "clan.feu":
+        if tool's name is "&2RedHawk":
+            if difference between {tempsatk::%player%} and now is greater than or equal to 1 minute: 
+                cancel event
+                loop 3 times:
+                    make player shoot an fireball at speed 3
+                    wait 1 second
+                set {tempsatk::%player%} to now
+            if {tempsatk::%player%} is not set: 
+                cancel event
+                loop 3 times:
+                    make player shoot an fireball at speed 3
+                    wait 1 second
+                set {tempsatk::%player%} to now
+            else:
+                set {remainatk::%player%} to difference between now and {tempsatk::%player%}
+                send "Vous devez encore attendre %{remainatk::%player%}% pour utiliser cette abilité." to player
+                
+on right click with string:
+    if player has permission "clan.air":
+        if tool's name is "&2Quake":
+            if {tempsatk::%player%} is not set:
+                cancel event
+                set {localisationf} to player's location
+                loop players in radius 20 around player:
+                    if loop-player has permission "clan.air":
+                        send "vous sentez une légère brise" to loop-player
+                    else:
+                        teleport loop-player to {localisationf} 
+                		
+                wait 5 second
+                create a safe explosion of force 20 at the player
+                wait 1 second
+                set {tempsatk::%player%} to now           
+            if difference between {tempsatk::%player%} and now is greater than or equal to 1 minute: 
+                cancel event
+                set {localisationf} to player's location
+                loop players in radius 20 around player:
+                    if loop-player has permission "clan.air":
+                        send "vous sentez une légère brise" to loop-player
+                    else:
+                        teleport loop-player to {localisationf}
+                        
+                wait 5 second
+                create a safe explosion of force 20 at the player
+                wait 1 second
+                set {tempsatk::%player%} to now
+            
+            else:
+                set {remainatk::%player%} to difference between now and {tempsatk::%player%}
+                send "Vous devez encore attendre %{remainatk::%player%}% pour utiliser cette abilité." to player      
+                   
+command /hmov:
+    executable by: player
+    trigger:
+        if player has permission "clan.air":
+            give player blaze rod of sharpness 1 named "&2Geppo"
+
+on right click with blaze rod:
+    if tool's name is "&2Geppo":
+        show 20 "portal" particles at location of player for player offset by 0.4, 0.7, 0.4   
+        if difference between {tempsmov::%player%} and now is greater than or equal to 1 minute: 
+            wait 5 ticks
+
+            push player upwards at speed 0.8
+            push player in direction of player at speed 1
+
+            set {tempsmov::%player%} to now
+        if {tempsmov::%player%} is not set:
+            wait 5 ticks
+
+            push player upwards at speed 0.8
+            push player in direction of player at speed 1
+
+            set {tempsmov::%player%} to now        
+        else:
+            set {remainmov::%player%} to difference between {tempsmov::%player%} and now 
+            send "Vous devez encore attendre %{remainmov::%player%}% pour utiliser cette abilité." to player
+
+
+
+
+on place of string:
+	if tool's name is "&2Quake":
+		cancel event
+command /resetatk <player>:
+	permission:*
+	trigger:
+		delete {tempsatk::%player%}

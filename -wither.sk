@@ -1,0 +1,14 @@
+on region enter:
+    wait 3 ticks
+    if "%region at player%" contains "meteorite":
+        apply poison 200 to player for 999999 seconds
+        apply slowness 300 to player for 999999 seconds
+        apply nausea to player for 999999 seconds
+
+
+on region exit:
+    if "%region at player%" contains "meteorite":
+        remove slowness from player
+
+         
+
