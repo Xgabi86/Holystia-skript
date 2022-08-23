@@ -32,3 +32,4 @@ on break of sign:
    clear {deathstuff.%{_name}%::*}
    set event-block to air
    
+
