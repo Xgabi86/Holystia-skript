@@ -176,8 +176,9 @@ command /passclan:
 command /passclan2:
 	trigger:
 		if {sssssssssssssssss} is not set:
+			open chest with 6 rows named "&7&l&nPass de clan" to player
 			if {rangpassclan.%player%} is equal to 0:
-				open chest with 6 rows named "&7&l&nPass de clan" to player
+				
 				
 				format slot 1 of player with smooth basalt named " " to be unstealable
 		
@@ -329,8 +330,9 @@ command /passclan2:
 command /passclan3:
 	trigger:
 		if {sssssssssssssssss} is not set:
+			open chest with 6 rows named "&7&l&nPass de clan" to player
 			if {rangpassclan.%player%} is equal to 0:
-				open chest with 6 rows named "&7&l&nPass de clan" to player
+				
 				
 				format slot 5 of player with polished andesite named " " to be unstealable
 		
@@ -467,8 +469,9 @@ command /passclan3:
 command /passclan4:	
 	trigger:
 		if {sssssssssssssssss} is not set:
+			open chest with 6 rows named "&7&l&nPass de clan" to player
 			if {rangpassclan.%player%} is equal to 0:
-				open chest with 6 rows named "&7&l&nPass de clan" to player
+				
 				
 				format slot 2 of player with smooth quartz named " " to be unstealable
 				
