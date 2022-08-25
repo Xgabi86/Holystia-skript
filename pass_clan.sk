@@ -167,7 +167,7 @@ command /passclan:
 				format slot 9 of player with firework rocket named " " to be unstealable
 				
 		
-				format slot 13 of player with nether star named "&bPalier 10" of efficiency 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "&aDébloqué" to be unstealable
 		
 				
 				format slot 20 of player with firework rocket named " " to be unstealable
@@ -322,7 +322,7 @@ command /passclan2:
 				
 				format slot 11 of player with firework rocket named " " to be unstealable
 				
-				format slot 13 of player with nether star named "&bPalier 10" of sharpness 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "&aDébloqué" to be unstealable
 			
 				format slot 17 of player with firework rocket named " " to be unstealable
 				
@@ -415,39 +415,39 @@ command /passclan3:
 			
 			if {rangpassclan.%player%} is greater than or equal to 1:		
 				
-				format slot 36 of player with packed ice named "&bPalier 1" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 36 of player with packed ice named "&bPalier 1" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 	
 			if {rangpassclan.%player%} is greater than or equal to 2:	
 				
-				format slot 37 of player with blue ice named "&bPalier 2" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 37 of player with blue ice named "&bPalier 2" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 		
 			if {rangpassclan.%player%} is greater than or equal to 3:				
 				
-				format slot 38 of player with light blue glazed terracotta named "&bPalier 3" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 38 of player with light blue glazed terracotta named "&bPalier 3" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 			
 			if {rangpassclan.%player%} is greater than or equal to 4:				
 				
-				format slot 39 of player with light blue concrete powder named "&bPalier 4" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 39 of player with light blue concrete powder named "&bPalier 4" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 			
 			if {rangpassclan.%player%} is greater than or equal to 5:	
 
-				format slot 40 of player with tube coral block named "&bPalier 5" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 40 of player with tube coral block named "&bPalier 5" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 	
 			if {rangpassclan.%player%} is greater than or equal to 6:
 
-				format slot 41 of player with blue concrete powder named "&bPalier 6" of mending 1 with lore "                                                      " and  "&aDébloqué" to be unstealable
+				format slot 41 of player with blue concrete powder named "&bPalier 6" of mending with lore "                                                      " and  "&aDébloqué" to be unstealable
 		
 			if {rangpassclan.%player%} is greater than or equal to 7:		
 
-				format slot 42 of player with blue glazed terracotta named "&bPalier 7" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 42 of player with blue glazed terracotta named "&bPalier 7" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 
 			if {rangpassclan.%player%} is greater than or equal to 8:
 
-				format slot 43 of player with blue wool named "&bPalier 8" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 43 of player with blue wool named "&bPalier 8" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 
 			if {rangpassclan.%player%} is greater than or equal to 9:
 
-				format slot 44 of player with blue concrete named "&bPalier 9" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 44 of player with blue concrete named "&bPalier 9" of mending with lore "                                                      " and "&aDébloqué" to be unstealable
 
 			if {rangpassclan.%player%} is equal to 10:
 			
@@ -455,7 +455,7 @@ command /passclan3:
 				
 				format slot 10 of player with firework rocket named " " to be unstealable
 				
-				format slot 14 of player with nether star named "&bPalier 10" of mending 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 14 of player with nether star named "&bPalier 10" with lore "                                                      " and "&aDébloqué" to be unstealable
 				
 				format slot 16 of player with firework rocket named " " to be unstealable
 				
@@ -585,7 +585,7 @@ command /passclan4:
 				
 				format slot 7 of player with firework rocket named " " to be unstealable
 
-				format slot 13 of player with nether star named "&bPalier 10" of fortune 1 with lore "                                                      " and "&aDébloqué" to be unstealable
+				format slot 13 of player with nether star named "&bPalier 10" with lore "                                                      " and "&aDébloqué" to be unstealable
 
 				format slot 20 of player with firework rocket named " " to be unstealable
 				
