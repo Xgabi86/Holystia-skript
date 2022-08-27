@@ -69,7 +69,23 @@ every hour:
 	delete holo object "classement.clan.holo"
 
 
-
+command /refreshclassementclan:
+	delete holo object "classement.clan.holo"
+	set {_i} to 1
+	loop 3 times:
+		set {_x} to {classementclan::%{_i}%::1}
+		set {_n} to {classementclan::%{_i}%::2}
+		set {_j} to {_i}
+		while AND( check [ {_j} is greater than 0], check [{nombres.classement.possession::%{_j}%-1} is greater than {_x}] ) is true:
+			set {classementclan::%{_j}%::1} to {classementclan::%{_j}%-1::1}
+			set {classementclan::%{_j}%::2} to {classementclan::%{_j}%-1::2}	
+			set {_j} to {_j}-1
+		set {classementclan::%{_j}%::1} to {_x}
+		set {classementclan::%{_j}%::2} to {_n}
+		add 1 to {_i}
+	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-175,70,183,world "world")
+	wait 1 hour
+	delete holo object "classement.clan.holo"
 
 
 
