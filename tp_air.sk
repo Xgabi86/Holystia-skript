@@ -1,0 +1,10 @@
+ 
+
+on right click on sign:
+  if player is in region "regiondeholystia":
+    set {_transporteur1} to location -241, 131, 293 in world "world"
+    #set {_bombardier1} to location -241, 131, 293 in world "world"
+    if line 1 of target block is "Téléportation":
+      if line 2 of target block is "Transporteur 1":
+        teleport player to {_transporteur1}
+    
