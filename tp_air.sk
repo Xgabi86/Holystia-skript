@@ -1,10 +1,19 @@
+on skript start:
+ set {transporteur1} to location -240, 131, 293 in world "world"
+ set {transporteur2} to location -176, 123, 346 in world "world"
+ set {bombardier1} to location -215, 169, 346 in world "world"
+ set {bombardier2} to location -291, 158, 304 in world "world"
+ 
  
 
 on right click on sign:
   if player is in region "regiondeholystia":
-    set {_transporteur1} to location -240, 131, 293 in world "world"
-    #set {_bombardier1} to location -241, 131, 293 in world "world"
     if line 1 of target block is "Téléportation":
       if line 2 of target block is "Transporteur 1":
-        teleport player to {_transporteur1}
-    
+        teleport player to {transporteur1}
+      if line 2 of target block is "Transporteur 2":
+        teleport player to {transporteur2}
+      if line 2 of target block is "Bombardier 1":
+        teleport player to {bombardier1}
+      if line 2 of target block is "Bombardier 2":
+        teleport player to {bombardier2}
