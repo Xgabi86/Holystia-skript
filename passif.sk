@@ -2,41 +2,59 @@ command /passif:
     trigger:
         if player has permission "server.verif.op":
             send "&cVeuiller desactiver votre mode staff."
-        else if player has permission "clan.passif.eau":
+        else if player has permission "clan.eau":
             if {cooldown.%player%} is not set:
                 set {cooldown.%player%} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
+		
+		apply dolphin grace to player for 4 minutes
+		apply water breathing to player for 6 minutes
+		
                 wait 10 minutes
                 delete {cooldown.%player%}
                 send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
-        else if player has permission "clan.passif.feu":
+        else if player has permission "clan.feu":
             if {cooldown.%player%} is not set:
                 set {cooldown.%player%} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
+		
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
+		apply fire resistance to player for 5 minutes
+		
+		apply speed to player for 1 minute
                 wait 10 minutes
                 delete {cooldown.%player%}
                 send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
-        else if player has permission "clan.passif.terre":
+        else if player has permission "clan.terre":
             if {cooldown.%player%} is not set:
                 set {cooldown.%player%} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
+		
+		apply haste 2 to player for 10 minutes
+		
                 wait 10 minutes
                 delete {cooldown.%player%}
                 send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
-        else if player has permission "clan.passif.air":
+        else if player has permission "clan.air":
             if {cooldown.%player%} is not set:
                 set {cooldown.%player%} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
+		
+		set {nofalldamage.%player%} to 1
+		
+		wait 2 minutes
+		
+		delete {nofalldamage.%player%}
+		
                 wait 10 minutes
                 delete {cooldown.%player%}
                 send "&e Passif rechargé !" to player
@@ -46,6 +64,29 @@ command /passif:
             send "&cVous devez rejoindre un clan pour avoir un passif." to player
 
 
-
+on player disconnect :
+	if {cooldown.%player%} is set:
+		if player has permission "clan.air":
+			delete {nofalldamage.%player%}
+		
+		if player has permission "clan.feu":
+			remove fire resistance from player
+			remove speed from player	
+			
+		if player has permission "clan.terre":
+		
+			remove haste from player
+		
+		if player has permission "clan.eau":
+			remove dolphin grace from player
+			remove water breathing from player
+			
+on damage:
+	if player has permission "clan.air":
+		if {nofalldamage.%player%} is set:
+			if damage cause is "fall":
+        			cancel event
+	
+	
 on load:
 	delete {cooldown.%player%}
