@@ -9,7 +9,7 @@ command /passif:
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
                 wait 10 minutes
                 delete {cooldown.%player%}
-                send "&e Bâton rechargé !" to player
+                send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
         else if player has permission "clan.passif.feu":
@@ -19,7 +19,7 @@ command /passif:
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
                 wait 10 minutes
                 delete {cooldown.%player%}
-                send "&e Bâton rechargé !" to player
+                send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
         else if player has permission "clan.passif.terre":
@@ -29,7 +29,7 @@ command /passif:
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
                 wait 10 minutes
                 delete {cooldown.%player%}
-                send "&e Bâton rechargé !" to player
+                send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
         else if player has permission "clan.passif.air":
@@ -39,33 +39,13 @@ command /passif:
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
                 wait 10 minutes
                 delete {cooldown.%player%}
-                send "&e Bâton rechargé !" to player
+                send "&e Passif rechargé !" to player
             if {cooldown.%player%} is set:
                 send "&cUn peu de patience" to player
         else:
             send "&cVous devez rejoindre un clan pour avoir un passif." to player
 
-command /team join [<text>]:
-    trigger:
-        if player has permission "server.verif.op":
-            if arg-1 is "eau":
-                execute console command "/pr addplayerperm %player% clan.passif.eau"
-                send "&aVous avez rejoint le clan &3Eau&r." to player
-            if arg-1 is "feu":
-                execute console command "/pr addplayerperm %player% clan.passif.feu"
-                send "&aVous avez rejoint le clan &eFeu&r." to player
-            if arg-1 is "terre":
-                execute console command "/pr addplayerperm %player% clan.passif.terre"
-                send "&aVous avez rejoint le clan &6Terre&r." to player
-            if arg-1 is "air":
-                execute console command "/pr addplayerperm %player% clan.passif.air"
-                send "&aVous avez rejoint le clan &fAir&r." to player
-            if arg-1 is "reset":
-                execute console command "/pr delplayerperm %player% clan.passif.eau"
-                execute console command "/pr delplayerperm %player% clan.passif.feu"
-                execute console command "/pr delplayerperm %player% clan.passif.terre"
-                execute console command "/pr delplayerperm %player% clan.passif.air"
-                send "&aVous avez quiter les clans." to player
+
 
 on load:
 	delete {cooldown.%player%}
