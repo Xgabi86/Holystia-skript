@@ -15,7 +15,8 @@ command /regler niveau <player> <integer>:
 		set {rangpassclan.%arg-1%} to arg-2
 
 
-command /passclan:
+command /passclan_terre:
+	permission:clan.terre
 	trigger:
 		set {_palier1.%player%} to  exp_pass_clan(1) - {xppassclan.%player%}
 		set {_palier2.%player%} to  exp_pass_clan(2) - {xppassclan.%player%}
@@ -174,7 +175,8 @@ command /passclan:
 				format slot 20 of player with firework rocket named " " to be unstealable
 
 				
-command /passclan2:
+command /passclan_feu:
+	permission:clan.feu
 	trigger:
 		if {sssssssssssssssss} is not set:
 			open chest with 6 rows named "&7&l&nPass de clan" to player
@@ -327,7 +329,8 @@ command /passclan2:
 			
 				format slot 17 of player with firework rocket named " " to be unstealable
 				
-command /passclan3:
+command /passclan_eau:
+	permission:clan.eau
 	trigger:
 		if {sssssssssssssssss} is not set:
 			open chest with 6 rows named "&7&l&nPass de clan" to player
@@ -465,7 +468,8 @@ command /passclan3:
 				format slot 27 of player with firework rocket named " " to be unstealable
 
 
-command /passclan4:	
+command /passclan_air:	
+	permission:clan.air
 	trigger:
 		if {sssssssssssssssss} is not set:
 			open chest with 6 rows named "&7&l&nPass de clan" to player
