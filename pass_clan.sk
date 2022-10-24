@@ -1,9 +1,10 @@
 function exp_pass_clan(x: int) :: int:
 	set {_t} to 0
 	while {_x} is greater than 0:
+		set {_temp} to exp({_x})+{_x}*{_x}*{_x}*{_x}*{_x}+ln({_x})+20
 		add {_x} to {_t}
 		set {_x} to {_x} - 1
-	return {_t}
+	return {_t} parsed as int
 
 
 
