@@ -64,7 +64,7 @@ command /passif:
             send "&cVous devez rejoindre un clan pour avoir un passif." to player
 
 
-on player disconnect :
+on disconnect :
 	if {cooldown.%player%} is set:
 		if player has permission "clan.air":
 			delete {nofalldamage.%player%}
@@ -82,7 +82,7 @@ on player disconnect :
 			remove water breathing from player
 			
 on damage:
-	if player has permission "clan.air":
+	if victim has permission "clan.air":
 		if {nofalldamage.%player%} is set:
 			if damage cause is "fall":
 				cancel event
