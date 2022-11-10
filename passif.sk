@@ -8,7 +8,7 @@ command /passif:
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-                apply dolphin grace to player for 4 minutes
+                apply 30 to player for 4 minutes
                 apply water breathing to player for 6 minutes
 		
                 wait 10 minutes
@@ -78,12 +78,12 @@ on disconnect :
 			remove haste from player
 		
 		if player has permission "clan.eau":
-			remove dolphin grace from player
+			remove 30 from player
 			remove water breathing from player
 			
 on damage:
 	if victim has permission "clan.air":
-		if {nofalldamage.%player%} is set:
+		if {nofalldamage.%victim%} is set:
 			if damage cause is "fall":
 				cancel event
 	
