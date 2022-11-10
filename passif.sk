@@ -8,8 +8,8 @@ command /passif:
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-		apply dolphin grace to player for 4 minutes
-		apply water breathing to player for 6 minutes
+                apply dolphin grace to player for 4 minutes
+                apply water breathing to player for 6 minutes
 		
                 wait 10 minutes
                 delete {cooldown.%player%}
@@ -22,9 +22,9 @@ command /passif:
                 send "&e Vous venez d'utiliser votre passif." to player
 		
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
-		apply fire resistance to player for 5 minutes
+                apply fire resistance to player for 5 minutes
 		
-		apply speed to player for 1 minute
+                apply speed to player for 1 minute
                 wait 10 minutes
                 delete {cooldown.%player%}
                 send "&e Passif rechargé !" to player
@@ -36,7 +36,7 @@ command /passif:
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-		apply haste 2 to player for 10 minutes
+                apply haste 2 to player for 10 minutes
 		
                 wait 10 minutes
                 delete {cooldown.%player%}
@@ -49,11 +49,11 @@ command /passif:
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-		set {nofalldamage.%player%} to 1
+                set {nofalldamage.%player%} to 1
 		
-		wait 2 minutes
+                wait 2 minutes
 		
-		delete {nofalldamage.%player%}
+                delete {nofalldamage.%player%}
 		
                 wait 10 minutes
                 delete {cooldown.%player%}
@@ -85,7 +85,7 @@ on damage:
 	if player has permission "clan.air":
 		if {nofalldamage.%player%} is set:
 			if damage cause is "fall":
-        			cancel event
+				cancel event
 	
 	
 on load:
