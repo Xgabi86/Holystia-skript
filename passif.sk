@@ -8,7 +8,7 @@ command /passif:
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-                apply dolphin's grace to player for 4 minutes
+                apply dolphin's grace to player for 4 minutes 
                 apply water breathing to player for 6 minutes
 		
                 wait 10 minutes
