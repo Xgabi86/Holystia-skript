@@ -113,7 +113,7 @@ function rejoint_air( p : player):
 
 
 
-function rejoint_eau (p : player):
+function rejoint_eau( p : player):
 
 
 	broadcast {_p}'s name
