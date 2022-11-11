@@ -24,7 +24,7 @@ function ClanAir(p: player, i: int, y:int) :: int:
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
-function ClanEau(p: player):
+function ClanEau(p: player)::1:
 	set {_name} to {_p}'s name
 	
 	add {clan_air} to {_list::*}
@@ -48,6 +48,7 @@ function ClanEau(p: player):
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
 		close {_p}'s inventory
 		make {_p} execute command "/clan"
+	return 1
 	
 	
 					
