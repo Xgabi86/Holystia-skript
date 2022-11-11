@@ -16,7 +16,6 @@ function ClanAir(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Aeria"
 		close {_p}'s inventory
-		make console execute command "/pr addrank %{_p}% Air"
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -27,7 +26,7 @@ function ClanEau(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Hydrogion"
 		close {_p}'s inventory
-		make console execute command "/pr addrank %{_p}% Eau"
+		
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -38,7 +37,6 @@ function ClanTerre(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Ergaiates"
 		close {_p}'s inventory
-		make console execute command "/pr addrank %{_p}% Terre"
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -69,7 +67,7 @@ function rejoint_air( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{min})]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{min})]->[make console execute command "/pr addrank %{_p}% Air"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -84,7 +82,7 @@ function rejoint_eau( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]->[make console execute command "/pr addrank %{_p}% Eau"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -99,7 +97,7 @@ function rejoint_terre( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]->[make console execute command "/pr addrank %{_p}% Terre"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
