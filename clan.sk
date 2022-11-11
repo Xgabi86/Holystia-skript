@@ -62,11 +62,11 @@ function rejoint_eau( p : player):
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run "claneau 125446680125648858489687/1235564526535444485641220212564312215"
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run [make {_p} execute "/claneau 125446680125648858489687/1235564526535444485641220212564312215"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 	
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to close then run "clan"
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to close then run [make {_p} "/clan"]
 
 
 
