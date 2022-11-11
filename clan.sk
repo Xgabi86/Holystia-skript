@@ -82,7 +82,7 @@ function rejoint_eau( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]->[make console execute command "/powerranks addrank %{_p}% Eau"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]->[make console execute command "/give %{_p}% diamond_block"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
