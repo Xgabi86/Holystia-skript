@@ -5,6 +5,6 @@ command /cc :
   trigger:   
     set {_p} to "ee"
     set {_r} to "rr"
-    set {_s} to {_p}+{_r}
+    set {_s} to "%{_p}%,%{_r}%"
 
     broadcast {_s}
