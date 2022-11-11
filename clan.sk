@@ -58,6 +58,9 @@ command /claneau [<player>]:
 			close player's inventory
 			make player execute command "/clan"
 
+
+
+
 	
 	
 					
@@ -112,24 +115,24 @@ function rejoint_air( p : player):
 	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
 
 
-function rejoint_eau( p : player):
+command /rejoint_eau <player>:
 
 
-	broadcast {_p}'s name
-	set {_cmd} to "claneau %{_p}%"
-	broadcast {_cmd}
+		broadcast player's name
+		set {_cmd} to "claneau %player%"
+		broadcast {_cmd}
 
 
 
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+		open chest with 1 rows named "&2&lY&r/&c&lN" to player
 
-	wait 3 ticks
+		wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run ["claneau %{_p}%"]
+		format slot 2 of player with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run ["claneau %player%"]
 
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+		format slot 4 of player with paper named "&2Y&r/&cN" to be unstealable
+	
+		format slot 6 of player with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute player command "/clan"]
 
 
 
@@ -245,7 +248,7 @@ command /clan:
 
 			format slot 10 of player with glow lichen of protection 1 named "&b&lAeria" to run [rejoint_air(player)]
 
-			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to run [rejoint_eau(player)]
+			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to run ["rejoint_eau %player%"]
 
 			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to run [rejoint_terre(player)]
 
