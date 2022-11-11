@@ -18,18 +18,6 @@ command /resetclanstat:
 	
 
 
-function ClanAir(p: player, i: int, y:int) :: int:
-
-	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Aeria"
-		make console execute command "/powerranks addrank %{_p}'s name% Air"
-		close {_p}'s inventory
-		add 1 to {_i}
-	else:
-		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
-		close {_p}'s inventory
-		make {_p} execute command "/clan"
-	return {_i} parsed as int
 	
 command /claneau <player>:
 	permission: *
@@ -62,59 +50,6 @@ command /claneau <player>:
 
 
 
-	
-	
-					
-function ClanTerre(p: player, i: int, y:int) :: int:
-	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Ergaiates"
-		close {_p}'s inventory
-		make console execute command "/powerranks addrank %{_p}'s name% Terre"
-		add 1 to {_i}
-	else:
-		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
-		close {_p}'s inventory
-		make {_p} execute command "/clan"
-	return {_i} parsed as int
-	
-function ClanFeu(p: player, i: int, y:int) :: int:
-	if {_y}+4 is greater than or equal to {_i}:
-		set {clan.%{_p}%} to "Pyremos"
-		make console execute command "/powerranks addrank %{_p}'s name% Feu"
-		close {_p}'s inventory
-		
-		add 1 to {_i}
-	else:
-		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
-		close {_p}'s inventory
-		make {_p} execute command "/clan"
-	return {_i} parsed as int
-
-
-
-
-
-
-
-function rejoint_air( p : player):
-
-	add {clan_air} to {_list::*}
-	add {clan_feu} to {_list::*}
-	add {clan_eau} to {_list::*}
-	add {clan_terre} to {_list::*}
-	set {_min} to min({_list::*})
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{_min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
-
 
 function rejoint_eau( p : player):
 	set {cmde.%{_p}%} to "claneau %{_p}%"
@@ -130,46 +65,6 @@ function rejoint_eau( p : player):
 	
 	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to close then run "clan"
 
-
-
-function rejoint_terre( p : player):
-	add {clan_air} to {_list::*}
-	add {clan_feu} to {_list::*}
-	add {clan_eau} to {_list::*}
-	add {clan_terre} to {_list::*}
-	set {_min} to min({_list::*})
-	set {_plname} to {_p}'s name
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{_min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
-
-
-
-function rejoint_feu( p : player):
-	add {clan_air} to {_list::*}
-	add {clan_feu} to {_list::*}
-	add {clan_eau} to {_list::*}
-	add {clan_terre} to {_list::*}
-	set {_min} to min({_list::*})
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan du feu!" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{_min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
 
 
 
@@ -242,14 +137,13 @@ command /clan:
 
 		
 
-			format slot 10 of player with glow lichen of protection 1 named "&b&lAeria" to run [rejoint_air(player)]
+			format slot 10 of player with glow lichen of protection 1 named "&b&lAeria"
 
 			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to run [rejoint_eau(player)]
 
-			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to run [rejoint_terre(player)]
+			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to
 
-			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" to run [rejoint_feu(player)]
-
+			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" 
 
 
 on damage:
