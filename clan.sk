@@ -30,7 +30,7 @@ command /claneau:
 			add {clan_eau} to {_list::*}
 			add {clan_terre} to {_list::*}
 			set {_min} to min({_list::*})
-			set {_cmd} to "/pr addrank %player Eau"
+			set {_cmd} to "/pr addrank %player% Eau"
 
 
 	
@@ -84,7 +84,7 @@ command /clanfeu:
 			add {clan_eau} to {_list::*}
 			add {clan_terre} to {_list::*}
 			set {_min} to min({_list::*})
-			set {_cmd} to "/pr addrank %player Feu"
+			set {_cmd} to "/pr addrank %player% Feu"
 
 
 	
@@ -136,7 +136,7 @@ command /clanterre:
 			add {clan_eau} to {_list::*}
 			add {clan_terre} to {_list::*}
 			set {_min} to min({_list::*})
-			set {_cmd} to "/pr addrank %player Terre"
+			set {_cmd} to "/pr addrank %player% Terre"
 
 
 	
@@ -188,7 +188,7 @@ command /clanair:
 			add {clan_eau} to {_list::*}
 			add {clan_terre} to {_list::*}
 			set {_min} to min({_list::*})
-			set {_cmd} to "/pr addrank %player Air"
+			set {_cmd} to "/pr addrank %player% Air"
 
 
 	
