@@ -116,7 +116,8 @@ function rejoint_air( p : player):
 
 
 command /rejoint_eau <player>:
-
+	permission:*
+	trigger:
 
 		broadcast player's name
 		set {_cmd} to "claneau %player%"
