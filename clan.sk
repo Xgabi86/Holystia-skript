@@ -90,6 +90,7 @@ function rejoint_eau( p : player):
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
 	set {_plname} to {_p}'s name
+	send {_plname} to {_p}
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
@@ -152,6 +153,7 @@ command /clan:
 
 
 	trigger:
+		send player's name to player
 
 		
 
