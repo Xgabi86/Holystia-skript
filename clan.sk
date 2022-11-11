@@ -82,7 +82,7 @@ function rejoint_eau( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]->[make console execute command "/give {_p} diamond_block"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]->[make console execute command "/give %{_p}% diamond_block"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -97,7 +97,7 @@ function rejoint_terre( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]->[make console execute command "/powerranks addrank {_p} Terre"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]->[make console execute command "/powerranks addrank %{_p}% Terre"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -112,7 +112,7 @@ function rejoint_feu( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]->[make console execute command "/powerranks addrank {_p} Feu"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]->[make console execute command "/powerranks addrank %{_p}% Feu"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -122,6 +122,7 @@ function rejoint_feu( p : player):
 
 
 command /clan:
+	permission: *
 
 
 	trigger:
@@ -130,6 +131,8 @@ command /clan:
 		add {clan_eau} to {list::*}
 		add {clan_terre} to {list::*}
 		set {min} to min({list::*})
+		set {_plname} to player's name
+		send %{_plname}% to player
 
 		if {clan.%player%} is set:
 			send "Vous avez déjà un clan !" to player
