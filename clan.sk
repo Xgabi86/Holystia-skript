@@ -16,7 +16,7 @@ function ClanAir(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Aeria"
 		close {_p}'s inventory
-		execute console command "/pr addrank %{_p}% Air"
+		make console execute command "/pr addrank %{_p}% Air"
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -27,7 +27,7 @@ function ClanEau(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Hydrogion"
 		close {_p}'s inventory
-		execute console command "/pr addrank %{_p}% Eau"
+		make console execute command "/pr addrank %{_p}% Eau"
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -38,7 +38,7 @@ function ClanTerre(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Ergaiates"
 		close {_p}'s inventory
-		execute console command "/pr addrank %{_p}% Terre"
+		make console execute command "/pr addrank %{_p}% Terre"
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -49,7 +49,7 @@ function ClanFeu(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Pyremos"
 		close {_p}'s inventory
-		execute console command "/pr addrank %{_p}% Feu"
+		make console execute command "/pr addrank %{_p}% Feu"
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -232,5 +232,13 @@ command /clanleave <player>:
 	
 	permission: *
 	trigger:
+		if {clan.%player%} is "Hydrogion" 
+			set {clan_eau} to %{clan_eau}%-1
+		if {clan.%player%} is "Ergaiates" 
+			set {clan_terre} to %{clan_terre}%-1
+		if {clan.%player%} is "Pyremos" 
+			set {clan_feu} to %{clan_feu}%-1
+		if {clan.%player%} is "Aeria" 
+			set {clan_air} to %{clan_air}%-1		
 		delete {clan.%player%}
 
