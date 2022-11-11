@@ -107,7 +107,7 @@ function rejoint_eau( p : player):
 
 
 	set {pname.%{_p}%} to {_p}
-	broadcast {_p}'s name
+	broadcast {pname.%{_p}%}'s name
 
 
 
