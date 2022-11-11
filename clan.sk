@@ -113,23 +113,24 @@ function rejoint_air( p : player):
 
 
 
-command /rejoint_eau <player>:
+function rejoint_eau (p:player):
 	permission:*
 	trigger:
 
-		broadcast player's name
+		broadcast {_p}'s name
+		broadcast "/claneau %{_p}'s name%"
 
 
 
-		open chest with 1 rows named "&2&lY&r/&c&lN" to player
+		open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 
 		wait 3 ticks
 
-		format slot 2 of player with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute "/claneau %player's name%"]
+		format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute "/claneau %{_p}'s name%"]
 
-		format slot 4 of player with paper named "&2Y&r/&cN" to be unstealable
+		format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
-		format slot 6 of player with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [make player execute command "/clan"]
+		format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
 
 
 
