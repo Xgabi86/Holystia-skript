@@ -352,4 +352,5 @@ command /clanleave <player>:
 		if {clan.%player%} is equal to "Aeria": 
 			set {clan_air} to {clan_air}-1		
 		delete {clan.%player%}
+		make console execute command "/pr setrank %player% Member"
 
