@@ -125,7 +125,7 @@ command /rejoint_eau <player>:
 
 		wait 3 ticks
 
-		format slot 2 of player with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute "/claneau %player%"]
+		format slot 2 of player with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute "/claneau %player's name%"]
 
 		format slot 4 of player with paper named "&2Y&r/&cN" to be unstealable
 
