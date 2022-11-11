@@ -10,6 +10,7 @@
 
 command /resetclanstat:
 	permission:*
+	trigger:
 		set {clan_eau} to 0
 		set {clan_air} to 0
 		set {clan_feu} to 0
