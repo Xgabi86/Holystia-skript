@@ -141,7 +141,7 @@ command /clan:
 
 			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to run [rejoint_eau(player)]
 
-			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to
+			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to be unstealable
 
 			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" to be unstealable
 
