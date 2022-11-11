@@ -56,6 +56,73 @@ function ClanFeu(p: player, i: int, y:int) :: int:
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 
+
+
+
+
+
+
+function rejoint_air( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+function rejoint_eau( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+function rejoint_terre( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+function rejoint_feu( p : player):
+
+
+	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
+
+	wait 3 ticks
+
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]
+
+	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
+
+	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
+
+
+
+
 command /clan:
 
 	trigger:
@@ -133,70 +200,6 @@ command /clan:
 			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to run [rejoint_terre(player)]
 
 			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" to run [rejoint_feu(player)]
-
-
-
-
-
-function rejoint_air( p : player):
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
-
-
-
-function rejoint_eau( p : player):
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
-
-
-
-function rejoint_terre( p : player):
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
-
-
-
-function rejoint_feu( p : player):
-
-
-	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
-
-	wait 3 ticks
-
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]
-
-	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
-
-	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
-
-
 
 
 
