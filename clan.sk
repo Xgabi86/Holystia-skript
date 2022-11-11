@@ -146,7 +146,7 @@ command /clanterre:
 				make console execute command {_cmd}
 		
 				add 1 to {clan_terre}
-				send "Vous avez rejoint le clan de l'eau" to player
+				send "Vous avez rejoint le clan de la terre" to player
 			else:
 				send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to player
 			
