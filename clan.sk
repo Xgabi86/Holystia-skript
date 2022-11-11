@@ -49,7 +49,7 @@ function ClanFeu(p: player, i: int, y:int) :: int:
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Pyremos"
 		close {_p}'s inventory
-		make console execute command "/pr addrank %{_p}% Feu"
+		
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
@@ -114,7 +114,7 @@ function rejoint_feu( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]->[make console execute command "/pr addrank %{_p}% Feu"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
