@@ -239,13 +239,13 @@ command /clan:
 
 		
 
-			format slot 10 of player with glow lichen of protection 1 named "&b&lAeria" to close then run [rejoint_air(player)]
+			format slot 10 of player with glow lichen of protection 1 named "&b&lAeria" to run [rejoint_air(player)]
 
-			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to close then run [rejoint_eau(player)]
+			format slot 12 of player with ice of protection 1 named "&1&lHydrogïon" to run [rejoint_eau(player)]
 
-			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to close then run [rejoint_terre(player)]
+			format slot 14 of player with stone of protection 1 named "&2&lErgaiates" to run [rejoint_terre(player)]
 
-			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" to close then run [rejoint_feu(player)]
+			format slot 16 of player with magma block of protection 1 named "&4&lPyremos" to run [rejoint_feu(player)]
 
 
 
