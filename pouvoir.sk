@@ -3,7 +3,7 @@
 
 command /cc :
   trigger:   
-    set {_p} to "ee"
+    set {_p} to player's name
     set {_r} to "rr"
     set {_s} to "%{_p}%%{_r}%"
 
