@@ -1,11 +1,1 @@
-#pouvoirs du feu
 
-
-command /cc :
-  trigger:   
-    set {_p} to player's name
-    set {_r} to "rr"
-    set {_s} to "/pr addrank %{_p}% Eau"
-    make console execute {_s}
-
-    broadcast {_s}
