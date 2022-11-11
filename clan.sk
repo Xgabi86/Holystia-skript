@@ -62,12 +62,19 @@ function ClanFeu(p: player, i: int, y:int) :: int:
 
 function rejoint_air( p : player):
 
+	add {clan_air} to {_list::*}
+	add {clan_feu} to {_list::*}
+	add {clan_eau} to {_list::*}
+	add {clan_terre} to {_list::*}
+	set {_min} to min({_list::*})
+	set {_plname} to player's name
+
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{min})]->[make console execute command "/powerranks addrank %{_p}% Air"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_air} to ClanAir({_p},{clan_air},{_min})]->[make console execute command "/powerranks addrank %{_plname}% Air"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -77,12 +84,19 @@ function rejoint_air( p : player):
 
 function rejoint_eau( p : player):
 
+	add {clan_air} to {_list::*}
+	add {clan_feu} to {_list::*}
+	add {clan_eau} to {_list::*}
+	add {clan_terre} to {_list::*}
+	set {_min} to min({_list::*})
+	set {_plname} to player's name
+
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{min})]->[make console execute command "/give %{_p}% diamond_block"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [set {clan_eau} to ClanEau({_p},{clan_eau},{_min})]->[make console execute command "/give %{_plname}% diamond_block"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -91,13 +105,19 @@ function rejoint_eau( p : player):
 
 
 function rejoint_terre( p : player):
+	add {clan_air} to {_list::*}
+	add {clan_feu} to {_list::*}
+	add {clan_eau} to {_list::*}
+	add {clan_terre} to {_list::*}
+	set {_min} to min({_list::*})
+	set {_plname} to player's name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{min})]->[make console execute command "/powerranks addrank %{_p}% Terre"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de la terre !" to run [set {clan_terre} to ClanTerre({_p},{clan_terre},{_min})]->[make console execute command "/powerranks addrank %{_plname}% Terre"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -106,13 +126,19 @@ function rejoint_terre( p : player):
 
 
 function rejoint_feu( p : player):
+	add {clan_air} to {_list::*}
+	add {clan_feu} to {_list::*}
+	add {clan_eau} to {_list::*}
+	add {clan_terre} to {_list::*}
+	set {_min} to min({_list::*})
+	set {_plname} to player's name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'air !" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{min})]->[make console execute command "/powerranks addrank %{_p}% Feu"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan du feu!" to run [set {clan_feu} to ClanFeu({_p},{clan_feu},{_min})]->[make console execute command "/powerranks addrank %{_plname}% Feu"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
@@ -126,13 +152,8 @@ command /clan:
 
 
 	trigger:
-		add {clan_air} to {list::*}
-		add {clan_feu} to {list::*}
-		add {clan_eau} to {list::*}
-		add {clan_terre} to {list::*}
-		set {min} to min({list::*})
-		set {_plname} to player's name
-		send %{_plname}% to player
+
+		
 
 		if {clan.%player%} is set:
 			send "Vous avez déjà un clan !" to player
@@ -237,12 +258,12 @@ command /clanleave <player>:
 	permission: *
 	trigger:
 		if {clan.%player%} is equal to  "Hydrogion": 
-			set {clan_eau} to %{clan_eau}%-1
+			set {clan_eau} to {clan_eau}-1
 		if {clan.%player%} is equal to "Ergaiates": 
-			set {clan_terre} to %{clan_terre}%-1
+			set {clan_terre} to {clan_terre}-1
 		if {clan.%player%} is equal to "Pyremos": 
-			set {clan_feu} to %{clan_feu}%-1
+			set {clan_feu} to {clan_feu}-1
 		if {clan.%player%} is equal to "Aeria": 
-			set {clan_air} to %{clan_air}%-1		
+			set {clan_air} to {clan_air}-1		
 		delete {clan.%player%}
 
