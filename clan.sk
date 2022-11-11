@@ -19,7 +19,7 @@ command /resetclanstat:
 
 
 	
-command /claneau  [<player>]:
+command /claneau [<player>]:
 	permission: *
 	trigger:
 		broadcast player
