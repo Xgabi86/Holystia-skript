@@ -22,6 +22,7 @@ command /resetclanstat:
 command /claneau <player>:
 	permission: *
 	trigger:
+		broadcast player
 		set {_name} to player's name
 	
 		add {clan_air} to {_list::*}
