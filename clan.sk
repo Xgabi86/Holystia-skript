@@ -115,7 +115,7 @@ function rejoint_air( p : player):
 	format slot 6 of {_p} with red dye named "&c&lNo" with lore "Tu reviens au menu de sélection" to run [execute {_p} command "/clan"]
 
 
-function rejoint_eau  (p : player):
+function rejoint_eau( p : player):
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
