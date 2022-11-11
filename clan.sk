@@ -24,7 +24,7 @@ function ClanAir(p: player, i: int, y:int) :: int:
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
-function ClanEau(p: player)::1:
+function ClanEau(p: player)::int:
 	set {_name} to {_p}'s name
 	
 	add {clan_air} to {_list::*}
