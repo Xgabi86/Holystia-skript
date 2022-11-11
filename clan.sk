@@ -117,13 +117,13 @@ function rejoint_air( p : player):
 
 function rejoint_eau( p : player):
 	set {name.%{_p}%} to {_p}'s name 
-	broadcast {name.%{_p}%}
+	set {cmde.%{_p}%} to "claneau %{name.%{_p}%}%"
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run "claneau %{name.%{_p}%}%"
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run {cmde.%{_p}%}
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 	
