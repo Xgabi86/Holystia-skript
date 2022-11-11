@@ -20,10 +20,14 @@ function ClanAir(p: player, i: int, y:int) :: int:
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		close {_p}'s inventory
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
 function ClanEau(p: player, i: int, y:int) :: int:
+	set {_name} to {_p}'s name
+	set {_cmd} to "/pr addrank %{_name}% Eau" 
+	broadcast {_cmd}
 	if {_y}+4 is greater than or equal to {_i}:
 		set {clan.%{_p}%} to "Hydrogion"
 		make console execute command "/give %{_p}'s name% diamond_block"
@@ -32,6 +36,7 @@ function ClanEau(p: player, i: int, y:int) :: int:
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		close {_p}'s inventory
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 					
@@ -43,6 +48,7 @@ function ClanTerre(p: player, i: int, y:int) :: int:
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		close {_p}'s inventory
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
@@ -55,6 +61,7 @@ function ClanFeu(p: player, i: int, y:int) :: int:
 		add 1 to {_i}
 	else:
 		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+		close {_p}'s inventory
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 
@@ -134,7 +141,6 @@ function rejoint_feu( p : player):
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
-	set {_plname} to {_p}'s name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
@@ -155,7 +161,6 @@ command /clan:
 
 
 	trigger:
-		send player's name to player
 
 		
 
