@@ -8,7 +8,13 @@
 #	if {clan_eau} is not set:
 #		set {clan_eau} to 0
 
-
+command /resetclanstat:
+	permission:*
+		set {clan_eau} to 0
+		set {clan_air} to 0
+		set {clan_feu} to 0
+		set {clan_terre} to 0
+	
 
 
 function ClanAir(p: player, i: int, y:int) :: int:
