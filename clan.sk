@@ -49,7 +49,7 @@ command /claneau [<player>]:
 	
 		if {_min}+4 is greater than or equal to {clan_eau}:
 			set {clan.%player%} to "Hydrogion"
-			#make console execute command "/give %{_p}% diamond_block"
+			make console execute command {_cmd}
 			close player's inventory
 		
 			add 1 to {clan_eau}
