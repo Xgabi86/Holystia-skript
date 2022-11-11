@@ -31,7 +31,7 @@ function ClanAir(p: player, i: int, y:int) :: int:
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
-command /ClanEau <player>:
+command /claneau [<player>]:
 	permission: *
 	trigger:
 		set {_name} to player's name
