@@ -67,7 +67,7 @@ function rejoint_air( p : player):
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
-	set {_plname} to player's name
+	set {_plname} to {_p}'s name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
@@ -89,7 +89,7 @@ function rejoint_eau( p : player):
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
-	set {_plname} to player's name
+	set {_plname} to {_p}'s name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
@@ -110,7 +110,7 @@ function rejoint_terre( p : player):
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
-	set {_plname} to player's name
+	set {_plname} to {_p}'s name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
@@ -131,7 +131,7 @@ function rejoint_feu( p : player):
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
-	set {_plname} to player's name
+	set {_plname} to {_p}'s name
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
