@@ -232,13 +232,13 @@ command /clanleave <player>:
 	
 	permission: *
 	trigger:
-		if {clan.%player%} is "Hydrogion" 
+		if {clan.%player%} is equal to  "Hydrogion" 
 			set {clan_eau} to %{clan_eau}%-1
-		if {clan.%player%} is "Ergaiates" 
+		if {clan.%player%} is equal to "Ergaiates" 
 			set {clan_terre} to %{clan_terre}%-1
-		if {clan.%player%} is "Pyremos" 
+		if {clan.%player%} is equal to "Pyremos" 
 			set {clan_feu} to %{clan_feu}%-1
-		if {clan.%player%} is "Aeria" 
+		if {clan.%player%} is equal to "Aeria" 
 			set {clan_air} to %{clan_air}%-1		
 		delete {clan.%player%}
 
