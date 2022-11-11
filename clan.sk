@@ -197,7 +197,7 @@ command /clanair:
 				set {clan.%player%} to "Aeria"
 				make console execute command {_cmd}
 		
-				add 1 to {clan_terre}
+				add 1 to {clan_air}
 				send "Vous avez rejoint le clan de l'eau" to player
 			else:
 				send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to player
