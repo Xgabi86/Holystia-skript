@@ -24,31 +24,33 @@ function ClanAir(p: player, i: int, y:int) :: int:
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
-function ClanEau(p: player) :: int:
-	set {_name} to {_p}'s name
+command /ClanEau <player>:
+	permission: *
+	trigger:
+		set {_name} to player's name
 	
-	add {clan_air} to {_list::*}
-	add {clan_feu} to {_list::*}
-	add {clan_eau} to {_list::*}
-	add {clan_terre} to {_list::*}
-	set {_min} to min({_list::*})
+		add {clan_air} to {_list::*}
+		add {clan_feu} to {_list::*}
+		add {clan_eau} to {_list::*}
+		add {clan_terre} to {_list::*}
+		set {_min} to min({_list::*})
 
-	set {_cmd} to "/pr addrank %{_name}% Eau" 
-	broadcast {_cmd}
+		set {_cmd} to "/pr addrank %{_name}% Eau" 
+		broadcast {_cmd}
 
 	
 	
-	if {_min}+4 is greater than or equal to {clan_eau}:
-		set {clan.%{_p}%} to "Hydrogion"
-		#make console execute command "/give %{_p}% diamond_block"
-		close {_p}'s inventory
+		if {_min}+4 is greater than or equal to {clan_eau}:
+			set {clan.%player%} to "Hydrogion"
+			#make console execute command "/give %{_p}% diamond_block"
+			close player's inventory
 		
-		add 1 to {clan_eau}
-	else:
-		send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
-		close {_p}'s inventory
-		make {_p} execute command "/clan"
-	return 1
+			add 1 to {clan_eau}
+		else:
+			send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+			close player's inventory
+			make player execute command "/clan"
+
 	
 	
 					
@@ -106,9 +108,7 @@ function rejoint_air( p : player):
 
 function rejoint_eau( p : player):
 
-
-	set {pname.%{_p}%} to {_p}
-	broadcast {pname.%{_p}%}'s name
+	broadcast {_p}'s name
 
 
 
@@ -116,7 +116,7 @@ function rejoint_eau( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ClanEau({pname.%{_p}%})]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute "/ClanEau %{_p}%"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
