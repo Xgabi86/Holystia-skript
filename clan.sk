@@ -31,7 +31,7 @@ function ClanAir(p: player, i: int, y:int) :: int:
 		make {_p} execute command "/clan"
 	return {_i} parsed as int
 	
-command /claneau [<player>]:
+command /claneau <player>:
 	permission: *
 	trigger:
 		set {_name} to player's name
@@ -118,6 +118,7 @@ function rejoint_air( p : player):
 
 function rejoint_eau( p : player):
 	set {cmde.%{_p}%} to "claneau %{_p}%"
+	broadcast {cmde.%{_p}%}
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
