@@ -125,7 +125,7 @@ function rejoint_eau( p : player):
 
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute "/claneau %{_p}'s name%"]
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to run [ make console execute command "/claneau %{_p}'s name%"]
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 
