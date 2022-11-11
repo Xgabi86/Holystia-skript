@@ -99,6 +99,7 @@ function rejoint_eau( p : player):
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
 	set {_min} to min({_list::*})
+	broadcast {_p}'s name
 
 
 
