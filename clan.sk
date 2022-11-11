@@ -53,6 +53,7 @@ command /claneau [<player>]:
 			close player's inventory
 		
 			add 1 to {clan_eau}
+			send "Vous avez rejoint le clan de l'eau" to player
 		else:
 			send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to player
 			close player's inventory
@@ -116,8 +117,7 @@ function rejoint_air( p : player):
 
 
 function rejoint_eau( p : player):
-	set {name.%{_p}%} to {_p}'s name 
-	set {cmde.%{_p}%} to "claneau %{name.%{_p}%}%"
+	set {cmde.%{_p}%} to "claneau %{_p}%"
 
 
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
