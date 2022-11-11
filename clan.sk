@@ -28,8 +28,8 @@ function ClanEau(name: string, i: int, y:int) :: int:
 	set {_name} to {_p}'s name
 	set {_cmd} to "/pr addrank %{_name}% Eau" 
 	broadcast {_cmd}
-	broadcast {_i} parsed as string
-	broadcast {_y} parsed as string
+	broadcast {_i}
+	broadcast {_y}
 	
 	
 	if {_y}+4 is greater than or equal to {_i}:
@@ -104,7 +104,7 @@ function rejoint_eau( p : player):
 	add {clan_feu} to {_list::*}
 	add {clan_eau} to {_list::*}
 	add {clan_terre} to {_list::*}
-	set {_min} to min({_list::*})*
+	set {_min} to min({_list::*})
 	set {_pname} to {_p}'s name
 	broadcast {_p}'s name
 
