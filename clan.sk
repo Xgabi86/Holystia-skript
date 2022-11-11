@@ -54,7 +54,7 @@ command /claneau [<player>]:
 		
 			add 1 to {clan_eau}
 		else:
-			send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to {_p}
+			send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to player
 			close player's inventory
 			make player execute command "/clan"
 
