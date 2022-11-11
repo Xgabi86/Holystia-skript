@@ -19,7 +19,7 @@ command /resetclanstat:
 
 
 	
-command /claneau <player>:
+command /claneau  [<player>]:
 	permission: *
 	trigger:
 		broadcast player
@@ -39,13 +39,12 @@ command /claneau <player>:
 		if {_min}+4 is greater than or equal to {clan_eau}:
 			set {clan.%player%} to "Hydrogion"
 			make console execute command {_cmd}
-			close player's inventory
 		
 			add 1 to {clan_eau}
 			send "Vous avez rejoint le clan de l'eau" to player
 		else:
 			send "&4&lLe clan que vous voulez rejoindre à trop de membres, pour des raisons de fair-play veuillez en choisir un autre." to player
-			close player's inventory
+			
 			make player execute command "/clan"
 
 
@@ -60,7 +59,7 @@ function rejoint_eau( p : player):
 	open chest with 1 rows named "&2&lY&r/&c&lN" to {_p}
 	wait 3 ticks
 
-	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run {cmde.%{_p}%}
+	format slot 2 of {_p} with lime dye named "&2&lYES" with lore "Rejoins le clan de l'eau !" to close then run "claneau %{_p}%"
 
 	format slot 4 of {_p} with paper named "&2Y&r/&cN" to be unstealable
 	
