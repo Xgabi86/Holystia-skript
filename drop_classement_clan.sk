@@ -90,59 +90,59 @@ on death:
 	if attacker is player:
 		if OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
 			if attacker has permission "clan.air":
-				set {i_add.%player%} to 1
-				while {classementclan::%{i_add.%player%}%::2} is not "Air":
-					add 1 to {i_add.%player%}
+				set {i_add.%attacker%} to 1
+				while {classementclan::%{i_add.%attacker%}%::2} is not "Air":
+					add 1 to {i_add.%attacker%}
 			if attacker has permission "clan.terre":
-				set {i_add.%player%} to 1
-				while {classementclan::%{i_add.%player%}%::2} is not "Terre":
-					add 1 to {i_add.%player%}
+				set {i_add.%attacker%} to 1
+				while {classementclan::%{i_add.%attacker%}%::2} is not "Terre":
+					add 1 to {i_add.%attacker%}
 			if attacker has permission "clan.feu":
-				set {i_add.%player%} to 1
-				while {classementclan::%{i_add.%player%}%::2} is not "Feu":
-					add 1 to {i_add.%player%}
+				set {i_add.%attacker%} to 1
+				while {classementclan::%{i_add.%attacker%}%::2} is not "Feu":
+					add 1 to {i_add.%attacker%}
 			if attacker has permission "clan.eau":
 				set {_i} to 1
-				while {classementclan::%{i_add.%player%}%::2} is not equal to "Eau":
-					add 1 to {i_add.%player%}
+				while {classementclan::%{i_add.%attacker%}%::2} is not equal to "Eau":
+					add 1 to {i_add.%attacker%}
 			
 			if victim is a creeper:
 				chance of 2.4%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a zombie:
 				chance of 1.3%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a drowned:
 				chance of 1.3%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a husk:
 				chance of 1.3%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a stray:
 				chance of 1.3%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			
 
 			if victim is a skeleton:
 				chance of 1.7%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a spider:
 				chance of 2.1%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is an enderman:
 				chance of 4.2%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is an ender dragon:
 				chance of 50%:
-					add 1 to {classementclan::%{i_add.%player%}%::2}
+					add 1 to {classementclan::%{i_add.%attacker%}%::2}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 
 
