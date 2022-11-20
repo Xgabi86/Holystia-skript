@@ -1,4 +1,7 @@
-
+function OR(conditions: booleans) :: boolean:
+	if {_conditions::*} contains true:
+		return true
+	return false
 
 command /resetclassclan:
 	permission:*
