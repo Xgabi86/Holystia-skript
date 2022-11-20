@@ -73,7 +73,7 @@ command /refreshclassementclan:
 		loop 3 times:
 			set {val_classement_clan} to {classementclan::%{i_classement_clan}%::1}
 			set {nom_classement_clan} to {classementclan::%{i_classement_clan}%::2}
-			set {j_classement_clan} to {i_classement_clan}
+			set {j_classement_clan} to {i_classement_clan}-1
 			while AND( check [ {j_classement_clan} is greater than 0], check [{classementclan::%{j_classement_clan}%-1::1} is greater than {val_classement_clan}] ) is true:
 				set {classementclan::%{j_classement_clan}%::1} to {classementclan::%{j_classement_clan}%-1::1}
 				set {classementclan::%{j_classement_clan}%::2} to {classementclan::%{j_classement_clan}%-1::2}	
