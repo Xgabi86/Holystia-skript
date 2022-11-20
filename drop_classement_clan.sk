@@ -107,37 +107,37 @@ on death:
 			#		add 1 to {i_add.%attacker%}
 			
 			if victim is a creeper:
-				chance of 0.000024%:
+				chance of 0.00000024%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a zombie:
-				chance of 0.000013%:
+				chance of 0.00000013%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a drowned:
-				chance of 0.000013%:
+				chance of 0.00000013%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a husk:
-				chance of 0.000013%:
+				chance of 0.00000013%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a stray:
-				chance of 0.000013%:
+				chance of 0.00000013%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			
 
 			if victim is a skeleton:
-				chance of 0.000017%:
+				chance of 0.00000017%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is a spider:
-				chance of 0.000021%:
+				chance of 0.00000021%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is an enderman:
-				chance of 0.000042%:
+				chance of 0.00000042%:
 					add 1 to {classementclan::%{i_add.%attacker%}%::1}
 					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
 			if victim is an ender dragon:
