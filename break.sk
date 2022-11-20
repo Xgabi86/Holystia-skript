@@ -94,26 +94,26 @@ on break:
 			send "Ce bloc a été placé par un joueur vous ne pouvez donc vous en servir pour gagner des points" to player
 		
 		if event-block is fully grown wheat plant:
-			chance of 0.04%:
+			chance of 0.00004%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is fully grown potato plant:
-			chance of 0.03%:
+			chance of 0.00003%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is fully grown carrot plant:
-			chance of 0.03%:
+			chance of 0.00003%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is fully grown beetroot plant:
-			chance of 0.05%:
+			chance of 0.00005%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is melon:
-			chance of 0.07%:
+			chance of 0.00007%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
 		if event-block is pumpkin:
-			chance of 0.07%:
+			chance of 0.00007%:
 				add 1 to {classementclan::%{_i}%::2}
 				send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to player
