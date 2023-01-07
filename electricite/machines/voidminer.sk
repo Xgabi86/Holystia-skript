@@ -21,10 +21,13 @@ every ticks:
 
 every 10 seconds:
     loop {voidminer::*}:
-        if slot 22 of loop-value-1's inventory is iron shovel named "&eBatterie" with custom model data 1433:
-            if durability of slot 22 of loop-value-1's inventory < 250:
-                set {randomorelist::*} to stone, stone, stone, stone, stone, deepslate, deepslate, deepslate, deepslate, deepslate, coal ore, deepslate coal ore, iron ore, deepslate iron ore, copper ore, deepslate copper ore, gold ore, deepslate gold ore, redstone ore, deepslate redstone ore, lapis ore, deepslate lapis ore, diamond ore, deepslate diamond ore, emerald ore, deepslate emerald ore
-                set {_randomore} to a random element out of {randomorelist::*}
+        if loop-value-1 is gray shulker box:
+            if slot 22 of loop-value-1's inventory is iron shovel named "&eBatterie" with custom model data 1433:
+                if durability of slot 22 of loop-value-1's inventory < 250:
+                    set {randomorelist::*} to stone, stone, stone, stone, stone, deepslate, deepslate, deepslate, deepslate, deepslate, coal ore, deepslate coal ore, iron ore, deepslate iron ore, copper ore, deepslate copper ore, gold ore, deepslate gold ore, redstone ore, deepslate redstone ore, lapis ore, deepslate lapis ore, diamond ore, deepslate diamond ore, emerald ore, deepslate emerald ore
+                    set {_randomore} to a random element out of {randomorelist::*}
 
-                set durability of slot 22 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory + 1)
-                drop 1 of {_randomore} at loop-value-1
+                    set durability of slot 22 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory + 1)
+                    drop 1 of {_randomore} at loop-value-1
+        else:
+            remove loop-value-1 from {voidminer::*}

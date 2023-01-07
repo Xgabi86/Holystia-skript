@@ -21,6 +21,9 @@ every ticks:
 
 every seconds:
     loop {solarpanel::*}:
+        if loop-value-1 is yellow shulker box:
         if slot 13 of loop-value-1's inventory is iron shovel named "&eBatterie" with custom model data 1433:
             if durability of slot 13 of loop-value-1's inventory <= 250:
                 set durability of slot 13 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory - 1)
+        else:
+            remove loop-value-1 from {voidminer::*}
