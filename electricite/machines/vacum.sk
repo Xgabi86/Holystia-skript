@@ -45,9 +45,9 @@ every 20 ticks:
                                     set {tploc} to loop-value-1
                                     set {tploc}'s y-pos to ({tploc}'s y-pos -1)
                                     teleport loop-value-2 to {tploc}
-                                    set durability of loop-item to (durability of loop-item + 1)
+                                    set durability of slot 22 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory + 1)
                         else:
                             set {tploc} to loop-value-1
                             set {tploc}'s y-pos to ({tploc}'s y-pos -1)
                             teleport loop-value-2 to {tploc}
-                            set durability of loop-item to (durability of loop-item + 1)
+                            set durability of slot 22 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory + 1)
