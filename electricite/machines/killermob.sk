@@ -5,13 +5,11 @@ on place of barrel:
 
 on break of barrel:
     if {killermob::*} contains event-block:
-        set {killerdrop} to event-block
         drop slot 4 and 22 of event-block's inventory at event-location without velocity
         remove event-block from {killermob::*}
         send "Killer mob cassé" to player
         cancel drops
         drop 1 barrel named "&4killermob" with custom model data 4000 at event-location without velocity
-        delete {killerdrop}
 
 every ticks:
     loop {killermob::*}:
