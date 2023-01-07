@@ -34,4 +34,4 @@ every 10 ticks:
                                 damage loop-entity by {batterienumber}
                                 delete {batterienumber}
         else:
-            remove event-block from {killermob::*}
+            remove loop-value-1 from {killermob::*}
