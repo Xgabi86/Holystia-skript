@@ -1,0 +1,14 @@
+on inventory click:
+    if name of event-item is " ":
+        if {lock} = 1:
+            cancel event
+            
+command /elecsecurity <text>:
+    permission: server.ops
+    trigger:
+        if arg-1 is "true":
+            set {lock} to 1
+        if arg-1 is "false":
+            set {lock} to 0
+        if arg-1 is "give":
+            give player 64 orange stained glass pane named " "

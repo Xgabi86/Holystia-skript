@@ -20,28 +20,6 @@ every ticks:
         loop all entities in radius 2 block around loop-value-1:
             if "%loop-value-2%" is "hopper minecart":
                 kill loop-value-2
-                
-on inventory click:
-    if name of event-item is " ":
-        if {lock} = 1:
-            cancel event
-            
-command /testg <text>:
-    permission: server.ops
-    trigger:
-        if arg-1 is "true":
-            set {lock} to 1
-        if arg-1 is "false":
-            set {lock} to 0
-        if arg-1 is "give":
-            give player 64 orange stained glass pane named " "
-        if arg-1 is "giveitem":
-            give player lightning rod named "&7linker" with custom model data 3864
-
-command /linke <text>:
-    trigger:
-        if player's tool is lightning rod named "&7linker" with custom model data 3864:
-            set lore of player's tool to arg-1
 
 every 10 ticks:
     set {batterienumber} to 0

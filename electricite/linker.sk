@@ -1,0 +1,4 @@
+command /link <text>:
+    trigger:
+        if player's tool is lightning rod named "&7linker" with custom model data 3864:
+            set lore of player's tool to arg-1

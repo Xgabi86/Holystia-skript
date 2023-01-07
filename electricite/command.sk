@@ -25,6 +25,8 @@ command /elec [<text>] [<text>]:
                 give player barrel named "&4killermob" with custom model data 4000
             else if arg-2 is "vacum":
                 give player pink shulker box named "&6vacum" with custom model data 8734
+            else if arg-2 is "linker":
+                give player lightning rod named "&7linker" with custom model data 3864
 
         else if arg-1 is "reset":
             if arg-2 is "solarpanel":
@@ -42,6 +44,6 @@ on tab complete of "/elec":
         if tab arg-1 = "list":
             set tab completions for position 2 to "vacum", "killermob", "solarpanel" and "voidminer"
         else if tab arg-1 = "give":
-            set tab completions for position 2 to "vacum", "killermob", "solarpanel", "batterie" and "voidminer"
+            set tab completions for position 2 to "linker", "vacum", "killermob", "solarpanel", "batterie" and "voidminer"
         else if tab arg-1 = "reset":
             set tab completions for position 2 to "vacum", "killermob", "solarpanel" and "voidminer"

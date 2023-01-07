@@ -17,7 +17,7 @@ command /redstone <text> [<text>]:
                     delete {item2}
                     delete {randomnumber}
     
-command /link <text>:
+command /redstonelink <text>:
     trigger:
         if player's tool is crimson sign named "&4Récépteur" with lore "&0verif":
             set {line3recepteur-%player%} to arg-1
