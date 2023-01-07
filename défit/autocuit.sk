@@ -1,0 +1,28 @@
+on pickup of raw copper, raw iron, ancient debris or raw gold:
+    wait 3 ticks
+    loop 64 times:
+        wait 3 ticks
+        loop all items in player's inventory:
+            if name of loop-item contains "autocook":
+                if custom model data of the loop-item is 444:
+                    loop all items in player's inventory:
+                        if name of loop-item-2 contains "&eBatterie":
+                            if durability of loop-item-2 < 250:
+                                loop all items in player's inventory:
+                                    if loop-item-3 is raw copper:
+                                        set durability of loop-item-2 to (durability of loop-item-2 + 1)  
+                                        remove raw copper from player's inventory                      
+                                        drop copper ingot at player's location
+                                    else if loop-item-3 is raw iron:
+                                        set durability of loop-item-2 to (durability of loop-item-2 + 1) 
+                                        remove raw iron from player's inventory                      
+                                        drop iron ingot at player's location
+                                    else if loop-item-3 is ancient debris:
+                                        set durability of loop-item-2 to (durability of loop-item-2 + 1)  
+                                        remove ancient debris from player's inventory                      
+                                        drop netherite scrap at player's location
+
+command autocook:
+    permission: serveur.ops
+    trigger:
+        give iron nugget named "autocook" with custom model data 444 to player

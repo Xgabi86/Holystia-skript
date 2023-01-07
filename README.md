@@ -1,1 +1,0 @@
-# Holystia-skripts

@@ -1,0 +1,63 @@
+on place of barrel:
+    if custom model data of player's tool is 4000:
+        add event-block to {killermob::*} 
+        set slot 0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25 and 26 of event-block's inventory to orange stained glass pane named " "
+
+on break of barrel:
+    if {killermob::*} contains event-block:
+        set {killerdrop} to event-block
+        drop slot 4 and 22 of event-block's inventory at event-location without velocity
+        remove event-block from {killermob::*}
+        send "Killer mob cassé" to player
+        cancel drops
+        drop 1 barrel named "&4killermob" with custom model data 4000 at event-location without velocity
+        delete {killerdrop}
+
+every ticks:
+    loop {killermob::*}:
+        if block at block 1 down loop-value-1 is hopper:
+            set block at block 1 down loop-value-1 to air
+        loop all entities in radius 2 block around loop-value-1:
+            if "%loop-value-2%" is "hopper minecart":
+                kill loop-value-2
+                
+on inventory click:
+    if name of event-item is " ":
+        if {lock} = 1:
+            cancel event
+            
+command /testg <text>:
+    permission: server.ops
+    trigger:
+        if arg-1 is "true":
+            set {lock} to 1
+        if arg-1 is "false":
+            set {lock} to 0
+        if arg-1 is "give":
+            give player 64 orange stained glass pane named " "
+        if arg-1 is "giveitem":
+            give player lightning rod named "&7linker" with custom model data 3864
+
+command /linke <text>:
+    trigger:
+        if player's tool is lightning rod named "&7linker" with custom model data 3864:
+            set lore of player's tool to arg-1
+
+every 10 ticks:
+    set {batterienumber} to 0
+    loop {killermob::*}:
+        loop all mobs in radius 1 block around loop-value:
+            if loop-value-2 contains 0 mob:
+                stop
+            else:
+                if loop-value-2's health is greater than 0:
+                    loop all items in {killermob::*}'s inventory:
+                        if name of loop-item contains "&eBatterie":
+                            if custom model data of the loop-item is 1433:
+                                if durability of loop-item < 250:
+                                    add 1 to {batterienumber}
+                                    set durability of loop-item to (durability of loop-item + 1)
+                                    damage loop-entity by {batterienumber}
+
+
+                

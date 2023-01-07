@@ -1,0 +1,51 @@
+on death of player:
+    if victim has permission "server.ops":
+        stop
+    cancel drops
+    set block at event-location to chest
+    set block at block 1 up event-location to chest
+    set display name of block at {_chest1-%victim%}'s inventory to "&cTombe de %victim% (inventaire)"
+    set display name of block at {_chest2-%victim%}'s inventory to "&cTombe de %victim% (hotbar, armure et offhand)"
+    set {_chest1-%victim%} to block at event-location
+    set {_chest2-%victim%} to block at block 1 up event-location
+    set slot 0 of {_chest1-%victim%} to slot 9 of victim's inventory
+    set slot 1 of {_chest1-%victim%} to slot 10 of victim's inventory
+    set slot 2 of {_chest1-%victim%} to slot 11 of victim's inventory
+    set slot 3 of {_chest1-%victim%} to slot 12 of victim's inventory
+    set slot 4 of {_chest1-%victim%} to slot 13 of victim's inventory
+    set slot 5 of {_chest1-%victim%} to slot 14 of victim's inventory
+    set slot 6 of {_chest1-%victim%} to slot 15 of victim's inventory
+    set slot 7 of {_chest1-%victim%} to slot 16 of victim's inventory
+    set slot 8 of {_chest1-%victim%} to slot 17 of victim's inventory
+    set slot 9 of {_chest1-%victim%} to slot 18 of victim's inventory
+    set slot 10 of {_chest1-%victim%} to slot 19 of victim's inventory
+    set slot 11 of {_chest1-%victim%} to slot 20 of victim's inventory
+    set slot 12 of {_chest1-%victim%} to slot 21 of victim's inventory
+    set slot 13 of {_chest1-%victim%} to slot 22 of victim's inventory
+    set slot 14 of {_chest1-%victim%} to slot 23 of victim's inventory
+    set slot 15 of {_chest1-%victim%} to slot 24 of victim's inventory
+    set slot 16 of {_chest1-%victim%} to slot 25 of victim's inventory
+    set slot 17 of {_chest1-%victim%} to slot 26 of victim's inventory
+    set slot 18 of {_chest1-%victim%} to slot 27 of victim's inventory
+    set slot 19 of {_chest1-%victim%} to slot 28 of victim's inventory
+    set slot 20 of {_chest1-%victim%} to slot 29 of victim's inventory
+    set slot 21 of {_chest1-%victim%} to slot 30 of victim's inventory
+    set slot 22 of {_chest1-%victim%} to slot 31 of victim's inventory
+    set slot 23 of {_chest1-%victim%} to slot 32 of victim's inventory
+    set slot 24 of {_chest1-%victim%} to slot 33 of victim's inventory
+    set slot 25 of {_chest1-%victim%} to slot 34 of victim's inventory
+    set slot 26 of {_chest1-%victim%} to slot 35 of victim's inventory
+    set slot 0 of {_chest2-%victim%} to slot 0 of victim's inventory
+    set slot 1 of {_chest2-%victim%} to slot 1 of victim's inventory
+    set slot 2 of {_chest2-%victim%} to slot 2 of victim's inventory
+    set slot 3 of {_chest2-%victim%} to slot 3 of victim's inventory
+    set slot 4 of {_chest2-%victim%} to slot 4 of victim's inventory
+    set slot 5 of {_chest2-%victim%} to slot 5 of victim's inventory
+    set slot 6 of {_chest2-%victim%} to slot 6 of victim's inventory
+    set slot 7 of {_chest2-%victim%} to slot 7 of victim's inventory
+    set slot 8 of {_chest2-%victim%} to slot 8 of victim's inventory
+    set slot 9 of {_chest2-%victim%} to slot 36 of victim's inventory
+    set slot 10 of {_chest2-%victim%} to slot 37 of victim's inventory
+    set slot 11 of {_chest2-%victim%} to slot 38 of victim's inventory
+    set slot 12 of {_chest2-%victim%} to slot 39 of victim's inventory
+    set slot 13 of {_chest2-%victim%} to slot 40 of victim's inventory

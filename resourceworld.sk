@@ -1,7 +1,7 @@
 every hour:
     add 1 to {tr}
 
-    if {tr} = 24:
+    if {tr} >= 24:
         execute console command "mvdelete resource_world"
         wait 40 ticks
         execute console command "mvconfirm"
@@ -17,7 +17,7 @@ command /r [<text>] [<number>]:
             execute console command "effect give %player% absorption 10 10 true"
             execute console command "mvtp %player% resource_world"
             send "&aVous avez été téléporter sur le monde ressource."
-        else if arg-1 is "reset" or "regen":
+        else if arg-1 is "regen":
             if player has permission "server.ops":
                 execute console command "mvdelete resource_world"
                 wait 40 ticks

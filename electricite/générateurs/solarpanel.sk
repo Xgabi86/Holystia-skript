@@ -12,9 +12,7 @@ on break of yellow shulker box:
         cancel drops
         drop 1 yellow shulker box named "&ePanneau solaire" with custom model data 1110 at event-location without velocity
         
-
-
-
+        
 every seconds:
     loop all items in {solarpanel::*}'s inventory:
         if name of loop-item contains "&eBatterie":

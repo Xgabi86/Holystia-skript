@@ -1,5 +1,5 @@
 on break of log:
-    if player's tool is netherite axe named "&eGaybi &6Axe" with custom model data 3462:
+    if player's tool is netherite axe named "&eTree &6breaker" with custom model data 3462:
         if {axe-%player%} is not true:
             set {axe-%player%} to true
             wait 10 tick
@@ -58,6 +58,4 @@ on break of log:
 command /giveaxe:
     permission: server.ops
     trigger:
-        give unbreakable netherite axe named "&eGaybi &6Axe" with custom model data 3462 to player
-        set lore of player's tool to "Hache du testeur (FGuethor), c'est Hache est unique !"
-        
+        give netherite axe named "&eTree &6breaker" with custom model data 3462 to player

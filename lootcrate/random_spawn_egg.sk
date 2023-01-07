@@ -1,0 +1,25 @@
+command /giverandomspawnegg:
+    permission: server.ops
+    trigger:
+        add 1 orange shulker box named "&eOeuf de mob aléatoire" with custom model data 2734 to player
+
+command /resetline:
+    permission: server.ops
+    trigger:
+        set {filelinenumber} to "2" parsed as integer
+    
+on right click:
+    if player's held item is orange shulker box named "&eOeuf de mob aléatoire" with custom model data 2734:
+        cancel event
+        remove 1 orange shulker box named "&eOeuf de mob aléatoire" with custom model data 2734 from player's inventory
+        if {filelinenumber} is not set:
+            set {filelinenumber} to "2" parsed as integer
+        set {randomspawnegglist::*} to spawn blaze, spawn cow, spawn pig, spawn stray, spawn sheep, spawn evoker, spawn creeper, spawn wither skeleton, spawn enderman, spawn chicken, spawn witch, spawn slime, spawn spider, spawn vindicator, spawn piglin, spawn mooshroom, spawn zombie villager, spawn rabbit, spawn ravager, spawn hoglin, spawn magma cube, spawn zombie and spawn skeleton
+        set {_randomspawnegg} to a random element out of {randomspawnegglist::*}
+        add 1 of {_randomspawnegg} to player's inventory
+        wait 5 seconds
+        insert "%player% a ouvert la lootcrate randmon spawn egg et a obtenu %{_randomspawnegg}% à %now%." at line {filelinenumber} of file path "plugins/Egglogger/log.txt"
+        add 1 to {filelinenumber}
+        wait 5 seconds
+        delete {randomspawnegglist::*}
+        delete {_randomspawnegg}

@@ -1,0 +1,14 @@
+command /giverandomtool:
+    permission: server.ops
+    trigger:
+        add 1 orange shulker box named "&eOutil aléatoire" with custom model data 3472 to player
+    
+on right click:
+    if player's held item is orange shulker box named "&eOutil aléatoire" with custom model data 3472:
+        cancel event
+        remove 1 orange shulker box named "&eOutil aléatoire" with custom model data 3472 from player's inventory
+        set {randomtoollist::*} to netherite axe named "&eTree &6breaker" with custom model data 3462, netherite hoe named "&6faucil" with custom model data 4000 and netherite shovel named "&6Excavator" with custom model data 3874
+        set {_randomtool} to a random element out of {randomtoollist::*}
+        add 1 of {_randomtool} to player's inventory
+        delete {randomtool::*}
+        delete {_randomtool}

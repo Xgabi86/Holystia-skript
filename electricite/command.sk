@@ -4,8 +4,12 @@ command /elec [<text>] [<text>]:
         if arg-1 is "list":
             if arg-2 is "solarpanel":
                 send "&aSolar Panel: &r%{solarpanel::*}%" to player
-            else if arg-2 is "void miner":
+            else if arg-2 is "voidminer":
                 send "&bVoid Miner : &r%{voidminer::*}%" to player
+            else if arg-2 is "killermob":
+                send "&bKiller mob : &r%{killermob::*}%" to player
+            else if arg-2 is "vacum":
+                send "&bvacum : &r%{vacum::*}%" to player
 
         else if arg-1 is "give":
             if arg-2 is "solarpanel":
@@ -17,19 +21,27 @@ command /elec [<text>] [<text>]:
                 delete {_itemsp}
             else if arg-2 is "voidminer":
                 give player gray shulker box named "&8Void Miner" with custom model data 4570
+            else if arg-2 is "killermob":
+                give player barrel named "&4killermob" with custom model data 4000
+            else if arg-2 is "vacum":
+                give player pink shulker box named "&6vacum" with custom model data 8734
 
         else if arg-1 is "reset":
             if arg-2 is "solarpanel":
                 set {solarpanel::*} to ""
             else if arg-2 is "voidminer":
                 set {voidminer::*} to ""
+            else if arg-2 is "killermob":
+                set {killermob::*} to ""
+            else if arg-2 is "vacum":
+                set {vacum::*} to ""
 
 on tab complete of "/elec":
     if player has permission "generateur.*":
         set tab completions for position 1 to "reset", "list" and "give"
         if tab arg-1 = "list":
-            set tab completions for position 2 to "solarpanel" and "voidminer"
+            set tab completions for position 2 to "vacum", "killermob", "solarpanel" and "voidminer"
         else if tab arg-1 = "give":
-            set tab completions for position 2 to "solarpanel", "batterie" and "voidminer"
+            set tab completions for position 2 to "vacum", "killermob", "solarpanel", "batterie" and "voidminer"
         else if tab arg-1 = "reset":
-            set tab completions for position 2 to "solarpanel" and "voidminer"
+            set tab completions for position 2 to "vacum", "killermob", "solarpanel" and "voidminer"

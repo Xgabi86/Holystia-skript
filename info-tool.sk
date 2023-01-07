@@ -1,0 +1,9 @@
+command /giveinfotool:
+    permission: server.ops
+    trigger:
+        give stick named "Info Tool" with custom model data 3479 to player
+        
+on break:
+    if player's tool is stick named "Info Tool" with custom model data 3479:
+        if player has permission "server.ops":
+            send "%event-block%" to player

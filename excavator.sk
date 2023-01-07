@@ -89,6 +89,5 @@ on break:
 command /giveexcavator:
     permission: server.ops
     trigger:
-        give unbreakable netherite shovel named "&6Excavator" with custom model data 3874 to player
-        set lore of player's tool to "Hache du testeur (FGuethor), c'est Hache est unique !"
+        give netherite shovel named "&6Excavator" with custom model data 3874 to player
         

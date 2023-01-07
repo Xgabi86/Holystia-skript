@@ -1,0 +1,49 @@
+on place of pink shulker box:
+    if custom model data of player's tool is 8734:
+        add event-block to {vacum::*} 
+
+on break of pink shulker box:
+    if {vacum::*} contains event-block:
+        set {vacumdrop} to event-block
+        loop all items in {vacumdrop}'s inventory:
+            drop loop-item at event-location without velocity
+        remove event-block from {vacum::*}
+        send "vacum cassé" to player
+        cancel drops
+        drop pink shulker box named "&6vacum" with custom model data 8734 at event-location without velocity
+        delete {vacum}
+
+every 20 ticks:
+    set {batterienumber} to 0
+    loop {vacum::*}:
+        loop all dropped items in radius 4 block around loop-value:
+            if loop-value-2 contains 0 dropped item:
+                stop
+            else:
+                loop all items in {vacum::*}'s inventory:
+                    if name of loop-item contains "&eBatterie":
+                        if custom model data of the loop-item is 1433:
+                            if durability of loop-item < 250:
+                            
+                                set {loop2x} to loop-value-2's x-pos
+                                set {loop1x} to loop-value-1's x-pos
+                                set {loop3x} to loop-value-1's x-pos
+                                set {loop2y} to loop-value-2's y-pos
+                                set {loop1y} to loop-value-1's y-pos
+                                set {loop3y} to loop-value-1's y-pos -10
+                                set {loop2z} to loop-value-2's z-pos
+                                set {loop1z} to loop-value-1's z-pos
+                                set {loop3z} to loop-value-1's z-pos
+                                
+                                if {loop2y} is between {loop1y} and {loop3y}:
+                                    if {loop2z} is not between {loop1z} and {loop3z}:
+                                        if {loop2x} is not between {loop1x} and {loop3x}:
+                                            set {tploc} to loop-value-1
+                                            set {tploc}'s y-pos to ({tploc}'s y-pos -1)
+                                            teleport loop-value-2 to {tploc}
+                                            set durability of loop-item to (durability of loop-item + 1)
+                                else:
+                                    set {tploc} to loop-value-1
+                                    set {tploc}'s y-pos to ({tploc}'s y-pos -1)
+                                    teleport loop-value-2 to {tploc}
+                                    set durability of loop-item to (durability of loop-item + 1)
