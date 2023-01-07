@@ -5,7 +5,7 @@ on place of yellow shulker box:
 
 on break of yellow shulker box:
     if {solarpanel::*} contains event-block:
-        drop slot 4 and 22 of event-block's inventory at event-location without velocity
+        drop slot 13 of event-block's inventory at event-location without velocity
         remove event-block from {solarpanel::*}
         send "Solar Panel cassé" to player
         cancel drops
