@@ -12,3 +12,8 @@ command /elecsecurity <text>:
             set {lock} to 0
         if arg-1 is "give":
             give player 64 orange stained glass pane named " "
+
+every ticks:
+    loop all dropped item:
+        if loop-value is orange stained glass pane named " ":
+            kill loop-value
