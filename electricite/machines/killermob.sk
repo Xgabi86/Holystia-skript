@@ -32,7 +32,7 @@ every 10 ticks:
                     if slot 22 of loop-value-1's inventory is iron shovel named "&eBatterie" with custom model data 1433:
                         if durability of slot 22 of loop-value-1's inventory < 250:
                             add 1 to {batterienumber}
-                            set durability of loop-item to (durability of slot 22 of {killermob::*}'s inventory + 1)
+                            set durability of slot 22 of {killermob::*}'s inventory to (durability of slot 22 of {killermob::*}'s inventory + 1)
                             damage loop-entity by {batterienumber}
 
 
