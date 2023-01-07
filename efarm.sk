@@ -1,5 +1,5 @@
 on break of fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
-    set {_loc} to location of event-block
+    set {loc} to location of event-block
     set {bblock} to block at event-block
     if {bblock} is ripe wheat plant:
         set {bblock} to wheat plant
@@ -14,16 +14,16 @@ on break of fully grown wheat plant, fully grown potato plant, fully grown carro
         set {bblock} to beetroot plant
         set {seeds} to beetroot seeds
     wait 1 ticks
-    plantbreak(player,{_loc},{bblock},{seeds})
+    plantbreak(player,{loc},{bblock},{seeds})
 
 function plantbreak(p: player, loc: location, bblock: block, seeds: item):
-    casinodrop({_p})
-    if {_p}'s inventory contains {seeds}:
-        remove 1 of {seeds} from {_p}'s inventory
-        set block at location at {_loc} to {bblock}
-        delete {_loc}
+    casinodrop({p})
+    if {p}'s inventory contains {seeds}:
+        remove 1 of {seeds} from {sp}'s inventory
+        set block at location at {loc} to {bblock}
+        delete {loc}
         delete {seeds}
-        delete {_p}
+        delete {p}
         delete {bblock}
 
 function casinodrop(p: player):
