@@ -24,7 +24,7 @@ every ticks:
 every 10 ticks:
     set {batterienumber} to 0
     loop {killermob::*}:
-        loop all mobs in radius 1 block around loop-value:
+        loop all mobs in radius 4 block around loop-value:
             if loop-value-2 contains 0 mob:
                 stop
             else:
@@ -32,7 +32,7 @@ every 10 ticks:
                     if slot 22 of loop-value-1's inventory is iron shovel named "&eBatterie" with custom model data 1433:
                         if durability of slot 22 of loop-value-1's inventory < 250:
                             add 1 to {batterienumber}
-                            set durability of slot 22 of {killermob::*}'s inventory to (durability of slot 22 of {killermob::*}'s inventory + 1)
+                            set durability of slot 22 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory + 1)
                             damage loop-entity by {batterienumber}
 
 
