@@ -26,4 +26,4 @@ every seconds:
                 if durability of slot 13 of loop-value-1's inventory <= 250:
                     set durability of slot 13 of loop-value-1's inventory to (durability of slot 22 of loop-value-1's inventory - 1)
         else:
-            remove loop-value-1 from {voidminer::*}
+            remove loop-value-1 from {solarpanel::*}
