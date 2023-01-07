@@ -17,3 +17,6 @@ every ticks:
     loop all dropped items:
         if loop-value is orange stained glass pane named " ":
             kill loop-value
+            broadcast "c good"
+        else:
+            broadcast "%loop-value%"
