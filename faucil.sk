@@ -6,7 +6,26 @@ command faucil:
 on right click on wheat, carrot plant, potato plant or beetroot plant:
     if player's held item is a netherite hoe named "&6faucil" with custom model data 4000:
         loop 10 times:
-            if block at block 1 north event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            if block at event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at event-location naturally using player's tool
+                set {loc} to location of event-block
+                set {bblock} to block at event-block
+                if {bblock} is ripe wheat plant:
+                    set {bblock} to wheat plant
+                    set {seeds} to wheat seeds
+                else if {bblock} is ripe potato plant:
+                    set {bblock} to potato plant
+                    set {seeds} to potato
+                else if {bblock} is ripe carrot plant:
+                    set {bblock} to carrot plant
+                    set {seeds} to carrot
+                else if {bblock} is ripe beetroot plant:
+                    set {bblock} to beetroot plant
+                    set {seeds} to beetroot seeds
+                wait 1 ticks
+                plantbreak(player,{loc},{bblock},{seeds})
+                wait 1 tick
+            else if block at block 1 north event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
                 break block at block 1 north event-location naturally using player's tool
                 set {loc} to location of event-block
                 set {bblock} to block at event-block
