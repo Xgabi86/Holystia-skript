@@ -19,8 +19,9 @@ on break of fully grown wheat plant, fully grown potato plant, fully grown carro
 function plantbreak(p: player, loc: location, bblock: block, seeds: item):
     casinodrop({p})
     if {p}'s inventory contains {seeds}:
-        remove 1 of {seeds} from {sp}'s inventory
+        remove 1 of {seeds} from {p}'s inventory
         set block at location at {loc} to {bblock}
+        broadcast "%{bblock}%"
         delete {loc}
         delete {seeds}
         delete {p}
@@ -28,7 +29,7 @@ function plantbreak(p: player, loc: location, bblock: block, seeds: item):
 
 function casinodrop(p: player):
     chance of 0.08%:
-        execute console command "crazycrate give p Casino 1 %{_p}%"
+        execute console command "crazycrate give p Casino 1 %{p}%"
 
 on block trample:
     if event-block is wheat plant, potato plant, carrot plant or beetroot plant:
