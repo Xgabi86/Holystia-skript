@@ -1,27 +1,30 @@
 on place of gray shulker box:
     if custom model data of player's tool is 4570:
         add event-block to {voidminer::*}
+        set slot 0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25 and 26 of event-block's inventory to orange stained glass pane named " "
 
 on break of gray shulker box:
     if {voidminer::*} contains event-block:
-        set {test} to event-block
-        loop all items in {test}'s inventory:
-            drop loop-item at event-location without velocity
+        drop slot 4 and 22 of event-block's inventory at event-location without velocity
         remove event-block from {voidminer::*}
         send "Void Miner cassé" to player
         cancel drops
         drop 1 gray shulker box named "&8Void Miner" with custom model data 4570 at event-location without velocity
 
-
+every ticks:
+    loop {voidminer::*}:
+        if block at block 1 down loop-value-1 is hopper:
+            set block at block 1 down loop-value-1 to air
+        loop all entities in radius 2 block around loop-value-1:
+            if "%loop-value-2%" is "hopper minecart":
+                kill loop-value-2
 
 every 10 seconds:
-    loop all items in {voidminer::*}'s inventory:
-        if name of loop-item contains "&eBatterie":
-            set {_customModelData} to the custom model data of the loop-item
-            if {_customModelData} is 1433:
-                if durability of loop-item < 250:
-                    set {randomorelist::*} to stone, stone, stone, stone, stone, deepslate, deepslate, deepslate, deepslate, deepslate, coal ore, deepslate coal ore, iron ore, deepslate iron ore, copper ore, deepslate copper ore, gold ore, deepslate gold ore, redstone ore, deepslate redstone ore, lapis ore, deepslate lapis ore, diamond ore, deepslate diamond ore, emerald ore, deepslate emerald ore
-                    set {_randomore} to a random element out of {randomorelist::*}
+    loop {voidminer::*}:
+        if slot 22 of loop-value-1's inventory is iron shovel named "&eBatterie" with custom model data 1433:
+            if durability of slot 22 of loop-value-1's inventory < 250:
+                set {randomorelist::*} to stone, stone, stone, stone, stone, deepslate, deepslate, deepslate, deepslate, deepslate, coal ore, deepslate coal ore, iron ore, deepslate iron ore, copper ore, deepslate copper ore, gold ore, deepslate gold ore, redstone ore, deepslate redstone ore, lapis ore, deepslate lapis ore, diamond ore, deepslate diamond ore, emerald ore, deepslate emerald ore
+                set {_randomore} to a random element out of {randomorelist::*}
 
-                    set durability of loop-item to (durability of loop-item + 1)
-                    add 1 of {_randomore} to {voidminer::*}'s inventory
+                set durability of loop-item to (durability of loop-item + 1)
+                drop 1 of {_randomore} at loop-value-1
