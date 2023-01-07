@@ -1,0 +1,27 @@
+command /autoc [<text>]:
+    permission: serveur.ops
+    trigger:
+        if arg-1 is "tbl":
+            open crafting table to player
+        else if arg-1 is "com":
+            give player compass named "make your own plan" with custom model data 1001
+        else if arg-1 is "true":
+            set {autoc} to "true"
+        else if arg-1 is "false":
+            set {autoc} to "false"
+
+on right click:
+    if {autoc} is "true":
+        if player's tool is compass with custom model data 1001:
+            if player inventory contain 2 oak planks:
+                remove 2 oak planks from player's inventory
+                give stick to player
+            
+            
+            
+            #open crafting table to player
+            #if slot 1 is not air:
+                #set item to {item1}
+                #add {item1} to {plan::*}
+                #send to player "%{plan::*}%"
+        

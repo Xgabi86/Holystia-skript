@@ -1,0 +1,42 @@
+command faucil:
+    permission: serveur.ops
+    trigger:
+        give diamond hoe named "faucil" with custom model data 4000 to player
+
+on break of wheat, carrot plant, potato plant or beetroot plant:
+    if player's held item is a diamond hoe named "faucil":
+        loop 10 times:
+            if block at block 1 north event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 north event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 south event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 south event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 east event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 east event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 west event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 north 1 south event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 north 1 south event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 north 1 east event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 north 1 east event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 north 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 north 1 west event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 south 1 east event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 south 1 east event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 south 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 south 1 west event-location naturally using player's tool
+                wait 1 tick
+            else if block at block 1 east 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+                break block at block 1 east 1 west event-location naturally using player's tool
+                wait 1 tick
+
+on break of wheat, carrot plant, potato plant or beetroot plant:
+    chance of 0.08%:
+        execute console command "crazycrate give p Casino 1 %player%"

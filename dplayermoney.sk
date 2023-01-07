@@ -1,4 +1,5 @@
 on death of player:
-	set {_balance} to (victim's balance)
+	set {_balance} to 0.8*(victim's balance)
 	execute console command "eco set %victim% %{_balance}%"
 	send "&cYou have been killed and your balance has been set to %{_balance}%." to victim
+	delete {balance}

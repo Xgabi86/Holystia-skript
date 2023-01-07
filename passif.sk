@@ -1,10 +1,8 @@
 command /passif:
     trigger:
-        if player has permission "server.verif.op":
-            send "&cVeuiller desactiver votre mode staff."
-        else if player has permission "clan.eau":
-            if {cooldown.%player%} is not set:
-                set {cooldown.%player%} to 1
+        if player has permission "clan.eau":
+            if {cooldown.%player%.} is not set:
+                set {cooldown.%player%.} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
@@ -12,13 +10,13 @@ command /passif:
                 apply water breathing to player for 6 minutes
 		
                 wait 10 minutes
-                delete {cooldown.%player%}
+                delete {cooldown.%player%.}
                 send "&e Passif rechargé !" to player
-            if {cooldown.%player%} is set:
+            if {cooldown.%player%.} is set:
                 send "&cUn peu de patience" to player
         else if player has permission "clan.feu":
-            if {cooldown.%player%} is not set:
-                set {cooldown.%player%} to 1
+            if {cooldown.%player%.} is not set:
+                set {cooldown.%player%.} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
 		
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
@@ -26,48 +24,49 @@ command /passif:
 		
                 apply speed to player for 1 minute
                 wait 10 minutes
-                delete {cooldown.%player%}
+                delete {cooldown.%player%.}
                 send "&e Passif rechargé !" to player
-            if {cooldown.%player%} is set:
+            if {cooldown.%player%.} is set:
                 send "&cUn peu de patience" to player
         else if player has permission "clan.terre":
-            if {cooldown.%player%} is not set:
-                set {cooldown.%player%} to 1
+            if {cooldown.%player%.} is not set:
+                set {cooldown.%player%.} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-                apply haste 2 to player for 10 minutes
+                apply haste to player for 2 minutes
+                apply resistance to player for 8 minutes
 		
                 wait 10 minutes
-                delete {cooldown.%player%}
+                delete {cooldown.%player%.}
                 send "&e Passif rechargé !" to player
-            if {cooldown.%player%} is set:
+            if {cooldown.%player%.} is set:
                 send "&cUn peu de patience" to player
         else if player has permission "clan.air":
-            if {cooldown.%player%} is not set:
-                set {cooldown.%player%} to 1
+            if {cooldown.%player%.} is not set:
+                set {cooldown.%player%.} to 1
                 send "&e Vous venez d'utiliser votre passif." to player
                 send "&aAttendez 10 minutes que votre passif se recharche." to player
 		
-                set {nofalldamage.%player%} to 1
+                set {nofalldamage.%player%.} to 1
 		
                 wait 2 minutes
 		
-                delete {nofalldamage.%player%}
+                delete {nofalldamage.%player%.}
 		
                 wait 10 minutes
-                delete {cooldown.%player%}
+                delete {cooldown.%player%.}
                 send "&e Passif rechargé !" to player
-            if {cooldown.%player%} is set:
+            if {cooldown.%player%.} is set:
                 send "&cUn peu de patience" to player
         else:
             send "&cVous devez rejoindre un clan pour avoir un passif." to player
 
 
 on disconnect :
-	if {cooldown.%player%} is set:
+	if {cooldown.%player%.} is set:
 		if player has permission "clan.air":
-			delete {nofalldamage.%player%}
+			delete {nofalldamage.%player%.}
 		
 		if player has permission "clan.feu":
 			remove fire resistance from player
@@ -83,10 +82,11 @@ on disconnect :
 			
 on damage:
 	if victim has permission "clan.air":
-		if {nofalldamage.%victim%} is set:
+		if {nofalldamage.%victim%.} is set:
 			if damage cause is fall:
 				cancel event
 	
 	
 on load:
-	delete {cooldown.%player%}
+	delete {cooldown.%player%.}
+

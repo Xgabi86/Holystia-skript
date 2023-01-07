@@ -1,0 +1,36 @@
+#on break:
+#   add 1 to {mixytest}
+#  send "vous avez %{mixytest}%" to player
+
+#on place:
+#   if {mixytest} > 0:    
+#      add -1 to {mixytest}
+#     send "vous avez %{mixytest}%" to player
+
+#command mixytest <text> [<number>]:
+    #permission: server.ops
+    # trigger:
+        #if arg-1 is "add":
+            #add arg-2 to {mixytest}
+            #send "vous avez %{mixytest}% points" to player
+        #else if arg-1 is "remove":
+            #remove arg-2 from {mixytest}
+            #send "vous avez %{mixytest}% points" to player
+        #else if arg-1 is "info":
+            #send "vous avez %{mixytest}% points" to player
+
+#on right click on cow:
+    #if player has permission "server.ops":
+        #if player's tool is emerald:
+            #summon cow at event-location
+
+#on right click on red tulip:
+    #if player has permission "server.ops":
+        #if player's tool is emerald:
+            #summon lightning_bolt at event-location
+            #broadcast "&4&l%player% vient de se faire foudroyer le fiack &7(cheh)"
+
+
+
+        
+    

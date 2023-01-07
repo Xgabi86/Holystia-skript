@@ -1,7 +1,7 @@
 
 
 command /hatk:
-    executable by: player
+    executable by: player 
     trigger:
         if player has permission "clan.feu":
             give player blaze rod of sharpness 1 named "&2RedHawk"

@@ -1,0 +1,24 @@
+on place of yellow shulker box:
+    if custom model data of player's tool is 1110:
+        add event-block to {solarpanel::*}
+
+on break of yellow shulker box:
+    if {solarpanel::*} contains event-block:
+        set {test} to event-block
+        loop all items in {test}'s inventory:
+            drop loop-item at event-location without velocity
+        remove event-block from {solarpanel::*}
+        send "Solar Panel cassé" to player
+        cancel drops
+        drop 1 yellow shulker box named "&ePanneau solaire" with custom model data 1110 at event-location without velocity
+        
+
+
+
+every seconds:
+    loop all items in {solarpanel::*}'s inventory:
+        if name of loop-item contains "&eBatterie":
+            set {_customModelData} to the custom model data of the loop-item
+            if {_customModelData} is 1433:
+                if durability of loop-item <= 250:
+                    set durability of loop-item to (durability of loop-item - 1)

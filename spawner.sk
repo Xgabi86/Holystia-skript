@@ -7,7 +7,7 @@ on break of spawner:
                         drop 1 spawner
                         remove event-block from {spawnerplaced::*}
                     else:
-                        spawnguardian(player)
+                        spawnguardian(player) 
                         drop 1 spawner
                 else:
                     spawnguardian(player)

@@ -1,0 +1,28 @@
+command event <text>:
+    trigger:
+        set {spawn-feu} to location -2, -60, -2 in world "world_event"
+        set {spawn-eau} to location -2, -60, 2 in world "world_event"
+        set {spawn-terre} to location 2, -60, -2 in world "world_event"
+        set {spawn-air} to location 2, -60, 2 in world "world_event"
+#       
+        if arg-1 is "feu":
+            if player has permission "clan.feu":
+                teleport player to {spawn-feu}
+                send "tp feu" to player
+
+        else if arg-1 is "eau":
+            if player has permission "clan.eau":
+                teleport player to {spawn-eau}
+                send "tp eau" to player
+
+        else if arg-1 is "terre":
+            if player has permission "clan.terre":
+                teleport player to {spawn-terre}
+                send "tp terre" to player
+        else if arg-1 is "air":
+            if player has permission "clan.air":
+                teleport player to {spawn-air}
+                send "tp air" to player
+
+on tab complete of "/event":
+    set tab completions for position 1 to "feu", "eau", "terre" and "air"

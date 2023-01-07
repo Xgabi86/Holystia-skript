@@ -1,19 +1,68 @@
-on skript start:
- set {transporteur1} to location -240, 131, 293 in world "world"
- set {transporteur2} to location -176, 123, 346 in world "world"
- set {bombardier1} to location -215, 169, 346 in world "world"
- set {bombardier2} to location -291, 158, 304 in world "world"
- 
- 
-
 on right click on sign:
   if player is in region "regiondeholystia":
     if line 1 of target block is "Téléportation":
       if line 2 of target block is "Transporteur 1":
+        set {transporteur1} to location -240, 131, 293 in world "world"
         teleport player to {transporteur1}
+        delete {transporteur1}
       if line 2 of target block is "Transporteur 2":
+        set {transporteur2} to location -176, 123, 346 in world "world"
         teleport player to {transporteur2}
+        delete {transporteur2}
       if line 2 of target block is "Bombardier 1":
+        set {bombardier1} to location -215, 169, 346 in world "world"
         teleport player to {bombardier1}
+        delete {bombardier1}
       if line 2 of target block is "Bombardier 2":
+        set {bombardier2} to location -291, 158, 304 in world "world"
         teleport player to {bombardier2}
+        delete {bombardier2}
+
+on right click on oak sign:
+    if line 1 of clicked block is "&3Retour à":
+        if line 2 of clicked block is "&3l'envoyeur":
+            set {balloon} to location -185, 99, 294 in world "world"
+            teleport player to {balloon}
+            delete {balloon}
+        if line 2 of clicked block is "&3l'eau":
+            set {port} to location -147, 69, 247 in world "world"
+            teleport player to {port}
+            delete {port}
+        if line 2 of clicked block is "&3la mine":
+            set {mine} to location -223, 71, 183 in world "world" 
+            teleport player to {mine}
+            delete {mine}
+        if line 2 of clicked block is "&3la zonzon":
+            set {pyremos} to location -134, 68, 110 in world "world"
+            teleport player to {pyremos}
+            delete {pyremoss}
+
+command setsign <text>:
+    permission: server.ops
+    trigger:
+        if arg-1 is "eau":
+            give player oak sign named "tp &4eau" with custom model data 1000
+        else if arg-1 is "terre":
+            give player oak sign named "tp &4terre" with custom model data 1001
+        else if arg-1 is "feu":
+            give player oak sign named "tp &4feu" with custom model data 1002
+        else if arg-1 is "air":
+            give player oak sign named "tp &4air" with custom model data 1003
+
+on place of oak sign:
+    if player's held item is oak sign named "tp &4eau":
+        set line 1 of event-block to "&3Retour à"
+        set line 2 of event-block to "&3l'eau"
+    else if player's held item is oak sign named "tp &4terre":
+        set line 1 of event-block to "&3Retour à"
+        set line 2 of event-block to "&3la mine"
+    else if player's held item is oak sign named "tp &4feu":
+        set line 1 of event-block to "&3Retour à"
+        set line 2 of event-block to "&3la zonzon"
+    else if player's held item is oak sign named "tp &4air":
+        set line 1 of event-block to "&3Retour à"
+        set line 2 of event-block to "&3l'envoyeur"
+    else if player's held item is oak sign named "evaneed":
+        set line 1 of event-block to "&3laide pour"
+        set line 2 of event-block to "&3lla construction"
+        set line 3 of event-block to "&3lde la taverne"

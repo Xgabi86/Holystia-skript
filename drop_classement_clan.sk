@@ -2,6 +2,15 @@ function OR(conditions: booleans) :: boolean:
 	if {_conditions::*} contains true:
 		return true
 	return false
+command /addclassementclan <number> <number>:
+	permission:*
+	trigger:
+		add arg-1 to {classementclan::%arg-2%::1}
+command /setnomclassclan <text> <number>:
+	permission:*
+	trigger:
+		set {classementclan::%arg-2%::2} to arg-1
+	
 
 command /resetclassclan:
 	permission:*
@@ -31,36 +40,56 @@ on skript start:
 #		set {classementclan::4::2} to "Pyremos"
 #
 #		set {setvalclassementclan} to false	
-	set {i_classement_clan} to 1
+	delete holo object "classement.clan.holo"
+	set {i_classement_clan} to 2
 	loop 3 times:
+		
 		set {val_classement_clan} to {classementclan::%{i_classement_clan}%::1}
 		set {nom_classement_clan} to {classementclan::%{i_classement_clan}%::2}
-		set {j_classement_clan} to {i_classement_clan}
-		while AND( check [ {j_classement_clan} is greater than 0], check [{nombres.classement.possession::%{j_classement_clan}%-1} is greater than {val_classement_clan}] ) is true:
-			set {classementclan::%{j_classement_clan}%::1} to {classementclan::%{j_classement_clan}%-1::1}
-			set {classementclan::%{j_classement_clan}%::2} to {classementclan::%{j_classement_clan}%-1::2}	
+		set {j_classement_clan} to {i_classement_clan}-1
+			
+		while AND( check [ {j_classement_clan} is greater than or equal to 1], check [{classementclan::%{j_classement_clan}%::1} is smaller than {val_classement_clan}] ) is true:
+			set {j_classement_clan_incr} to {j_classement_clan}+1
+			set {classementclan::%{j_classement_clan_incr}%::1} to {classementclan::%{j_classement_clan}%::1}
+			set {classementclan::%{j_classement_clan_incr}%::2} to {classementclan::%{j_classement_clan}%::2}
 			set {j_classement_clan} to {j_classement_clan}-1
-		set {classementclan::%{j_classement_clan}%::1} to {val_classement_clan}
-		set {classementclan::%{j_classement_clan}%::2} to {nom_classement_clan}
+			
+		set {j_classement_clan_incr} to {j_classement_clan}+1	
+		set {classementclan::%{j_classement_clan_incr}%::1} to {val_classement_clan}
+		set {classementclan::%{j_classement_clan_incr}%::2} to {nom_classement_clan}
 		add 1 to {i_classement_clan}
+		
 	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-175,70,183,world "world")
-	
+command /limitejournaliere:
+	trigger:
+		set {length_list_temps.%player%.} to amount of {list_temps.%player%.::*}
+		set {temps.restant.%player%.} to difference between {list_temps.%player%.::%{length_list_temps.%player%.}%} and now
+		set {affichage.%player%.l.j} to 25 - {limite.journaliere.%player%.l}
+		send "Vous pouvez encore obtenir %{affichage.%player%.l.j}% point(s) aujourd'hui."
+		send "Il se remettra à zéro dans %{temps.restant.%player%.}%."
+		
 
-#every hour:
-#	delete holo object "classement.clan.holo"
-#	set {i_classement_clan} to 1
-#	loop 3 times:
-#		set {val_classement_clan} to {classementclan::%{i_classement_clan}%::1}
-#		set {nom_classement_clan} to {classementclan::%{i_classement_clan}%::2}
-#		set {j_classement_clan} to {i_classement_clan}
-#		while AND( check [ {j_classement_clan} is greater than 0], check [{nombres.classement.possession::%{j_classement_clan}%-1} is greater than {val_classement_clan}] ) is true:
-#			set {classementclan::%{j_classement_clan}%::1} to {classementclan::%{j_classement_clan}%-1::1}
-#			set {classementclan::%{j_classement_clan}%::2} to {classementclan::%{j_classement_clan}%-1::2}	
-#			set {j_classement_clan} to {j_classement_clan}-1
-#		set {classementclan::%{j_classement_clan}%::1} to {val_classement_clan}
-#		set {classementclan::%{j_classement_clan}%::2} to {nom_classement_clan}
-#		add 1 to {i_classement_clan}
-#	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-175,70,183,world "world")
+every 2 hours:
+	delete holo object "classement.clan.holo"
+	set {i_classement_clan} to 2
+	loop 3 times:
+		
+		set {val_classement_clan} to {classementclan::%{i_classement_clan}%::1}
+		set {nom_classement_clan} to {classementclan::%{i_classement_clan}%::2}
+		set {j_classement_clan} to {i_classement_clan}-1
+			
+		while AND( check [ {j_classement_clan} is greater than or equal to 1], check [{classementclan::%{j_classement_clan}%::1} is smaller than {val_classement_clan}] ) is true:
+			set {j_classement_clan_incr} to {j_classement_clan}+1
+			set {classementclan::%{j_classement_clan_incr}%::1} to {classementclan::%{j_classement_clan}%::1}
+			set {classementclan::%{j_classement_clan_incr}%::2} to {classementclan::%{j_classement_clan}%::2}
+			set {j_classement_clan} to {j_classement_clan}-1
+			
+		set {j_classement_clan_incr} to {j_classement_clan}+1	
+		set {classementclan::%{j_classement_clan_incr}%::1} to {val_classement_clan}
+		set {classementclan::%{j_classement_clan_incr}%::2} to {nom_classement_clan}
+		add 1 to {i_classement_clan}
+		
+	create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-175,70,183,world "world")
 	
 
 
@@ -68,83 +97,97 @@ command /refreshclassementclan:
 	permission:*
 	trigger:
 	
+	
 		delete holo object "classement.clan.holo"
 		set {i_classement_clan} to 2
 		loop 3 times:
+			
 			set {val_classement_clan} to {classementclan::%{i_classement_clan}%::1}
 			set {nom_classement_clan} to {classementclan::%{i_classement_clan}%::2}
 			set {j_classement_clan} to {i_classement_clan}-1
-			while AND( check [ {j_classement_clan} is greater than 0], check [{classementclan::%{j_classement_clan}%-1::1} is greater than {val_classement_clan}] ) is true:
-				set {classementclan::%{j_classement_clan}%::1} to {classementclan::%{j_classement_clan}%-1::1}
-				set {classementclan::%{j_classement_clan}%::2} to {classementclan::%{j_classement_clan}%-1::2}	
+			
+			while AND( check [ {j_classement_clan} is greater than or equal to 1], check [{classementclan::%{j_classement_clan}%::1} is smaller than {val_classement_clan}] ) is true:
+				set {j_classement_clan_incr} to {j_classement_clan}+1
+				set {classementclan::%{j_classement_clan_incr}%::1} to {classementclan::%{j_classement_clan}%::1}
+				set {classementclan::%{j_classement_clan_incr}%::2} to {classementclan::%{j_classement_clan}%::2}
 				set {j_classement_clan} to {j_classement_clan}-1
-			set {classementclan::%{j_classement_clan}%::1} to {val_classement_clan}
-			set {classementclan::%{j_classement_clan}%::2} to {nom_classement_clan}
+				
+			set {j_classement_clan_incr} to {j_classement_clan}+1	
+			set {classementclan::%{j_classement_clan_incr}%::1} to {val_classement_clan}
+			set {classementclan::%{j_classement_clan_incr}%::2} to {nom_classement_clan}
 			add 1 to {i_classement_clan}
+	
 		create holo object "&bClassement des Clans :;ItemStack:emerald;1er : %{classementclan::1::2}% avec %{classementclan::1::1}% point(s);2eme : %{classementclan::2::2}% avec %{classementclan::2::1}% point(s);3eme : %{classementclan::3::2}% avec %{classementclan::3::1}% point(s);4eme : %{classementclan::4::2}% avec %{classementclan::4::1}% point(s)" with id "classement.clan.holo" at location(-175,70,183,world "world")
 	
-
 
 
 on death:
 	if attacker is player:
 		if OR( check [attacker has permission "clan.air"], check [attacker has permission "clan.eau"], check [attacker has permission "clan.terre"], check [attacker has permission "clan.feu"] ) is true:
-			#if attacker has permission "clan.air":
-			#	set {i_add.%attacker%} to 1
-			#	while {classementclan::%{i_add.%attacker%}%::2} is not "Air":
-			#		add 1 to {i_add.%attacker%}
-			#if attacker has permission "clan.terre":
-			#	set {i_add.%attacker%} to 1
-			#	while {classementclan::%{i_add.%attacker%}%::2} is not "Terre":
-			#		add 1 to {i_add.%attacker%}
-			#if attacker has permission "clan.feu":
-			#	set {i_add.%attacker%} to 1
-			#	while {classementclan::%{i_add.%attacker%}%::2} is not "Feu":
-			#		add 1 to {i_add.%attacker%}
-			#if attacker has permission "clan.eau":
-			#	set {_i} to 1
-			#	while {classementclan::%{i_add.%attacker%}%::2} is not equal to "Eau":
-			#		add 1 to {i_add.%attacker%}
-			
-			if victim is a creeper:
-				chance of 0.00000024%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is a zombie:
-				chance of 0.00000013%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is a drowned:
-				chance of 0.00000013%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is a husk:
-				chance of 0.00000013%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is a stray:
-				chance of 0.00000013%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			
+			if attacker has permission "clan.air":
+				set {i_add.%attacker%.} to 1
+				while {classementclan::%{i_add.%attacker%.}%::2} is not "Air":
+					add 1 to {i_add.%attacker%.}
+			if attacker has permission "clan.terre":
+				set {i_add.%attacker%.} to 1
+				while {classementclan::%{i_add.%attacker%.}%::2} is not "Terre":
+					add 1 to {i_add.%attacker%.}
+			if attacker has permission "clan.feu":
+				set {i_add.%attacker%.} to 1
+				while {classementclan::%{i_add.%attacker%.}%::2} is not "Feu":
+					add 1 to {i_add.%attacker%.}
+			if attacker has permission "clan.eau":
+				set {i_add.%attacker%.} to 1
+				while {classementclan::%{i_add.%attacker%.}%::2} is not equal to "Eau":
+					add 1 to {i_add.%attacker%.}
+			if true:#{limite.journaliere.%attacker%.l} is smaller than 25
+				if victim is a creeper:
+					chance of 0.024%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is a zombie:
+					chance of 0.013%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is a drowned:
+					chance of 0.013%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is a husk:
+					chance of 0.013%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is a stray:
+					chance of 0.013%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				
 
-			if victim is a skeleton:
-				chance of 0.00000017%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is a spider:
-				chance of 0.00000021%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is an enderman:
-				chance of 0.00000042%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-			if victim is an ender dragon:
-				chance of 50%:
-					add 1 to {classementclan::%{i_add.%attacker%}%::1}
-					send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
-
+				if victim is a skeleton:
+					chance of 0.017%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is a spider:
+					chance of 0.021%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is an enderman:
+					chance of 0.042%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
+				if victim is an ender dragon:
+					chance of 50%:
+						add 1 to {classementclan::%{i_add.%attacker%.}%::1}
+						send "vous avez fait gagner un point à votre clan dans le classement, bravo !" to attacker
+						add 1 to {limite.journaliere.%attacker%.l}
 
 
 

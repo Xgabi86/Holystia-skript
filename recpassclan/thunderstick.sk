@@ -1,0 +1,25 @@
+command stick <text>:
+    permission: serveur.ops
+    trigger:
+        if arg-1 is "zeus":
+            give player blaze rod named "Zeus on you" with custom model data 4000
+            set {zeus%player%} to 1
+on right click:
+    if player's held item is blaze rod named "Zeus on you" with custom model data 4000:
+        if {zeus%player%} is not 0:
+            chance of 95%:
+                set {plc} to location of targeted block
+                strike lightning at {plc}
+                send "QUE LA COLÉRE DE ZEUS S'ABATTE!" to player
+                set {zeus%player%} to 0
+                wait 5 seconds
+                set {zeus%player%} to 1
+            chance of 5%:
+                set {plc} to player's location
+                strike lightning at {plc}
+                send "Le pouvoir de Zeus était trop grand pour toi." to player
+                set {zeus%player%} to 0
+                wait 5 seconds
+                set {zeus%player%} to 1
+        else if {zeus%player%} is 0:
+            send "Un non Dieu ne peut utiliser ce pouvoir sans se reposer." to player

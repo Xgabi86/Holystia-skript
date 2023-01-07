@@ -1,0 +1,71 @@
+on right click on spruce sign:
+    if line 1 of target block is "&3aide pour":
+        if line 2 of target block is "&3la construction":
+            if line 3 of target block is "&3de la taverne":
+
+                send "bonjour chère ami!" to player
+                send "si tu veut nous aider à construire la taverne sache qu'il nous faut actuellement" to player
+                send "%{needcobblestone}% cobblestone" to player
+                send "%{needaok_log}% aok log" to player
+                send "%{needwhite_wool}% white wool" to player
+command /Eva <text> [<text>] [<text>]:
+    permission: serveur.ops
+    trigger:
+        if arg-1 is "reload":
+            set {needcobblestone} to 1000
+            set {needaok_log} to 1000
+            set {needwhite_wool} to 1000
+            send "les besoins ont bien été réinitialisés"
+        else if arg-1 is "give":
+            if arg-2 is "aok_log":
+                if arg-3 is "5": 
+                    if {needaok_log} > 0:
+                        if player's inventory contain 5 spruce wood:
+                            remove 5 spruce wood from player's inventory
+                            remove 5 from {needaok_log}
+                        else:
+                            send "tu n'en a pas assé" to player
+                    else if {needaok_log} = 0:
+                        send "il y en a déja assé, merci quand même"
+            else if arg-2 is "cobblestone":
+                if arg-3 is "5":
+                    if {needcobblestone} > 0:
+                        if player's inventory contain 5 cobblestone:
+                            remove 5 cobblestone from player's inventory
+                            remove 5 from {needcobblestone}
+                        else:
+                            send "tu n'en a pas assé" to player
+                    else if {needcobblestone} = 0:
+                        send "il y en a déja assé, merci quand même"
+            else if arg-2 is "white_wool":
+                if arg-3 is "5":
+                    if {needwhite_wool} > 0:
+                        if player's inventory contain 5 white wool:
+                            remove 5 white wool from player's inventory
+                            remove 5 from {needwhite_wool}
+                        else:
+                            send "tu n'en a pas assé" to player
+                    else if {needwhite_wool} = 0:
+                        send "il y en a déja assé, merci quand même"
+        else if arg-1 is "sign":
+            if arg-2 is "aok_log":
+                give player spruce sign named "needaok_log" with custom model data 1000
+            else if arg-2 is "cobblestone":
+                give player spruce sign named "needcobblestone" with custom model data 1001
+            else if arg-2 is "white_wool":
+                give player spruce sign named "needwhite_wool" with custom model data 1002
+            else if arg-2 is "evaneed":
+                give player spruce sign named "evaneed" with custom model data 1003
+
+
+on place of spruce sign:
+    if player's held item is spruce sign named "needaok_log":
+        set line 1 of event-block to "%{needaok_log}%"
+    else if player's held item is spruce sign named "needcobblestone":
+        set line 1 of event-block to "%{needcobblestone}%"
+    else if player's held item is spruce sign named "needwhite_wool":
+        set line 1 of event-block to "%{needwhite_wool}%"
+    else if player's held item is spruce sign named "evaneed":
+        set line 1 of event-block to "&3laide pour"
+        set line 2 of event-block to "&3lla construction"
+        set line 3 of event-block to "&3lde la taverne"

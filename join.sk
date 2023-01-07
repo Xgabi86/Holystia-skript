@@ -13,3 +13,20 @@ on join:
 		set {rangpassclan.%player%} to 0
 		set {xppassclan.%player%} to 0
 		set {passclanset.%player%} to true
+	if {limite.journaliere.%player%.l} is not set:
+		set {limite.journaliere.%player%.l} to 0
+		
+	add now to {list_temps.%player%.::*}
+	set {length_list_temps.%player%.} to amount of {list_temps.%player%.::*}
+	if {length_list_temps.%player%.} is greater than or equal to 2:
+		set {length_list_temps_decr.%player%.} to {length_list_temps.%player%.}-1
+		set {val.tmp.%player%.l.j } to {list_temps.%player%.::%{length_list_temps.%player%.}%}
+		if difference between {list_temps::%{length_list_temps_decr.%player%.}%} and {list_temps.%player%.::%{length_list_temps.%player%.}%} is greater than or equal to 24 hours:
+			clear {limite.journaliere.%player%.::*}
+			set {list_temps::%{length_list_temps_decr.%player%.}%} to {val.tmp.%player%.l.j }
+			set {limite.journaliere.%player%.l} to 0
+			delete {list_temps.%player%.::%{length_list_temps.%player%.}%}
+		else:
+			delete {list_temps.%player%.::%{length_list_temps.%player%.}%}
+	
+

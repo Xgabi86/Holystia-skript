@@ -1,0 +1,27 @@
+on place of gray shulker box:
+    if custom model data of player's tool is 4570:
+        add event-block to {voidminer::*}
+
+on break of gray shulker box:
+    if {voidminer::*} contains event-block:
+        set {test} to event-block
+        loop all items in {test}'s inventory:
+            drop loop-item at event-location without velocity
+        remove event-block from {voidminer::*}
+        send "Void Miner cassé" to player
+        cancel drops
+        drop 1 gray shulker box named "&8Void Miner" with custom model data 4570 at event-location without velocity
+
+
+
+every 10 seconds:
+    loop all items in {voidminer::*}'s inventory:
+        if name of loop-item contains "&eBatterie":
+            set {_customModelData} to the custom model data of the loop-item
+            if {_customModelData} is 1433:
+                if durability of loop-item < 250:
+                    set {randomorelist::*} to stone, stone, stone, stone, stone, deepslate, deepslate, deepslate, deepslate, deepslate, coal ore, deepslate coal ore, iron ore, deepslate iron ore, copper ore, deepslate copper ore, gold ore, deepslate gold ore, redstone ore, deepslate redstone ore, lapis ore, deepslate lapis ore, diamond ore, deepslate diamond ore, emerald ore, deepslate emerald ore
+                    set {_randomore} to a random element out of {randomorelist::*}
+
+                    set durability of loop-item to (durability of loop-item + 1)
+                    add 1 of {_randomore} to {voidminer::*}'s inventory

@@ -1,0 +1,80 @@
+command /staff [<text>]:
+    trigger:
+        if arg-1 is "toggle" or "t":
+            if {staff-%player%} is "true":
+                if player is "gabi_86":
+                    execute console command "pr delrank %player% Développeur"
+                    execute console command "pr addrank %player% Joueur"
+                
+                if player is "GarlicPepper":
+                    execute console command "pr delrank %player% Builder"
+                    execute console command "pr addrank %player% Joueur"
+
+                else if player is "Sir_xelma":
+                    execute console command "pr delrank %player% Fondateur"
+                    execute console command "pr addrank %player% Joueur"
+
+                else if player is "sushi_3":
+                    execute console command "pr delrank %player% Builder"
+                    execute console command "pr addrank %player% Joueur"
+
+                else if player is "Sydras_":
+                    execute console command "pr delrank %player% Modérateur"
+                    execute console command "pr addrank %player% Joueur"
+
+                else if player is "TNT_man268":
+                    execute console command "pr delrank %player% Développeur"
+                    execute console command "pr addrank %player% Joueur"
+
+                else if player is "Nacfire":
+                    execute console command "pr delrank %player% Builder"
+                    execute console command "pr addrank %player% Joueur"
+
+                else if player is "mixygames":
+                    execute console command "pr delrank %player% Développeur"
+                    execute console command "pr addrank %player% Joueur"
+
+                set {staff-%player%} to "false"
+
+            else:
+                if player is "gabi_86":
+                    execute console command "pr addrank %player% Développeur"
+                    execute console command "pr delrank %player% Joueur"
+
+                if player is "GarlicPepper":
+                    execute console command "pr addrank %player% Builder"
+                    execute console command "pr delrank %player% Joueur"
+
+                else if player is "Sir_xelma":
+                    execute console command "pr addrank %player% Fondateur"
+                    execute console command "pr delrank %player% Joueur"
+
+                else if player is "sushi_3":
+                    execute console command "pr addrank %player% Builder"
+                    execute console command "pr delrank %player% Joueur"
+
+                else if player is "Sydras_":
+                    execute console command "pr addrank %player% Modérateur"
+                    execute console command "pr delrank %player% Joueur"
+                
+                else if player is "TNT_man268":
+                    execute console command "pr addrank %player% Développeur"
+                    execute console command "pr delrank %player% Joueur"
+
+                else if player is "Nacfire":
+                    execute console command "pr addrank %player% Builder"
+                    execute console command "pr delrank %player% Joueur"
+
+                else if player is "mixygames":
+                    execute console command "pr addrank %player% Développeur"
+                    execute console command "pr delrank %player% Joueur"
+
+                set {staff-%player%} to "true"
+        else:
+            if {staff-%player%} is "true":
+                send "Votre mode staff est actuellement &aActiver&r"
+            else if {staff-%player%} is "false":
+                send "Votre mode staff est actuellement &cDésactiver&r"
+
+on tab complete of "/staff":
+    set tab completions for position 1 to "toggle" and "info"

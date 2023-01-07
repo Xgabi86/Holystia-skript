@@ -1,0 +1,236 @@
+command /minadmin <text> [<text>] [<integer>]:
+    permission: server.ops
+    trigger:
+        if arg-1 is "start":
+            broadcast "&aE&bv&ae&bn&at&r: L'évent minage viens de commencer !"
+            set {minstart} to "true"
+        else if arg-1 is "stop":
+            broadcast "&aE&bv&ae&bn&at&r: L'évent minage viens de se terminer !"
+            set {minstart} to "false"
+        else if arg-1 is "set":
+            if arg-2 is "eau":
+                set {point-eau} to arg-3
+            else if arg-2 is "feu":
+                set {point-feu} to arg-3
+            else if arg-2 is "terre":
+                set {point-terre} to arg-3
+            else if arg-2 is "air":
+                set {point-air} to arg-3
+        else if arg-1 is "reset":
+            set {blacklist::*} to ""
+
+command /minage <text>:
+    trigger:
+        if arg-1 is "stats":
+            send "&aE&bv&ae&bn&at&r: " to player
+            send "  Le clan eau à &e%{point-eau}%&r points."
+            send "  Le clan feu à &e%{point-feu}%&r points."
+            send "  Le clan terre à &e%{point-terre}%&r points."
+            send "  Le clan air à &e%{point-air}%&r points."
+
+on break:
+    if {minstart} is "true":
+        if player has permission "clan.eau":
+            set {clan} to "eau"
+            if {blacklist::*} contains event-block:
+                remove event-block from {blacklist::*}
+            else:
+                if event-block is coal_ore or deepslate_coal_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                
+                else if event-block is iron_ore or deepslate_iron_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+                
+                else if event-block is copper_ore or deepslate_copper_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is gold_ore or deepslate_gold_ore:
+                    add 8 to {point-%{clan}%}
+                    send "+4 (x2) point a votre equipe"
+                
+                else if event-block is redstone_ore or deepslate_redstone_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is lapis_ore or deepslate_lapis_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is diamond_ore or deepslate_diamond_ore:
+                    add 10 to {point-%{clan}%}
+                    send "+5 (x2) point a votre equipe"
+                
+                else if event-block is emerald_ore or deepslate_emerald_ore:
+                    add 14 to {point-%{clan}%}
+                    send "+7 (x2) point a votre equipe"
+                
+                else if event-block is nether_gold_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+
+                else if event-block is nether_quartz_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                    
+                else if event-block is ancient_debris:
+                    add 20 to {point-%{clan}%}
+                    send "+10 (x2) point a votre equipe"
+
+
+
+        else if player has permission "clan.feu":
+            set {clan} to "feu"
+            if {blacklist::*} contains event-block:
+                remove event-block from {blacklist::*}
+            else:
+                if event-block is coal_ore or deepslate_coal_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                
+                else if event-block is iron_ore or deepslate_iron_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+                
+                else if event-block is copper_ore or deepslate_copper_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is gold_ore or deepslate_gold_ore:
+                    add 8 to {point-%{clan}%}
+                    send "+4 (x2) point a votre equipe"
+                
+                else if event-block is redstone_ore or deepslate_redstone_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is lapis_ore or deepslate_lapis_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is diamond_ore or deepslate_diamond_ore:
+                    add 10 to {point-%{clan}%}
+                    send "+5 (x2) point a votre equipe"
+                
+                else if event-block is emerald_ore or deepslate_emerald_ore:
+                    add 14 to {point-%{clan}%}
+                    send "+7 (x2) point a votre equipe"
+                
+                else if event-block is nether_gold_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+
+                else if event-block is nether_quartz_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                    
+                else if event-block is ancient_debris:
+                    add 20 to {point-%{clan}%}
+                    send "+10 (x2) point a votre equipe"
+
+
+
+        else if player has permission "clan.terre":
+            set {clan} to "terre"
+            if {blacklist::*} contains event-block:
+                remove event-block from {blacklist::*}
+            else:
+                if event-block is coal_ore or deepslate_coal_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                
+                else if event-block is iron_ore or deepslate_iron_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+                
+                else if event-block is copper_ore or deepslate_copper_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is gold_ore or deepslate_gold_ore:
+                    add 8 to {point-%{clan}%}
+                    send "+4 (x2) point a votre equipe"
+                
+                else if event-block is redstone_ore or deepslate_redstone_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is lapis_ore or deepslate_lapis_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is diamond_ore or deepslate_diamond_ore:
+                    add 10 to {point-%{clan}%}
+                    send "+5 (x2) point a votre equipe"
+                
+                else if event-block is emerald_ore or deepslate_emerald_ore:
+                    add 14 to {point-%{clan}%}
+                    send "+7 (x2) point a votre equipe"
+                
+                else if event-block is nether_gold_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+
+                else if event-block is nether_quartz_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                    
+                else if event-block is ancient_debris:
+                    add 20 to {point-%{clan}%}
+                    send "+10 (x2) point a votre equipe"
+
+
+
+        else if player has permission "clan.air":
+            set {clan} to "air"
+            if {blacklist::*} contains event-block:
+                remove event-block from {blacklist::*}
+            else:
+                if event-block is coal_ore or deepslate_coal_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                
+                else if event-block is iron_ore or deepslate_iron_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+                
+                else if event-block is copper_ore or deepslate_copper_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is gold_ore or deepslate_gold_ore:
+                    add 8 to {point-%{clan}%}
+                    send "+4 (x2) point a votre equipe"
+                
+                else if event-block is redstone_ore or deepslate_redstone_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is lapis_ore or deepslate_lapis_ore:
+                    add 4 to {point-%{clan}%}
+                    send "+2 (x2) point a votre equipe"
+                
+                else if event-block is diamond_ore or deepslate_diamond_ore:
+                    add 10 to {point-%{clan}%}
+                    send "+5 (x2) point a votre equipe"
+                
+                else if event-block is emerald_ore or deepslate_emerald_ore:
+                    add 14 to {point-%{clan}%}
+                    send "+7 (x2) point a votre equipe"
+                
+                else if event-block is nether_gold_ore:
+                    add 6 to {point-%{clan}%}
+                    send "+3 (x2) point a votre equipe"
+
+                else if event-block is nether_quartz_ore:
+                    add 2 to {point-%{clan}%}
+                    send "+1 (x2) point a votre equipe"
+                    
+                else if event-block is ancient_debris:
+                    add 20 to {point-%{clan}%}
+                    send "+10 (x2) point a votre equipe"
+
+on place of coal_ore, deepslate_coal_ore, iron_ore, deepslate_iron_ore, copper_ore, deepslate_copper_ore, gold_ore, deepslate_gold_ore, redstone_ore, deepslate_redstone_ore, lapis_ore, deepslate_lapis_ore, diamond_ore, deepslate_diamond_ore, emerald_ore, deepslate_emerald_ore, nether_gold_ore, nether_quartz_ore or ancient_debris:
+    add event-block to {blacklist::*}

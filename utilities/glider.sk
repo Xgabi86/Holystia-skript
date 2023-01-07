@@ -1,4 +1,0 @@
-every seconds:
-    set {player::*} to players
-    if players is holding carpet named "&aGlider":
-        apply slow falling to {player::*} for 20 ticks

@@ -1,0 +1,35 @@
+command /elec [<text>] [<text>]:
+    permission: "solarpanel.*"
+    trigger:
+        if arg-1 is "list":
+            if arg-2 is "solarpanel":
+                send "&aSolar Panel: &r%{solarpanel::*}%" to player
+            else if arg-2 is "void miner":
+                send "&bVoid Miner : &r%{voidminer::*}%" to player
+
+        else if arg-1 is "give":
+            if arg-2 is "solarpanel":
+                give player yellow shulker box named "&ePanneau solaire" with custom model data 1110
+            else if arg-2 is "batterie":
+                set {_itemsp} to iron shovel named "&eBatterie" with custom model data 1433
+                set durability of {_itemsp} to 250
+                give {_itemsp} to player
+                delete {_itemsp}
+            else if arg-2 is "voidminer":
+                give player gray shulker box named "&8Void Miner" with custom model data 4570
+
+        else if arg-1 is "reset":
+            if arg-2 is "solarpanel":
+                set {solarpanel::*} to ""
+            else if arg-2 is "voidminer":
+                set {voidminer::*} to ""
+
+on tab complete of "/elec":
+    if player has permission "generateur.*":
+        set tab completions for position 1 to "reset", "list" and "give"
+        if tab arg-1 = "list":
+            set tab completions for position 2 to "solarpanel" and "voidminer"
+        else if tab arg-1 = "give":
+            set tab completions for position 2 to "solarpanel", "batterie" and "voidminer"
+        else if tab arg-1 = "reset":
+            set tab completions for position 2 to "solarpanel" and "voidminer"

@@ -41,7 +41,7 @@ command /claneau:
 
 	
 	
-			if {_min}+4 is greater than or equal to {clan_eau}:
+			if {_min}+4 is greater than {clan_eau}:
 				set {clan.%player%} to "Hydrogion"
 				make console execute command {_cmd}
 		
@@ -95,7 +95,7 @@ command /clanfeu:
 
 	
 	
-			if {_min}+4 is greater than or equal to {clan_feu}:
+			if {_min}+4 is greater than {clan_feu}:
 				set {clan.%player%} to "Pyremos"
 				make console execute command {_cmd}
 		
@@ -147,7 +147,7 @@ command /clanterre:
 
 	
 	
-			if {_min}+4 is greater than or equal to {clan_terre}:
+			if {_min}+4 is greater than {clan_terre}:
 				set {clan.%player%} to "Ergaiates"
 				make console execute command {_cmd}
 		
@@ -199,7 +199,7 @@ command /clanair:
 
 	
 	
-			if {_min}+4 is greater than or equal to {clan_terre}:
+			if {_min}+4 is greater than {clan_air}:
 				set {clan.%player%} to "Aeria"
 				make console execute command {_cmd}
 		

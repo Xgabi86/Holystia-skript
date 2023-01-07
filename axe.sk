@@ -1,0 +1,63 @@
+on break of log:
+    if player's tool is netherite axe named "&eGaybi &6Axe" with custom model data 3462:
+        if {axe-%player%} is not true:
+            set {axe-%player%} to true
+            wait 10 tick
+            if block at block 1 up event-location is log:
+                break block at block 1 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 2 up event-location is log:
+                break block at block 2 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 3 up event-location is log:
+                break block at block 3 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 4 up event-location is log:
+                break block at block 4 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 5 up event-location is log:
+                break block at block 5 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 6 up event-location is log:
+                break block at block 6 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 7 up event-location is log:
+                break block at block 7 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 8 up event-location is log:
+                break block at block 8 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 9 up event-location is log:
+                break block at block 9 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 10 up event-location is log:
+                break block at block 10 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 11 up event-location is log:
+                break block at block 11 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 12 up event-location is log:
+                break block at block 12 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 13 up event-location is log:
+                break block at block 13 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 14 up event-location is log:
+                break block at block 14 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 15 up event-location is log:
+                break block at block 15 up event-location naturally using player's tool
+                wait 10 tick
+            if block at block 16 up event-location is log:
+                break block at block 16 up event-location naturally using player's tool
+            set {axe-%player%} to false
+        else:
+            cancel event
+            send "&cAttend un peut."
+            
+command /giveaxe:
+    permission: server.ops
+    trigger:
+        give unbreakable netherite axe named "&eGaybi &6Axe" with custom model data 3462 to player
+        set lore of player's tool to "Hache du testeur (FGuethor), c'est Hache est unique !"
+        

@@ -1,0 +1,8 @@
+on break:
+    if player's tool is iron shovel named "&eBatterie" with custom model data 1433:
+        cancel event
+
+on right click:
+    if event-block is grass, dirt ,coarse_dirt, podzol or rooted_dirt:
+        if player's tool is iron shovel named "&eBatterie" with custom model data 1433:
+            cancel event

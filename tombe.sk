@@ -1,6 +1,6 @@
 on death of player:
    set block at {deathpos.%name of victim%} to air
-   clear {deathstuff.%name of victim%::*}
+   delete {deathstuff.%name of victim%::*}
    loop drops:
       add loop-item to {deathstuff.%name of victim%::*}
       remove loop-item from drops
@@ -19,8 +19,12 @@ on click on sign:
    {deathpos.%{_name}%} is event-location
    loop {deathstuff.%{_name}%::*}:
       drop loop-value at event-location
-   clear {deathstuff.%{_name}%::*}
+   delete {deathstuff.%{_name}%::*}
    set clicked block to air
+   delete {deathstuff.%{_name}%::*}
+   delete {deathpos.%{_name}%}
+   delete {_name}
+
 on break of sign:
    line 1 of event-block is "&lTombe de"
    line 3 of event-block is "&3&lRIP"
@@ -29,7 +33,9 @@ on break of sign:
    {deathpos.%{_name}%} is event-location
    loop {deathstuff.%{_name}%::*}:
       drop loop-value at event-location
-   clear {deathstuff.%{_name}%::*}
+   delete {deathstuff.%{_name}%::*}
    set event-block to air
+   delete {deathstuff.%{_name}%::*}
+   delete {deathpos.%{_name}%}
+   delete {_name}
    
-

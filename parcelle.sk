@@ -83,25 +83,28 @@ on load:
 command /classementcommerciale:
     permission:*
     trigger:
-        set {_z} to amount of {players.classement.possession::*}
-        set {_i} to 2
-        loop {_z}-1 times:
-            set {_x} to {nombres.classement.possession::%{_i}%}
-            set {_n} to {players.classement.possession::%{_i}%}
-            set {_j} to {_i}
-            set {_b} to {_j}-1
-            while AND( check [{_j} is greater than 1], check [{nombres.classement.possession::%{_b}%} is greater than {_x}] ) is true: 
-                set {players.classement.possession::%{_j}%} to {players.classement.possession::%{_b}%}
-                set {nombres.classement.possession::%{_j}%} to {nombres.classement.possession::%{_b}%}
-                set {_j} to {_j}-1
-                set {_b} to {_j}-1 
-            set {nombres.classement.possession::%{_j}%} to {_x}
-            set {players.classement.possession::%{_j}%} to {_n}
-            add 1 to {_i}
+        set {length_classement_commerciale} to amount of {players.classement.possession::*}
+        set {i_classement_commerciale} to 2
+        set {l_time} to {length_classement_commerciale}-1
+        loop {l_time} times:
+            set {nb_classement_commercial} to {nombres.classement.possession::%{i_classement_commerciale}%}
+            set {player_classement_commercial} to {players.classement.possession::%{i_classement_commerciale}%}
+            set {j_classement_commerciale} to {i_classement_commerciale}-1
+	    
+            while AND( check [{_j} is greater than or equal to 1], check [{nombres.classement.possession::%{j_classement_commerciale}%} is smaller than {nb_classement_commercial}] ) is true: 
+                set {j_classement_commerciale_incr} to {j_classement_commerciale}+1
+                set {players.classement.possession::%{j_classement_commerciale_incr}%} to {players.classement.possession::%{j_classement_commerciale}%}
+                set {nombres.classement.possession::%{j_classement_commerciale_incr}%} to {nombres.classement.possession::%{j_classement_commerciale}%}
+                set {j_classement_commerciale} to {j_classement_commerciale}-1
+		
+            set {j_classement_commerciale_incr} to {j_classement_commerciale}+1	
+            set {nombres.classement.possession::%{j_classement_commerciale_incr}%} to {nb_classement_commercial}
+            set {players.classement.possession::%{j_classement_commerciale_incr}%} to {player_classement_commercial}
+            add 1 to {i_classement_commerciale}
         create holo object "&bClassement des possesseurs de terrains :;ItemStack:grass_block;1er : %{players.classement.possession::1}% avec %{nombres.classement.possession::1}% chunk(s);2eme : %{players.classement.possession::2}% avec %{nombres.classement.possession::2}% chunk(s);3eme : %{players.classement.possession::3}% avec %{nombres.classement.possession::3}% chunk(s);4eme : %{players.classement.possession::4}% avec %{nombres.classement.possession::4}% chunk(s);5eme : %{players.classement.possession::5}% avec %{nombres.classement.possession::5}% chunk(s)" with id "classement.possession.holo" at location(-187,69,104,world "world")
-        wait 1 hour
+        wait 2 hours
         delete holo object "classement.possession.holo"            
-every hour:
+every 2 hours:
     wait 2 seconds
     make console execute "/classementcommerciale"
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

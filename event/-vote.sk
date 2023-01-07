@@ -1,0 +1,102 @@
+command vote <text>:
+    trigger:
+        if arg-1 is "results":
+            send "Le clan de l'eau possède %{vote-eau}% points!"
+            send "Le clan de la terre possède %{vote-terre}% points!"
+            send "Le clan de l'air possède %{vote-air}% points!"
+            send "Le clan du feu possède %{vote-feu}% points!"
+
+        else if {votestart} is "true":
+            if {vote-%player%} is not set:
+                set {vote-%player%} to 0
+                send "&cveuiller recommencer SVP."
+
+
+            else if arg-1 is "eau":
+                if {vote-%player%} = 0:
+                    add 1 to {vote-eau}
+                    send "&aVous avez bien voté pour le clan de l'eau!"
+                    add 1 to {vote-%player%}
+                else if {vote-%player%} > 0:
+                    send "&cVous avez déjà voté pour un clan" to player
+
+            else if arg-1 is "terre":
+                if {vote-%player%} = 0:
+                    add 1 to {vote-terre}
+                    send "&aVous avez bien voté pour le clan de la terre!"
+                    add 1 to {vote-%player%}
+                else if {vote-%player%} > 0:
+                    send "&cVous avez déjà voté pour un clan" to player
+
+            else if arg-1 is "air":
+                if {vote-%player%} = 0:
+                    add 1 to {vote-air}
+                    send "&aVous avez bien voté pour le clan de l'air!"
+                    add 1 to {vote-%player%}
+                else if {vote-%player%} > 0:
+                    send "&cVous avez déjà voté pour un clan" to player
+
+            else if arg-1 is "feu":
+                if {vote-%player%} = 0:
+                    add 1 to {vote-feu}
+                    send "&aVous avez bien voté pour le clan du feu!"
+                    add 1 to {vote-%player%}
+                else if {vote-%player%} > 0:
+                    send "&cVous avez déjà voté pour un clan" to player
+
+        else if {votestart} is "false":
+            send "&cVous ne pouvez pas voter pour le moment !"
+
+on tab complete of "/vote":
+    set tab completions for position 1 to "results", "feu", "eau", "terre" and "air"
+
+command voteadmin <text> [<text>]:
+    permission: vote.admin
+    trigger:
+        if arg-1 is "remove":
+            if arg-2 is "eau":
+                remove 1 from {vote-eau}
+                send "&aVous venez de retirer 1 point au clan eau."
+            else if arg-2 is "terre":
+                remove 1 from {vote-terre}
+                send "&aVous venez de retirer 1 point au clan terre."
+            else if arg-2 is "air":
+                remove 1 from {vote-air}
+                send "&aVous venez de retirer 1 point au clan air."
+            else if arg-2 is "feu":
+                remove 1 from {vote-feu}
+                send "&aVous venez de retirer 1 point au clan feu."
+
+        else if arg-1 is "add":
+            if arg-2 is "eau":
+                add 1 to {vote-eau}
+                send "&aVous venez d'ajouter 1 point au clan eau."
+            else if arg-2 is "terre":
+                add 1 to {vote-terre}
+                send "&aVous venez d'ajouter 1 point au clan terre."
+            else if arg-2 is "air":
+                add 1 to {vote-air}
+                send "&aVous venez d'ajouter 1 point au clan air."
+            else if arg-2 is "feu":
+                add 1 to {vote-feu}
+                send "&aVous venez d'ajouter 1 point au clan feu."
+
+        else if arg-1 is "cancel":
+            set {player} to arg-2
+            set {vote-%{player}%} to 0
+            send "&aLe vote de %{player}% a êté retiré avec succès."
+
+        else if arg-1 is "start":
+            set {votestart} to "true"
+            send "&aLes joueurs peuvent maintenant voter !"
+        
+        else if arg-1 is "stop":
+            set {votestart} to "false"
+            send "&cLes joueurs ne peuvent plus voté !"
+
+on tab complete of "/voteadmin":
+    set tab completions for position 1 to "start", "add", "remove", "cancel" and "stop"
+    if tab arg-1 = "remove" or "add":
+        set tab completions for position 2 to "eau", "feu", "terre" and "air"
+    else if tab arg-1 = "cancel":
+        set tab completions for position 2 to "<player>"

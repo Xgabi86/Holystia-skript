@@ -1,0 +1,18 @@
+command barrel:
+    permission: serveur.ops
+    trigger:
+        give barrel named "killermob" with custom model data 4000 to player
+
+on place of barrel:
+    if custom model data of player's tool is 4000:
+        add event-block to {killermob::*} 
+
+every seconds:
+    loop all items in {killermob::*}'s inventory:
+        if name of loop-item contains "&eBatterie":
+            set {_customModelData} to the custom model data of the loop-item
+            if {_customModelData} is 4000:
+                if durability of loop-item > 0:
+                    set durability of loop-item to (durability of loop-item + 1)
+                    loop all entities in radius 5 around event-location:
+                        kill loop-entity

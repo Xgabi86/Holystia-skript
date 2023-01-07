@@ -1,0 +1,218 @@
+command tot [<text>]:
+    permission: server.ops
+    trigger:
+        if arg-1 is "reset":
+            set {qttsell.%player%.} to 0
+            set {totsell.%player%.} to 0
+            set {moneyearn.%player%.} to 0
+            set {lxp0.%player%.} to 0
+            set {lxp1.%player%.} to 0
+            set {lxp2.%player%.} to 0
+            set {lxp3.%player%.} to 0
+        else if arg-1 is "ctr1":
+            give soul torch named "contrat de l'idiot du village" with custom model data 3000 to player
+
+on right click:
+    if player's held item is soul torch named "contrat de l'idiot du village":
+        add 0 to {lxp0.%player%.}
+        add {totsell.%player%.} to {lxp0.%player%.}
+        set {lxp0r.%player%.} to 1000 - {lxp0.%player%.}
+        if {lxp0.%player%.} >= 1000:
+            set {lxp0.%player%.} to 0
+            set {totsell.%player%.} to 0
+            remove soul torch named "contrat de l'idiot du village" from player's inventory
+            give chain named "contrat du marchand embulant" with custom model data 3001 to player
+            send "Bravo vous avez progréssé d'un rang!" to player
+    else if player's held item is chain named "contrat du marchand embulant":
+        add 0 to {lxp1.%player%.}
+        add {totsell.%player%.} to {lxp1.%player%.}
+        set {lxp1r.%player%.} to 3000 - {lxp1.%player%.}
+        if {lxp1.%player%.} >= 3000:
+            remove chain named "contrat du marchand embulant" with custom model data 3001 from player's inventory
+            give flower pot named "contrat du marchand diplomé" with custom model data 3002 to player
+            send "Bravo vous avez progréssé d'un rang!" to player
+            set {lxp1.%player%.} to 0
+    else if player's held item is flower pot named "contrat du marchand diplomé":
+        add 0 to {lxp2.%player%.}
+        add {totsell.%player%.} to {lxp2.%player%.}
+        set {lxp2r.%player%.} to 6000 - {lxp2.%player%.}
+        if {lxp2.%player%.} >= 6000:
+            remove flower pot named "contrat du marchand diplomé" with custom model data 3002 from player's inventory
+            give crying obsidian named "contrat du marchand expert" with custom model data 3003 to player
+            send "Bravo vous avez progréssé d'un rang!" to player
+            set {lxp2.%player%.} to 0
+    else if player's held item is crying obsidian named "contrat du marchand expert":
+        add 0 to {lxp3.%player%.}
+        add {totsell.%player%.} to {lxp3.%player%.}
+        set {lxp3r.%player%.} to 12000 - {lxp3.%player%.}
+        if {lxp3.%player%.} >= 12000:
+            remove crying obsidian named "contrat du marchand expert" from player's inventory
+            give warped trapdoor named "contrat du marchand malhonnête" with custom model data 3004 to player
+            send "Bravo vous avez progréssé d'un rang!" to player
+            set {lxp3.%player%.} to 0
+
+
+on right click:
+    if player's held item is soul torch named "contrat de l'idiot du village":
+        cancel event
+        if slot 0 of player's inventory is soul torch:
+            send "Attention à se que tu essai de vendre."
+        else if slot 0 of player's inventory isn't soul torch:
+            if {contrat.%player%.} is "true":
+                set {contrat.%player%.} to "false"
+                send "Vous avez vendu un total de &3%{totsell.%player%.}% pour %{moneyearn.%player%.}%$" to player
+                send "Il vous reste %{lxp0r.%player%.}% exp à obtenir pour devenir un meilleur vendeur!"
+                set {balance.%player%.totvend}  to (player's balance)+{moneyearn.%player%.}
+                execute console command "eco set %player% %{balance.%player%.totvend}%"  
+                set {moneyearn.%player%.} to 0
+                set {qttsell.%player%.} to 0
+                set {totsell.%player%.} to 0
+            else if {contrat.%player%.} is "false":
+                set {contrat.%player%.} to "true"
+                set {avendre.%player%.} to slot 0 of player's inventory
+                set {spénum.%player%.} to 10
+                send "L'item à vendre séléctionné est: %{avendre.%player%.}%" to player
+                send "Essayer d'acquérir %{lxp0r.%player%.}% exp pour devenir un meilleur vendeur!"
+            loop all items in player's inventory:
+                if loop-item is {avendre.%player%.}:
+                    add amount of {avendre.%player%.} in player's inventory to {qttsell.%player%.}
+                    remove all {avendre.%player%.} from player's inventory
+                    add {qttsell.%player%.} to {totsell.%player%.}
+                    set {moneyearn.%player%.} to {qttsell.%player%.} * 0.5
+                    set {qttsell.%player%.} to 0
+                    wait 30 second
+    else if player's held item is chain named "contrat du marchand embulant":
+        cancel event
+        if slot 0 of player's inventory is chain:
+            send "Attention à se que tu essai de vendre."
+        else if slot 0 of player's inventory isn't chain:
+            if {contrat.%player%.} is "true":
+                set {contrat.%player%.} to "false"
+                send "Vous avez vendu un total de %{totsell.%player%.}% pour %{moneyearn.%player%.}%$" to player
+                send "Il vous reste %{lxp1r.%player%.}% exp à obtenir pour devenir un meilleur vendeur!"
+                set {balance.%player%.totvend}  to (player's balance)+{moneyearn.%player%.}
+                execute console command "eco set %player% %{balance.%player%.totvend}%"  
+                set {moneyearn.%player%.} to 0
+                set {qttsell.%player%.} to 0
+                set {totsell.%player%.} to 0
+        else if {contrat.%player%.} is "false":
+            set {contrat.%player%.} to "true"
+            set {avendre.%player%.} to slot 0 of player's inventory
+            set {spénum.%player%.} to 10
+            send "L'item à vendre séléctionné est: %{avendre.%player%.}%" to player
+            send "Essayer d'acquérir %{lxp1r.%player%.}% exp pour devenir un meilleur vendeur!" to player
+        loop all items in player's inventory:
+            if loop-item is {avendre.%player%.}:
+                add amount of {avendre.%player%.} in player's inventory to {qttsell.%player%.}
+                remove all {avendre.%player%.} from player's inventory
+                add {qttsell.%player%.} to {totsell.%player%.}
+                set {moneyearn.%player%.} to {qttsell.%player%.} * 0.75
+                set {qttsell.%player%.} to 0
+                wait 25 second
+    else if player's held item is flower pot named "contrat du marchand diplomé":
+        cancel event
+        if slot 0 of player's inventory is flower pot:
+            send "Attention à se que tu essai de vendre."
+        else if slot 0 of player's inventory isn't flower pot:
+            if {contrat.%player%.} is "true":
+                set {contrat.%player%.} to "false"
+                send "Vous avez vendu un total de %{totsell.%player%.}% pour %{moneyearn.%player%.}%$" to player
+                send "Il vous reste %{lxp2r.%player%.}% exp à obtenir pour devenir un meilleur vendeur!"
+                set {balance.%player%.totvend}  to (player's balance)+{moneyearn.%player%.}
+                execute console command "eco set %player% %{balance.%player%.totvend}%"  
+                set {moneyearn.%player%.} to 0
+                set {qttsell.%player%.} to 0
+                set {totsell.%player%.} to 0
+            else if {contrat.%player%.} is "false":
+                set {contrat.%player%.} to "true"
+                set {avendre.%player%.} to slot 0 of player's inventory
+                set {spénum.%player%.} to 10
+                send "L'item à vendre séléctionné est: %{avendre.%player%.}%" to player
+                send "Essayer d'acquérir %{lxp2r.%player%.}% exp pour devenir un meilleur vendeur!" to player
+                loop all items in player's inventory:
+                    if loop-item is {avendre.%player%.}:
+                        add amount of {avendre.%player%.} in player's inventory to {qttsell.%player%.}
+                        remove all {avendre.%player%.} from player's inventory
+                        add {qttsell.%player%.} to {totsell.%player%.}
+                        set {moneyearn.%player%.} to {qttsell.%player%.} * 0.90
+                        set {qttsell.%player%.} to 0
+                        wait 20 second
+    else if player's held item is crying obsidian named "contrat du marchand expert":
+        cancel event
+        if slot 0 of player's inventory is crying obsidian:
+            send "Attention à se que tu essai de vendre."
+        else if slot 0 of player's inventory isn't crying obsidian:
+            if {contrat.%player%.} is "true":
+                set {contrat.%player%.} to "false"
+                send "Vous avez vendu un total de %{totsell.%player%.}% pour %{moneyearn.%player%.}%$" to player
+                send "Il vous reste %{lxp3r.%player%.}% exp à obtenir pour devenir un meilleur vendeur!"
+                set {balance.%player%.totvend}  to (player's balance)+{moneyearn.%player%.}
+                execute console command "eco set %player% %{balance.%player%.totvend}%"  
+                set {moneyearn.%player%.} to 0
+                set {qttsell.%player%.} to 0
+                set {totsell.%player%.} to 0
+            else if {contrat.%player%.} is "false":
+                set {contrat.%player%.} to "true"
+                set {avendre.%player%.} to slot 0 of player's inventory
+                set {spénum.%player%.} to 10
+                send "L'item à vendre séléctionné est: %{avendre.%player%.}%" to player
+                send "Essayer d'acquérir %{lxp3r.%player%.}% exp pour devenir un meilleur vendeur!" to player
+                loop all items in player's inventory:
+                    if loop-item is {avendre.%player%.}:
+                        add amount of {avendre.%player%.} in player's inventory to {qttsell.%player%.}
+                        remove all {avendre.%player%.} from player's inventory
+                        add {qttsell.%player%.} to {totsell.%player%.}
+                        set {moneyearn.%player%.} to {qttsell.%player%.} * 1
+                        set {qttsell.%player%.} to 0
+                        wait 20 second
+    else if player's held item is warped trapdoor named "contrat du marchand malhonnête":
+        cancel event
+        if slot 0 of player's inventory is warped trapdoor:
+            send "Attention à se que tu essai de vendre."
+        else if slot 0 of player's inventory isn't warped trapdoor:
+            if {contrat.%player%.} is "true":
+                set {contrat.%player%.} to "false"
+                send "Vous avez vendu un total de %{totsell.%player%.}% pour %{moneyearn.%player%.}%$" to player
+                set {balance.%player%.totvend}  to (player's balance)+{moneyearn.%player%.}
+                execute console command "eco set %player% %{balance.%player%.totvend}%"  
+                set {moneyearn.%player%.} to 0
+                set {qttsell.%player%.} to 0
+                set {totsell.%player%.} to 0
+            else if {contrat.%player%.} is "false":
+                set {contrat.%player%.} to "true"
+                set {avendre.%player%.} to slot 0 of player's inventory
+                set {spénum.%player%.} to 10
+                send "L'item à vendre séléctionné est: %{avendre.%player%.}%" to player
+                loop all items in player's inventory:
+                    if loop-item is {avendre.%player%.}:
+                        add amount of {avendre.%player%.} in player's inventory to {qttsell.%player%.}
+                        remove all {avendre.%player%.} from player's inventory
+                        add {qttsell.%player%.} to {totsell.%player%.}
+                        set {moneyearn.%player%.} to {qttsell.%player%.} * 1.25
+                        set {qttsell.%player%.} to 0
+                        wait 20 second
+
+
+
+
+
+
+
+
+
+
+on join:
+    set {contrat.%player%.} to "false"
+    add 0 to {lxp0.%player%.}
+    add 0 to {lxp1.%player%.}
+    add 0 to {lxp2.%player%.}
+    add 0 to {lxp3.%player%.}
+on leave:
+    set {contrat.%player%.} to "false"
+    set {balance.%player%.totvend} to (player's balance) + {moneyearn.%player%.}
+    execute console command "eco set %player% %{balance.%player%.totvend}%"
+    set {moneyearn.%player%.} to 0
+    set {qttsell.%player%.} to 0
+    set {totsell.%player%.} to 0
+
+

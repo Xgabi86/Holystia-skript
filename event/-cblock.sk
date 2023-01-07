@@ -1,0 +1,20 @@
+on place:
+    if player's name is "TNT_man268":
+        set lore of player's tool to "Bloc spécial (event)"
+        set custom model data of player's tool to 1297
+
+#every seconds:
+ #   if {deleventitem} is "true":
+ #      loop all players:
+ #          if custom model data of loop-player's tool is 1297:
+ #              clear loop-player's tool
+
+command rmeventitem <text>:
+    permission: event.rmitem
+    trigger:
+        if arg-1 is "true":
+            set {deleventitem} to "true"
+            send "&aLes items spéciaux seront supprimés."
+        if arg-1 is "false":
+            set {deleventitem} to "false"
+            send "&cLes items spéciaux ne seront plus supprimés."
