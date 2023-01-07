@@ -15,7 +15,7 @@ command /elecsecurity <text>:
 
 every ticks:
     loop all dropped items:
-        if "%loop-value%" is "orange stained glass pane named ":
+        if "%loop-value%" is "dropped orange stained glass pane named ":
             kill loop-value
             broadcast "c good"
         else:
