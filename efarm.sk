@@ -1,32 +1,30 @@
 on break of fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
     set {_loc} to location of event-block
-    set {_bblock} to block at event-block
-    if {_bblock} is ripe wheat plant:
-        set {_bblock} to wheat plant
-        set {_seeds} to wheat seeds
-    else if {_bblock} is ripe potato plant:
-        set {_bblock} to potato plant
-        set {_seeds} to potato
-    else if {_bblock} is ripe carrot plant:
-        set {_bblock} to carrot plant
-        set {_seeds} to carrot
-    else if {_bblock} is ripe beetroot plant:
-        set {_bblock} to beetroot plant
-        set {_seeds} to beetroot seeds
+    set {bblock} to block at event-block
+    if {bblock} is ripe wheat plant:
+        set {bblock} to wheat plant
+        set {seeds} to wheat seeds
+    else if {bblock} is ripe potato plant:
+        set {bblock} to potato plant
+        set {seeds} to potato
+    else if {bblock} is ripe carrot plant:
+        set {bblock} to carrot plant
+        set {seeds} to carrot
+    else if {bblock} is ripe beetroot plant:
+        set {bblock} to beetroot plant
+        set {seeds} to beetroot seeds
     wait 1 ticks
-    plantbreak(player,{_loc},{_bblock},{_seeds})
-    send "test" to player
+    plantbreak(player,{_loc},{bblock},{seeds})
 
 function plantbreak(p: player, loc: location, bblock: block, seeds: item):
     casinodrop({_p})
-    if {_p}'s inventory contains {_seeds}:
-        remove 1 of {_seeds} from {_p}'s inventory
-        set block at location at {_loc} to {_bblock}
-        broadcast "%{_bblock}%"
+    if {_p}'s inventory contains {seeds}:
+        remove 1 of {seeds} from {_p}'s inventory
+        set block at location at {_loc} to {bblock}
         delete {_loc}
-        delete {_seeds}
+        delete {seeds}
         delete {_p}
-        delete {_bblock}
+        delete {bblock}
 
 function casinodrop(p: player):
     chance of 0.08%:
