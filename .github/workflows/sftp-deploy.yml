@@ -5,13 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: discord message
     steps:
-      - uses: actions/checkout@v2
-      - name: Set modified files variable
+      - name: test
         run: |
-          echo "::set-output name=modified_files::$GITHUB_COMMIT_MODIFIED"
-      - name: Print modified files
-        run: |
-          echo "Modified files: ${{ steps.set_modified_files.outputs.modified_files }}"
+         MODIFICATIONS=$(jq -r '.head_commit.modified[]' "$GITHUB_EVENT_PATH")
+         echo "$MODIFICATION"
     
     
     
