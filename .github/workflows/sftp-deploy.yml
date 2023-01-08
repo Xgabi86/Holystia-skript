@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-lastest
     name: discord message
     steps:
+      - name: 🔍️ Checkout 📝
+        uses: actions/checkout@v2
+        
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
