@@ -5,13 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     name: discord message
     steps:
-      - name: Set variable to commit modifications
-        run: |
-          modifications=$(git diff --name-only $GITHUB_SHA)
-          echo "::set-output name=modifications::$modifications"
-
-    
-    
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
@@ -20,8 +13,8 @@ jobs:
           color: '#25A2FE'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}.
-          details: '${{ github.event.commit.modified }}'
-          footer: This is a footer.
+          details: ''
+          footer: ${{ github.sha }}
           text: New commit (${{ github.event.head_commit.message }})
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           
