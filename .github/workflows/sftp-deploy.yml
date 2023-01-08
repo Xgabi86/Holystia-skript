@@ -2,10 +2,8 @@ name: 🤖 SFTP Deploy 🚀
 on: [push]
 jobs:
     deploy_job:
-         env:
-            var: nothing
          runs-on: ubuntu-latest
-         name:  ${{ env.GITHUB_ACTOR }} deploy "${{ inputs.filePath }}"
+         name:  ${{ github.actor }} deploy "${{ inputs.filePath }}"
          steps:
              - name: 🔍️ Checkout 📝
                uses: actions/checkout@v2
