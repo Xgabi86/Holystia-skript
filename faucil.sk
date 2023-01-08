@@ -175,13 +175,13 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {_seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{_loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{_seeds})
                 wait 1 tick
 
 function plantbreak2(p: player, loc: location, bblock: block, seeds: item):
     broadcast "|%{_seeds}%|"
     casinodrop2({_p})
-    if {_p}'s inventory contains {seeds}:
+    if {_p}'s inventory contains {_seeds}:
         broadcast "|%{bblock}%|"
         remove 1 of {_seeds} from {_p}'s inventory
         set block at location at {_loc} to {bblock}
