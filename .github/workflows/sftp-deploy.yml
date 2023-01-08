@@ -5,7 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     name: discord message
     steps:
-      - name: Set variable to commit modifications
       - uses: actions/checkout@v2
       - run: |
           MODIFICATIONS=$(git diff --name-only ${GITHUB_SHA})
