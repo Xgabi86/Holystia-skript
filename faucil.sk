@@ -164,29 +164,29 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
-                    set {seeds} to wheat seeds
+                    set {_seeds} to wheat seeds
                 else if {bblock} is ripe potato plant:
                     set {bblock} to potato plant
-                    set {seeds} to potato
+                    set {_seeds} to potato
                 else if {bblock} is ripe carrot plant:
                     set {bblock} to carrot plant
-                    set {seeds} to carrot
+                    set {_seeds} to carrot
                 else if {bblock} is ripe beetroot plant:
                     set {bblock} to beetroot plant
-                    set {seeds} to beetroot seeds
+                    set {_seeds} to beetroot seeds
                 wait 1 ticks
                 plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
 
 function plantbreak2(p: player, loc: location, bblock: block, seeds: item):
-    broadcast "|%{seeds}%|"
+    broadcast "|%{_seeds}%|"
     casinodrop2({_p})
     if {_p}'s inventory contains {seeds}:
         broadcast "|%{bblock}%|"
-        remove 1 of {seeds} from {_p}'s inventory
+        remove 1 of {_seeds} from {_p}'s inventory
         set block at location at {_loc} to {bblock}
         delete {_loc}
-        delete {seeds}
+        delete {_seeds}
         delete {_p}
         delete {bblock}
 
