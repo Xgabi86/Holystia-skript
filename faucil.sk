@@ -6,9 +6,9 @@ command faucil:
 on right click on wheat, carrot plant, potato plant or beetroot plant:
     if player's held item is a netherite hoe named "&6faucil" with custom model data 4000:
         loop 10 times:
-            if block at event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            if block at event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -23,11 +23,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 north event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 north event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 north event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -42,11 +42,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 south event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 south event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 south event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -61,11 +61,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 east event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 east event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 east event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -80,11 +80,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 west event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 west event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -99,11 +99,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 north 1 east event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 north 1 east event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 north 1 east event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -118,11 +118,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 north 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 north 1 west event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 north 1 west event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -137,11 +137,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 south 1 east event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 south 1 east event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 south 1 east event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -156,11 +156,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
-            else if block at block 1 south 1 west event-location is wheat, minecraft:carrots, minecraft:potatoes or minecraft:beetroots:
+            else if block at block 1 south 1 west event-location is fully grown wheat plant, fully grown potato plant, fully grown carrot plant or fully grown beetroot plant:
                 break block at block 1 south 1 west event-location naturally using player's tool
-                set {loc} to location of event-block
+                set {_loc} to location of event-block
                 set {bblock} to block at event-block
                 if {bblock} is ripe wheat plant:
                     set {bblock} to wheat plant
@@ -175,20 +175,20 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                     set {bblock} to beetroot plant
                     set {seeds} to beetroot seeds
                 wait 1 ticks
-                plantbreak2(player,{loc},{bblock},{seeds})
+                plantbreak2(player,{_loc},{bblock},{seeds})
                 wait 1 tick
 
 function plantbreak2(p: player, loc: location, bblock: block, seeds: item):
     casinodrop2({p})
-    if {p}'s inventory contains {seeds}:
-        remove 1 of {seeds} from {p}'s inventory
-        set block at location at {loc} to {bblock}
+    if {_p}'s inventory contains {seeds}:
+        remove 1 of {seeds} from {_p}'s inventory
+        set block at location at {_loc} to {bblock}
         broadcast "%{bblock}%"
-        delete {loc}
+        delete {_loc}
         delete {seeds}
-        delete {p}
+        delete {_p}
         delete {bblock}
 
 function casinodrop2(p: player):
     chance of 0.08%:
-        execute console command "crazycrate give p Casino 1 %{p}%"
+        execute console command "crazycrate give p Casino 1 %{_p}%"
