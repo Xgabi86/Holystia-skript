@@ -3,7 +3,7 @@ on: [push]
 jobs:
     deploy_job:
          runs-on: ubuntu-latest
-         name: ${{ Env:GITHUB_ACTOR }}" deploy "${{ github.event_name }}"
+         name:  ${{ env.GITHUB_ACTOR }} deploy "${{ inputs.filePath }}"
          steps:
              - name: 🔍️ Checkout 📝
                uses: actions/checkout@v2
