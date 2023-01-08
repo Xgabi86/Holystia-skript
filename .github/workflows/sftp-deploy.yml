@@ -37,20 +37,15 @@ jobs:
            remote_path: '/plugins/Skript/scripts/'
            sftp_only: true
            password: ${{ secrets.FTP_PASSWORD }}
-  
-  discord_message_job2:
-    runs-on: ubuntu-latest
-    name: discord message 2
-    steps:
-      - name: Discord message
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: info
-          username: ${{ github.actor }} 
-          color: '#2CFE25'
-          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}. ([`see changes`](https://github.com/Xgabi86/Holystia-skript/commit/${{ github.sha }}))
-          details: ''
-          footer: 'Holystia-skript'
-          text: ${{ github.event.head_commit.message }} send to server
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+       - name: Discord message
+         uses: rjstone/discord-webhook-notify@v1
+         with:
+           severity: info
+           username: ${{ github.actor }} 
+           color: '#2CFE25'
+           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+           description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}. ([`see changes`](https://github.com/Xgabi86/Holystia-skript/commit/${{ github.sha }}))
+           details: ''
+           footer: 'Holystia-skript'
+           text: ${{ github.event.head_commit.message }} send to server
+           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
