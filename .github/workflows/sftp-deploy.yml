@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Set variable to modified files
         run: |
-          modified_files=$(jq -r '.commits[].modified' ${GITHUB_EVENT_PATH})
+          modified_files=$(jq -r '.commits[].modified' ${{ GITHUB_EVENT_PATH }})
           echo "file: $modified_files"
           
       - name: Iterate over modified files
