@@ -7,8 +7,11 @@ jobs:
     steps:
       - name: Set variable to all modifications of commit
         run: |
-          MODIFICATIONS=$(git diff HEAD~1 HEAD)
-          echo "::set-output name=modifications::$MODIFICATIONS"
+          event_file = "$GITHUB_EVENT_PATH"
+          event_data = open(event_file, "r").read()
+          event_json = json.loads(event_data)
+          modified_files = event_json["commit"]["modified"]
+          echo "${{ modified_files }}"
 
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
