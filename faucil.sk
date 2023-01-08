@@ -179,11 +179,11 @@ on right click on wheat, carrot plant, potato plant or beetroot plant:
                 wait 1 tick
 
 function plantbreak2(p: player, loc: location, bblock: block, seeds: item):
-    casinodrop2({p})
+    broadcast "called"
+    casinodrop2({_p})
     if {_p}'s inventory contains {seeds}:
         remove 1 of {seeds} from {_p}'s inventory
         set block at location at {_loc} to {bblock}
-        broadcast "%{bblock}%"
         delete {_loc}
         delete {seeds}
         delete {_p}
