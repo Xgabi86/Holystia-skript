@@ -6,9 +6,10 @@ jobs:
     name: discord message
     steps:
       - name: Set variable to all modifications of commit
-        env:
-          MODIFICATIONS: "$(jq '.commits[0].modified' $GITHUB_EVENT_PATH)"
-        run: echo "$MODIFICATIONS"
+        run: |
+          MODIFICATIONS=$(git diff HEAD~1 HEAD)
+          echo "::set-output name=modifications::$MODIFICATIONS"
+
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
