@@ -3,7 +3,7 @@ on: [push]
 jobs:
     deploy_job:
          runs-on: ubuntu-latest
-         name:  ${{ github.actor }} deploy "${{ github.event_name }}" on ${{ github.event_path }}
+         name:  ${{ github.actor }} deploy "${{ github.event.head_commit.message }}"
          steps:
              - name: 🔍️ Checkout 📝
                uses: actions/checkout@v2
