@@ -5,10 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: discord message
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          MODIFICATIONS=$(git diff --name-only ${GITHUB_SHA})
-          echo "::set-env name=MODIFICATIONS::${MODIFICATIONS}"
+      - name: Set modified files variable
+        run: |
+          modified_files=${{ github.event.commit.modified }}
+          echo "Modified files: $modified_files"
+
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
