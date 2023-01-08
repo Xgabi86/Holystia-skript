@@ -9,4 +9,4 @@ jobs:
     - uses: nanasess/setup-php@v3
       with:
         php-version: '7.4'
-    - run: php my_script.php
+    - run: php test.php
