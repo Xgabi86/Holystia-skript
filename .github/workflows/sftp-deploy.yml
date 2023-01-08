@@ -3,10 +3,28 @@ on: [push]
 jobs:
     deploy_job:
          runs-on: ubuntu-latest
-         name:  ${{ github.actor }} deploy "${{ github.event.head_commit.message }}"
+         name:  deploy "${{ github.event.head_commit.message }}"
          steps:
              - name: 🔍️ Checkout 📝
                uses: actions/checkout@v2
+               
+               
+               
+             - name: Discord message
+               uses: rjstone/discord-webhook-notify@v1
+               with:
+                    severity: info
+                    username: ${{ github.actor }}
+                    color: '#25A2FE'
+                    avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+                    description: This is a custom description.
+                    details: 'Custom details: Somebody set up us the bomb.'
+                    footer: This is a footer.
+                    text: This is where text goes.
+                    webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+                    
+                    
+                    
              - name: 🌐 Deploy file 📦️
                uses: wlixcc/SFTP-Deploy-Action@v1.2.4
                with: 
