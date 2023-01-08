@@ -1,0 +1,20 @@
+name: RCON Test
+
+on: 
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  rcon_test:
+    runs-on: ubuntu-latest
+    name: RCON Test
+    steps:
+      - name: RCON Connection
+        uses: Plagiatus/RCON-Action@v0.2
+        with:
+          server: ${{ secrets.rcon_server }}
+          port: ${{ secrets.rcon_port }}
+          password: ${{ secrets.rcon_password }}
+          commands: '["say hi", "tps"]'
