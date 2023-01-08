@@ -15,7 +15,7 @@ jobs:
           description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}. ([`see changes`](https://github.com/Xgabi86/Holystia-skript/commit/${{ github.sha }}))
           details: ''
           footer: 'Holystia-skript'
-          text: New commit (${{ github.event.head_commit.message }})
+          text:  🚀 New commit (${{ github.event.head_commit.message }}) 🚀
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           
           
@@ -47,5 +47,5 @@ jobs:
            description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}. ([`see changes`](https://github.com/Xgabi86/Holystia-skript/commit/${{ github.sha }}))
            details: ''
            footer: 'Holystia-skript'
-           text: '"${{ github.event.head_commit.message }}" send to server.'
+           text: '✅ "${{ github.event.head_commit.message }}" send to server. ✅'
            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
