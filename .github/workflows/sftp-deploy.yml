@@ -4,17 +4,12 @@ jobs:
   discord_message_job:
     runs-on: ubuntu-latest
     name: discord message
-    env:
-      event_file: "$GITHUB_EVENT_PATH"
-      event_data: open(event_file, "r").read()
-      event_json: json.loads(event_data)
-      modified_files: event_json["commit"]["modified"]
     steps:
       - name: Set variable to commit modifications
-        env:
-            COMMIT_MODIFICATIONS: ${{ toJson(github.event.commits) }}
-        run: |
-            echo "Commit modifications: ${COMMIT_MODIFICATIONS}"
+      - uses: actions/checkout@v2
+      - run: |
+          MODIFICATIONS=$(git diff --name-only ${GITHUB_SHA})
+          echo "::set-env name=MODIFICATIONS::${MODIFICATIONS}"
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
@@ -23,7 +18,7 @@ jobs:
           color: '#25A2FE'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}.
-          details: '${COMMIT_MODIFICATIONS}'
+          details: '${MODIFICATIONS}'
           footer: This is a footer.
           text: New commit (${{ github.event.head_commit.message }})
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
