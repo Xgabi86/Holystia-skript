@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: discord message
     steps:
-      - name: test
+      - name: Set variable to commit modifications
         run: |
-         MODIFICATIONS=$(jq -r '.head_commit.modified[]' "$GITHUB_EVENT_PATH")
-         echo "$MODIFICATION"
-    
+          modifications=$(git diff --name-only $GITHUB_SHA)
+          echo "::set-output name=modifications::$modifications"
+
     
     
       - name: Discord message
