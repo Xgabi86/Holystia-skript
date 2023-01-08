@@ -4,15 +4,17 @@ jobs:
   discord_message_job:
     runs-on: ubuntu-latest
     name: discord message
+    env:
+      event_file: "$GITHUB_EVENT_PATH"
+      event_data: open(event_file, "r").read()
+      event_json: json.loads(event_data)
+      modified_files: event_json["commit"]["modified"]
     steps:
-      - name: Set variable to all modifications of commit
+      - name: Set variable to commit modifications
+        env:
+            COMMIT_MODIFICATIONS: ${{ toJson(github.event.commits) }}
         run: |
-          event_file = "$GITHUB_EVENT_PATH"
-          event_data = open(event_file, "r").read()
-          event_json = json.loads(event_data)
-          modified_files = event_json["commit"]["modified"]
-          echo "${{ modified_files }}"
-
+            echo "Commit modifications: ${COMMIT_MODIFICATIONS}"
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
