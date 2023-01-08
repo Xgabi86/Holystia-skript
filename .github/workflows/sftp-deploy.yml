@@ -7,8 +7,7 @@ jobs:
     steps:
       - name: Set modified files variable
         run: |
-          modified_files=${{ github.event.commit.modified }}
-          echo "Modified files: $modified_files"
+          echo "Modified files: ${{ github.event.commit.modified }}"
 
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
@@ -18,7 +17,7 @@ jobs:
           color: '#25A2FE'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}.
-          details: '$modified_files'
+          details: '${{ github.event.commit.modified }}'
           footer: This is a footer.
           text: New commit (${{ github.event.head_commit.message }})
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
