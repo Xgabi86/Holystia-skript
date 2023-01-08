@@ -37,6 +37,14 @@ jobs:
            remote_path: '/plugins/Skript/scripts/'
            sftp_only: true
            password: ${{ secrets.FTP_PASSWORD }}
+       - name: checkout php
+         uses: actions/checkout@v3
+         
+       - name: run php
+       - uses: nanasess/setup-php@v3
+       - with:
+            php-version: '7.4'
+       - run: php test.php
        - name: Discord message
          uses: rjstone/discord-webhook-notify@v1
          with:
