@@ -5,19 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     name: discord message
     steps:
-      - name: Set variable to modified files
+      - uses: actions/checkout@v2
+      - name: Set modified files variable
         run: |
-          modified_files=$(jq -r '.commits[].modified' ${{ GITHUB_EVENT_PATH }})
-          echo "file: $modified_files"
-          
-      - name: Iterate over modified files
+          echo "::set-output name=modified_files::$GITHUB_COMMIT_MODIFIED"
+      - name: Print modified files
         run: |
-          for file in $modified_files; do
-            echo "Processing file: $file"
-          done
-
-
-
+          echo "Modified files: ${{ steps.set_modified_files.outputs.modified_files }}"
+    
+    
+    
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
