@@ -12,17 +12,14 @@ jobs:
           username: ${{ github.actor }}
           color: '#25A2FE'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: This is a custom description.
-          details: 'Custom details: Somebody set up us the bomb.'
-          footer: This is a footer.
-          text: This is where text goes.
+          text: "New commit: ${{ github.event.head_commit.message }}"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           
           
           
   deploy_job:
      runs-on: ubuntu-latest
-     name:  deploy "${{ github.event.head_commit.message }}"
+     name:  deploy
      steps:
        - name: 🔍️ Checkout 📝
          uses: actions/checkout@v2
