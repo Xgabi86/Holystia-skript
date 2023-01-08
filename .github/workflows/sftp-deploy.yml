@@ -8,7 +8,7 @@ jobs:
       - name: Set modified files variable
         run: |
           modified_files=${{ github.event.commit.modified }}
-          echo "Modified files: ${{ modified_files }}"
+          echo "Modified files: $modified_files"
 
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
