@@ -12,8 +12,7 @@ jobs:
           username: ${{ github.actor }} 
           color: '#25A2FE'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}. test).
-          url: https://github.com/Xgabi86/Holystia-skript/commit/${{ github.sha }}
+          description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}. [test](https://github.com/Xgabi86/Holystia-skript/commit/${{ github.sha }}).
           details: ''
           footer: Holystia-skript
           text: New commit (${{ github.event.head_commit.message }})
