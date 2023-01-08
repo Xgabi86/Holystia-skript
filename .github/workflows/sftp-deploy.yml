@@ -4,9 +4,10 @@ jobs:
   discord_message_job:
     runs-on: ubuntu-latest
     name: discord message
-    env:
-      MY_VAR: my_value
     steps:
+      - name: Set variable to modified files
+        run: |
+          MODIFIED_FILES=$(git diff --name-only HEAD HEAD^)
       - name: Discord message
         uses: rjstone/discord-webhook-notify@v1
         with:
@@ -15,7 +16,7 @@ jobs:
           color: '#25A2FE'
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: ${{ github.actor }} has commited ${{ github.event.head_commit.message }}.
-          details: 'File: ${{ git diff --name-only HEAD~1 HEAD}}'
+          details: 'File: $MODIFIED_FILES'
           footer: This is a footer.
           text: New commit (${{ github.event.head_commit.message }})
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
