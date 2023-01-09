@@ -37,6 +37,16 @@ jobs:
            remote_path: '/plugins/Skript/scripts/'
            sftp_only: true
            password: ${{ secrets.FTP_PASSWORD }}
+           
+
+       - name: RCON Connection
+         uses: Plagiatus/RCON-Action@v0.2
+         with:
+            server: ${{ secrets.IP_SERVER }}
+            port: '30569'
+            password: ${{ secrets.PASSWORD_SERVER }}
+            commands:  '["say hi"]'
+           
        - name: Discord message
          uses: rjstone/discord-webhook-notify@v1
          with:
