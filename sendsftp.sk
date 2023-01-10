@@ -1,6 +1,6 @@
 command /sftpsend:
     trigger:
         loop all players:
-            if "%loop-value%" is "gabi_86" or "mixigames":
+            if loop-value in "gabi_86", "mixigames":
                 send "new commit recivered !" to loop-value
         send "new commit recivered !" to console
