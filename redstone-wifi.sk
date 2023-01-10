@@ -35,3 +35,10 @@ on break of crimson sign:
         remove event-block from {recepteur::*}
         cancel drops
         drop 1 crimson sign named "&4Récépteur" with custom model data 3287 at event-location
+
+
+every seconds:
+    loop {emeteur::*}:
+        loop {recepteur::*}:
+            if line 3 of loop-value-2 is line 3 of loop-value-1:
+                set block at block 1 north loop-value-1 to redstone block
