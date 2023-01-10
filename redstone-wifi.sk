@@ -42,3 +42,6 @@ every seconds:
         loop {recepteur::*}:
             if line 3 of loop-value-2 is line 3 of loop-value-1:
                 set block at block 1 north loop-value-1 to redstone block
+            else:
+                set block at block 1 north loop-value-1 to air
+                broadcast "test"
