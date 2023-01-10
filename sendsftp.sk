@@ -2,5 +2,6 @@ command /sftpsend:
     trigger:
         set {commitplayer::*} to "console", "gabi_86", "tnt_man268" and "mixygames"
         send "New commit recivered !" to {commitplayer::*}
+        broadcast "test"
         wait 1 tick
         delete {commitplayer::*}
