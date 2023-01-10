@@ -2,5 +2,5 @@ command /sftpsend <text> <text>:
     trigger:
         loop all players:
             if loop-player has permission "server.ops":
-                send "&6New commit recivered from Github !&r( &2%arg-2% &6by &3%arg-1% &r)" to loop-player
+                send "&6New commit recivered from Github ! &r(&2%arg-2% &6by &3%arg-1%&r)" to loop-player
                 wait 1 tick
