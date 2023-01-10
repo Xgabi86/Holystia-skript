@@ -3,34 +3,24 @@ command /redstone <text> [<text>]:
         if arg-1 is "give":
             if player has permission "server.ops":
                 if arg-2 is "recepteur":
-                    set {randomnumber} to a random number between 1000 and 9999
-                    set {item1} to crimson sign named "&4Récépteur" with custom model data {randomnumber}
-                    set lore of {item1} to "&0verif"
-                    give {item1} to player
-                    delete {item1}
-                    delete {randomnumber}
+                    give 1 crimson sign named "&4Récépteur" with custom model data 3287 to player
                 else if arg-2 is "emeteur":
-                    set {randomnumber} to a random number between 1000 and 9999
-                    set {item2} to crimson sign named "&4Eméteur" with custom model data {randomnumber}
-                    set lore of {item2} to "&0verif"
-                    give {item2} to player
-                    delete {item2}
-                    delete {randomnumber}
+                    give 1 crimson sign named "&4Eméteur" with custom model data 8789 to player
     
 command /redstonelink <text>:
     trigger:
-        if player's tool is crimson sign named "&4Récépteur" with lore "&0verif":
+        if custom model data of player's tool is 3287:
             set {line3recepteur-%player%} to arg-1
-        else if player's tool is crimson sign named "&4Eméteur" with lore "&0verif":
+        else if custom model data of player's tool is 8789:
             set {line3emeteur-%player%} to arg-1
 
 on place of crimson sign:
-    if player's held item is crimson sign named "&4Récépteur" with lore "&0verif":
+    if custom model data of player's tool is 3287:
         add event-block to {recepteur::*}
         set line 1 of event-block to "[Redstone]"
         set line 2 of event-block to "Récépteur"
         set line 3 of event-block to {line3recepteur-%player%}
-    else if player's tool is crimson sign named "&4Eméteur" with lore "&0verif":
+    else if custom model data of player's tool is 8789:
         add event-block to {emeteur::*}
         set line 1 of event-block to "[Redstone]"
         set line 2 of event-block to "Eméteur"
@@ -40,18 +30,8 @@ on break of crimson sign:
     if {emeteur::*} contains event-block:
         remove event-block from {emeteur::*}
         cancel drops
-        set {randomnumber} to a random number between 1000 and 9999
-        set {item1} to crimson sign named "&4Récépteur" with custom model data {randomnumber}
-        set lore of {item1} to "&0verif"
-        drop 1 {item1} at event-location
-        delete {item1}
-        delete {randomnumber}
+        drop 1 crimson sign named "&4Eméteur" with custom model data 8789 at event-location
     else if {recepteur::*} contains event-block:
         remove event-block from {recepteur::*}
         cancel drops
-        set {randomnumber} to a random number between 1000 and 9999
-        set {item2} to crimson sign named "&4Récépteur" with custom model data {randomnumber}
-        set lore of {item2} to "&0verif"
-        drop 1 {item2} at event-location
-        delete {item2}
-        delete {randomnumber}
+        drop 1 crimson sign named "&4Récépteur" with custom model data 3287 at event-location
