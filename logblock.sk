@@ -1,7 +1,7 @@
 on place:
     if {linenumberlog} is not set:
         set {filelinenumber} to "2" parsed as integer
-    set line {linenumberlog} of "plugins/logger/block.txt" to "[%now%]: %player% has placed %event-block%."
+    set line {linenumberlog} in file "plugins/logger/block.txt" to "[%now%]: %player% has placed %event-block%."
     
 command /resetlogline:
     trigger:
