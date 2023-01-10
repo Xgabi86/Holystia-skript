@@ -45,7 +45,7 @@ jobs:
             server: ${{ secrets.IP_SERVER }}
             port: '30569'
             password: ${{ secrets.PASSWORD_SERVER }}
-            commands:  '["say hi"]'
+            commands:  '["sftpsend"]'
            
        - name: Discord message
          uses: rjstone/discord-webhook-notify@v1
