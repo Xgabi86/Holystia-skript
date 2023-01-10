@@ -1,9 +1,8 @@
 on place:
     if {linenumberlog} is not set:
-        set {filelinenumber} to "1" parsed as integer
+        set {filelinenumber} to "2" parsed as integer
     insert "[%now%]: %player% has placed %event-block%." at line {linenumberlog} of file path "plugins/logger/block.txt"
     
 command /resetlogline:
-    permission: server.ops
     trigger:
-        set {linenumberlog} to "1" parsed as integer
+        set {linenumberlog} to "2" parsed as integer
