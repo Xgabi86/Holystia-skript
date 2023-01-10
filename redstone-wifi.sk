@@ -6,6 +6,9 @@ command /redstone <text> [<text>]:
                     give 1 crimson sign named "&4Récépteur" with custom model data 3287 to player
                 else if arg-2 is "emeteur":
                     give 1 crimson sign named "&4Eméteur" with custom model data 8789 to player
+        else if arg-1 is "list":
+            send "recepteur: %{recepteur::*}%" to player
+            send "emeteur: %{emeteur::*}%" to player
     
 command /redstonelink <text>:
     trigger:
