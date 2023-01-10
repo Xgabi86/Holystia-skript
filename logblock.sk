@@ -1,7 +1,7 @@
 on place:
     if {linenumberlog} is not set:
         set {linenumberlog} to "2" parsed as integer
-    insert "[%{_now}%] Joueur : help" at line {linenumberlog} of file path "plugins/logger/block.sk"
+    insert "[now]: %player% placed block %event-block%" at line {linenumberlog} of file path "plugins/logger/block.sk"
     
     
 command /resetlogline:
