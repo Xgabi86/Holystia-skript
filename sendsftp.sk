@@ -1,6 +1,9 @@
 command /sftpsend <text> <text>:
     trigger:
-        send "New commit recivered (%arg-1%: %arg-2%)!" to console, gabi_86, tnt_man268 and mixygames
+        send "New commit recivered (%arg-1%: %arg-2%)!" to console
+        send "New commit recivered (%arg-1%: %arg-2%)!" to gabi_86
+        send "New commit recivered (%arg-1%: %arg-2%)!" to tnt_man268
+        send "New commit recivered (%arg-1%: %arg-2%)!" to mixygames
         broadcast "test"
         wait 1 tick
         delete {commitplayer::*}
