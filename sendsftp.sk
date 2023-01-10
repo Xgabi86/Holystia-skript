@@ -2,7 +2,7 @@ command /sftpsend <text> <text>:
     trigger:
         loop all players:
             if loop-player has permission "server.ops":
-                send "New commit recivered (%arg-1%: %arg-2%)!" to loop-player
+                send "&eNew commit recivered from Github !&r(&2%arg-2% by &3%arg-1%&r)" to loop-player
                 broadcast "test"
                 wait 1 tick
                 delete {commitplayer::*}
