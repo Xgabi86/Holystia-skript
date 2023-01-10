@@ -1,4 +1,4 @@
-command /sftpsend:
+command /sftpsend <text> <text>:
     trigger:
         set {_commitplayer::*} to "console", "gabi_86", "tnt_man268" and "mixygames"
-        send "new commit recivered !" to {_commitplayer::*}
+        send "New commit recivered ! (%arg-1%: %arg-2%)" to {_commitplayer::*}
