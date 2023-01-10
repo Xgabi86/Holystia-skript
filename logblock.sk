@@ -7,4 +7,4 @@ on place:
 command /resetlogline:
     trigger:
         set {linenumberlog} to "2" parsed as integer
-        send "{linenumberlog}" to player
+        send "%{linenumberlog}%" to player
